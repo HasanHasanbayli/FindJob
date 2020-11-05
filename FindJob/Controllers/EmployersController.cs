@@ -6,21 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FindJob.Controllers
 {
-    public class SeekersController : Controller
+    public class EmployersController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult JobList()
+        public IActionResult StaffList()
         {
             return View();
         }
-        public IActionResult JobDetail()
+        public IActionResult PostJob()
         {
             return View();
         }
-        public IActionResult StaredJobs()
+        public IActionResult MyJobList()
         {
             return View();
         }
@@ -28,15 +28,7 @@ namespace FindJob.Controllers
         {
             return View();
         }
-        public IActionResult ChangePassword()
-        {
-            return View();
-        }
-        public IActionResult AccountDetail()
-        {
-            return View();
-        }
-        public IActionResult Companies()
+        public IActionResult CompanyProfile()
         {
             return View();
         }

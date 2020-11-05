@@ -1,7 +1,6 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <main>
@@ -16,9 +15,10 @@
         <div class="container">
             <div class="row job_main">
                 <div class="sidebar">
+
                     <ul class="user_navigation">
                         <li>
-                            <a asp-controller="Seekers" asp-action="JobList"><i class="fas fa-search"></i> Browse Jobs </a>
+                            <a href="find-staff.html"><i class="fas fa-search"></i> Find Staff </a>
                             <a class="filter_btn" href="#sidebar_filter_option">
                                 <i class="fas fa-filter"></i>
                                 <i class="fas fa-times"></i>
@@ -106,7 +106,7 @@
                             </form>
                         </li>
                         <li class="is-active">
-                            <a asp-controller="Seekers" asp-action="Index">
+                            <a href="job-dashboard.html">
                                 <i class="fas fa-border-all"></i> Job Dashboard
                             </a>
                         </li>
@@ -114,19 +114,24 @@
                     <h5>Organize and Manage</h5>
                     <ul class="user_navigation">
                         <li>
-                            <a asp-controller="Seekers" asp-action="StaredJobs"><i class="fas fa-star"></i> View My Stared Jobs</a>
+                            <a href="post-a-job.html"><i class="fas fa-paper-plane"></i> Post Job</a>
                         </li>
+                        <li>
+                            <a href="my-job-listing.html"><i class="far fa-list-alt"></i> My job listings</a>
+                        </li>
+
+
                     </ul>
                     <h5>Account</h5>
                     <ul class="user_navigation">
                         <li>
-                            <a asp-controller="Seekers" asp-action="UpdateProfile"><i class="fas fa-user"></i> Update My Profile</a>
+                            <a href="emp-edit-profile.html"><i class="fas fa-user"></i> Update My Profile</a>
                         </li>
                         <li>
-                            <a asp-controller="Seekers" asp-action="ChangePassword"><i class="fas fa-key"></i>Change Password</a>
+                            <a href="emp-edit-password.html"><i class="fas fa-key"></i>Change Password</a>
                         </li>
                         <li>
-                            <a href="edit-password.html"><i class="fas fa-power-off"></i> Logout</a>
+                            <a href="#"><i class="fas fa-power-off"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -134,21 +139,19 @@
                     <div class="row job_section">
                         <div class="col-sm-12">
                             <div class="jm_headings">
-                                <h4>Hello, Salome Simoes   !</h4>
+                                <h4>Hello, Donec Software !</h4>
                             </div>
                             <div class="dashboard_boxes row">
                                 <div class="col-md-4">
                                     <div class="dashboard_box ">
                                         <i class="fas fa-paper-plane"></i>
-                                        <h2><span>61</span>Jobs match your skills</h2>
+                                        <h2><span>18</span>Jobs Posted</h2>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="dashboard_box ">
                                         <i class="fas fa-user-check"></i>
-                                        <h2><span>11</span>Companies view  </h2>
-                                        <span class="who"> <a href="plan-page.html"> Who viewed my profile? </a></span>
-                                        <span class="pro"><a href="plan-page.html">Pro</a></span>
+                                        <h2><span>68</span>job Seekers Applied </h2>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -175,11 +178,14 @@
                                     </ul>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
     </div>
 </main>
-

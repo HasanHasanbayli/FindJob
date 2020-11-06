@@ -1,4 +1,4 @@
-﻿
+﻿@model Bio
 @{
     ViewData["Title"] = "Index";
 }
@@ -26,12 +26,11 @@
                                         <ul>
                                             <li>
                                                 <i class="fas fa-map-marker-alt"></i>
-                                                Keas 69 Str. 15234, Chalandri <br>
-                                                Athens, <b>Greece</b>
+                                                @Model.Adress
                                             </li>
-                                            <li><a href="tel:#"><i class="fas fa-phone"></i> +30-2106019311 (landline)</a></li>
-                                            <li><a href="tel:#"><i class="fas fa-phone"></i> +30-6977664062 (mobile phone)</a></li>
-                                            <li><a href="tel:#"><i class="fas fa-fax"></i> +30-2106398905 (fax)</a></li>
+                                            <li><a href="tel:#"><i class="fas fa-phone"></i> @Model.Mobile2 (landline)</a></li>
+                                            <li><a href="tel:#"><i class="fas fa-phone"></i> @Model.Mobile (mobile phone)</a></li>
+                                            <li><a href="tel:#"><i class="fas fa-fax"></i> @Model.Fax (fax)</a></li>
                                         </ul>
 
                                     </div>

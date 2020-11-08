@@ -1,13 +1,13 @@
 ﻿
 @{
-    ViewData["Title"] = "PostJob";
+    ViewData["Title"] = "Index";
 }
 
 <main>
     <div class="header_01 header_inner">
         <div class="header_main">
             <div class="header_btm">
-                <h2>Post Job</h2>
+                <h2>Job Dashboard</h2>
             </div>
         </div>
     </div>
@@ -15,10 +15,9 @@
         <div class="container">
             <div class="row job_main">
                 <div class="sidebar">
-
                     <ul class="user_navigation">
                         <li>
-                            <a href="find-staff.html"><i class="fas fa-search"></i> Find Staff </a>
+                            <a asp-controller="Seekers" asp-action="JobList"><i class="fas fa-search"></i> Browse Jobs </a>
                             <a class="filter_btn" href="#sidebar_filter_option">
                                 <i class="fas fa-filter"></i>
                                 <i class="fas fa-times"></i>
@@ -105,33 +104,28 @@
 
                             </form>
                         </li>
-                        <li>
-                            <a href="job-dashboard.html">
+                        <li class="is-active">
+                            <a asp-controller="Users" asp-action="Index">
                                 <i class="fas fa-border-all"></i> Job Dashboard
                             </a>
                         </li>
                     </ul>
                     <h5>Organize and Manage</h5>
                     <ul class="user_navigation">
-                        <li class="is-active">
-                            <a href="post-a-job.html"><i class="fas fa-paper-plane"></i> Post Job</a>
-                        </li>
                         <li>
-                            <a href="my-job-listing.html"><i class="far fa-list-alt"></i> My job listings</a>
+                            <a asp-controller="Users" asp-action="StaredJobs"><i class="fas fa-star"></i> View My Stared Jobs</a>
                         </li>
-
-
                     </ul>
                     <h5>Account</h5>
                     <ul class="user_navigation">
                         <li>
-                            <a href="emp-edit-profile.html"><i class="fas fa-user"></i> Update My Profile</a>
+                            <a asp-controller="Users" asp-action="UpdateProfile"><i class="fas fa-user"></i> Update My Profile</a>
                         </li>
                         <li>
-                            <a href="emp-edit-password.html"><i class="fas fa-key"></i>Change Password</a>
+                            <a asp-controller="Users" asp-action="ChangePassword"><i class="fas fa-key"></i>Change Password</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-power-off"></i> Logout</a>
+                            <a href="edit-password.html"><i class="fas fa-power-off"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -139,102 +133,49 @@
                     <div class="row job_section">
                         <div class="col-sm-12">
                             <div class="jm_headings">
-                                <h5>Post a job</h5>
-                                <a class="btn btn-primary mypbtn" href="compnay-profile-single.html">Company profile</a>
+                                <h4>Hello, Salome Simoes   !</h4>
+                            </div>
+                            <div class="dashboard_boxes row">
+                                <div class="col-md-4">
+                                    <div class="dashboard_box ">
+                                        <i class="fas fa-paper-plane"></i>
+                                        <h2><span>61</span>Jobs match your skills</h2>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="dashboard_box ">
+                                        <i class="fas fa-user-check"></i>
+                                        <h2><span>11</span>Companies view  </h2>
+                                        <span class="who"> <a href="plan-page.html"> Who viewed my profile? </a></span>
+                                        <span class="pro"><a href="plan-page.html">Pro</a></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="dashboard_box ">
+                                        <i class="fas fa-comments"></i>
+                                        <h2><span>28</span>Reviews </h2>
+                                    </div>
+                                </div>
                             </div>
                             <div class="section-divider">
                             </div>
-                            <form>
-                                <div class="big_form_group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group ">
-                                                <label>Job title</label>
-                                                <input type="text" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
 
-
-                                        <div class="col-md-6">
-                                            <div class="form-group ">
-                                                <label>Company name</label>
-                                                <input type="text" class="form-control" placeholder="" value="Donec Software  ">
-                                            </div>
-                                        </div>
-                                    </div>
+                            <h4> Your Profile Views</h4>
+                            <div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;"></div>
+                            <div class="section-divider">
+                            </div>
+                            <div class="col-md-12">
+                                <div class=" job_seekernotifi ondahsboard">
+                                    <h4>Inbox</h4>
+                                    <ul>
+                                        <li><img alt="" src="~/assets/images/profile-1.png"><a href="#"> John Stone applying this job  contact  </a> </li>
+                                        <li><img alt="" src="~/assets/images/profile-2.png"><a href="#">Nguta Ithya  applying this job  contact  </a> </li>
+                                        <li><img alt="" src="~/assets/images/profile-4.png"><a href="#">Salome Simoes applying this job</a> </li>
+                                    </ul>
                                 </div>
-                                <div class="big_form_group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group ">
-                                                <label>Location</label>
-                                                <input type="text" class="form-control" placeholder="" value="London, United Kingdom ">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group ">
-                                                <label>Job Type</label>
-                                                <input type="text" class="form-control" placeholder="" value="Full time ">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group ">
-                                                <label>Salary</label>
-                                                <input type="text" class="form-control" placeholder="" value="$35k - $38k">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group ">
-                                                <label>Required experience</label>
-                                                <input type="text" class="form-control" placeholder="" value="5 Years ">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="big_form_group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group ">
-                                                <label>Skills</label>
-                                                <select class="form-control">
-                                                    <option>
-                                                        PHP
-                                                    </option>
-                                                    <option>
-                                                        MySQL
-                                                    </option>
-                                                    <option>
-                                                        API Development
-                                                    </option>
-
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <div class="form-group ">
-                                                <label>Job Description</label>
-                                                <textarea class="form-control">
-                        </textarea>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-md-9 ">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-
-                            </form>
+                            </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>

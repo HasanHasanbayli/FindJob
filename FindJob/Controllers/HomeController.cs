@@ -27,5 +27,6 @@ namespace FindJob.Controllers
             };
             return View(homeVM);
         }
+
     }
 }

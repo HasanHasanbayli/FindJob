@@ -141,30 +141,77 @@
                                     </li>
                                 </ul>
                             </nav>
-                            <div class="ac_nav">
-                                <!--Not logedin-->
-                                <div class="login_pop">
-                                    <button class="btn btn-primary">Login / Sign up <i class="fas fa-caret-down"></i></button>
-                                    <div class="login_pop_box">
-                                        <span class="twobtn_cont">
-                                            <a class=" signjs_btn" asp-controller="Account" asp-action="Register">
-                                                <span>Job seekers</span> Sign up
-                                                <i class="far fa-user"></i>
-                                            </a>
-                                            <a class=" signrs_btn" asp-controller="Account" asp-action="Register">
-                                                <span>EMPLOYERS</span> Sign up
-                                                <i class="fas fa-landmark"></i>
-                                            </a>
-                                        </span>
-                                        <div>
-                                            <span class="member_btn">Already a member?</span>
-                                            <a class="lgin_btn btn btn-primary" href="login.html">
-                                                Login
-                                            </a>
+                            <div class="ac_nav after_login_ac_nav">
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <!--Not logedin-->
+                                    <div class="login_pop">
+                                        <button class="btn btn-primary">Login / Sign up <i class="fas fa-caret-down"></i></button>
+                                        <div class="login_pop_box">
+                                            <span class="twobtn_cont">
+                                                <a class=" signjs_btn" asp-controller="Account" asp-action="Register">
+                                                    <span>Sign Up</span>
+                                                    <i class="far fa-user"></i>
+                                                </a>
+                                            </span>
+                                            <div>
+                                                <span class="member_btn">Already a member?</span>
+                                                <a class="lgin_btn btn btn-primary" asp-controller="Account" asp-action="Login">
+                                                    Login
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!--end logedin-->
+                                    <!--end logedin-->
+                                }
+                                else
+                                {
+                                    <!--logedin-->
+                                    <div class="login_pop after_login">
+                                        <button class="btn btn-primary withdp"><img alt="" src="assets/images/profile-5.png"> Hi Salome Simoes  <i class="fas fa-caret-down"></i></button>
+                                        <div class="login_pop_box login_pop_box_menu">
+                                            <div class="login_pop_box_head">
+                                                <div class=" ">
+                                                    <img alt="" src="assets/images/profile-5.png">
+                                                    <span>London, United Kingdom</span>
+                                                    <h5>Salome Simoes</h5>
+                                                    <h6>Magento Certified Developer</h6>
+                                                </div>
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <a href="browse-jobs.html"><i class="fas fa-search"></i> Browse Jobs </a>
+                                                </li>
+                                                <li>
+                                                    <a href="my-stared-jobs.html"><i class="fas fa-star"></i> View My Stared Jobs</a>
+                                                </li>
+                                                <li>
+                                                    <a href="edit-profile.html"><i class="fas fa-user"></i> Update My Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="edit-password.html"><i class="fas fa-key"></i>Change Password</a>
+                                                </li>
+                                                <li>
+                                                    <a asp-controller="Account" asp-action="Logout"><i class="fas fa-power-off"></i> Logout</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="login_pop after_login">
+                                        <button class="btn btn-msg">
+                                            <i class="fas fa-envelope"></i>
+                                            <span class="msg-count">2</span>
+                                        </button>
+                                        <div class="login_pop_box job_seekernotifi ">
+                                            <h6>Inbox</h6>
+                                            <ul>
+                                                <li><img alt="" src="assets/images/c-logo-02.webp"><a href="#"> Thanks for applying this job, our HR team will contact you soon</a> </li>
+                                                <li><img alt="" src="assets/images/profile-5.png"><a href="#">You updated your profile picture .</a> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--end logedin-->
+                                }
                             </div>
                         </div>
                     </div>

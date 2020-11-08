@@ -41,7 +41,15 @@ namespace FindJob.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     FullName = table.Column<string>(maxLength: 20, nullable: false),
-                    IsActivated = table.Column<bool>(nullable: false)
+                    CompanyName = table.Column<string>(nullable: true),
+                    IsActivated = table.Column<bool>(nullable: false),
+                    Location = table.Column<string>(nullable: true),
+                    JobType = table.Column<string>(nullable: true),
+                    ExpectedSalary = table.Column<string>(nullable: true),
+                    TotalExperience = table.Column<string>(nullable: true),
+                    Skills = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    AboutCompanyDescription = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

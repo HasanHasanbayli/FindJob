@@ -11,6 +11,14 @@ namespace FindJob.Models
     {
         [Required, MaxLength(20)]
         public string FullName { get; set; }
+        public string CompanyName { get; set; }
         public bool IsActivated { get; set; }
+        public string Location { get; set; }
+        public string JobType { get; set; }
+        public string ExpectedSalary { get; set; }
+        public string TotalExperience { get; set; }
+        public string Skills { get; set; }
+        public string Description { get; set; }
+        public string AboutCompanyDescription{ get; set; }
     }
 }

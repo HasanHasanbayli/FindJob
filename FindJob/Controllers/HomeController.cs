@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FindJob.DAL;
+using FindJob.Models;
 using FindJob.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FindJob.Controllers
@@ -11,11 +13,13 @@ namespace FindJob.Controllers
     public class HomeController : Controller
     {
         private readonly AppDbContext _db;
-        public HomeController(AppDbContext db)
+        private readonly UserManager<AppUser> _userManager;
+        public HomeController(AppDbContext db, UserManager<AppUser> userManager)
         {
             _db = db;
+            _userManager = userManager;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             HomeVM homeVM = new HomeVM
             {
@@ -25,6 +29,12 @@ namespace FindJob.Controllers
                 Partners=_db.Partners,
                 Blogs=_db.Blogs
             };
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                homeVM.AppUser = user;
+            }
+            
             return View(homeVM);
         }
 

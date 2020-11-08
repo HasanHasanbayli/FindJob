@@ -46,9 +46,14 @@ namespace FindJob.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateProfile(UpdateVM update)
         {
+            if (!ModelState.IsValid) return View();
             if (User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                if (true)
+                {
+
+                }
                 user.FullName = update.FullName;
                 user.UserName = update.UserName;
                 user.Email = update.Email;

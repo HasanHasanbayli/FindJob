@@ -1,5 +1,6 @@
 ﻿using FindJob.DAL;
 using FindJob.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,14 +12,24 @@ namespace FindJob.ViewComponents
     public class HeaderViewComponent:ViewComponent
     {
         private readonly AppDbContext _db;
-        public HeaderViewComponent(AppDbContext db)
+        private readonly UserManager<AppUser> _userManager;
+        public HeaderViewComponent(AppDbContext db, UserManager<AppUser> userManager)
         {
             _db = db;
+            _userManager = userManager;
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
             Bio model = _db.Bios.FirstOrDefault();
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                ViewBag.FullName = user.FullName;
+                ViewBag.Location = user.Location;
+                ViewBag.JobType = user.JobType;
+            }
             return View(await Task.FromResult(model));
         }
+
     }
 }

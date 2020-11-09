@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,9 +12,7 @@ namespace FindJob.ViewModels
     {
         [StringLength(50)]
         public string FullName { get; set; }
-        [StringLength(50)]
-        public string UserName { get; set; }
-        [EmailAddress, DataType(DataType.EmailAddress)]
+        [Required, EmailAddress, DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [StringLength(50)]
         public string Location { get; set; }
@@ -28,5 +28,8 @@ namespace FindJob.ViewModels
         public string Description { get; set; }
         [StringLength(200)]
         public string AboutCompanyDescription { get; set; }
+        public string Image { get; set; }
+        [NotMapped]
+        public IFormFile Photo { get; set; }
     }
 }

@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,5 +22,8 @@ namespace FindJob.Models
         public string Skills { get; set; }
         public string Description { get; set; }
         public string AboutCompanyDescription{ get; set; }
+        public string Image { get; set; }
+        [NotMapped]
+        public IFormFile Photo { get; set; }
     }
 }

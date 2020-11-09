@@ -135,7 +135,8 @@
                             </div>
                             <div class="section-divider">
                             </div>
-                            <form method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <form method="post" enctype="multipart/form-data">
                                 <div class="big_form_group">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -143,13 +144,6 @@
                                                 <label asp-for="FullName"></label>
                                                 <input asp-for="FullName" class="form-control" placeholder="Full Name">
                                                 <span asp-validation-for="FullName" class="text-danger"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label asp-for="UserName"></label>
-                                                <input asp-for="UserName" class="form-control" placeholder="User Name">
-                                                <span asp-validation-for="UserName" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -194,8 +188,9 @@
                                         <div class="col-md-6">
                                             <div class="col-md-6">
                                                 <div class="form-group ">
-                                                    <label>Attachments</label>
-                                                    <input type="file" class="form-control">
+                                                    <label asp-for="Photo">Photo</label>
+                                                    <input asp-for="Photo" class="form-control">
+                                                    <span asp-validation-for="Photo" class="text-danger"></span>
                                                 </div>
                                             </div>
                                         </div>

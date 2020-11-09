@@ -21,12 +21,14 @@ namespace FindJob.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             Bio model = _db.Bios.FirstOrDefault();
+            ViewBag.FullName = "";
             if (User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
                 ViewBag.FullName = user.FullName;
                 ViewBag.Location = user.Location;
                 ViewBag.JobType = user.JobType;
+                ViewBag.Image = user.Image;
             }
             return View(await Task.FromResult(model));
         }

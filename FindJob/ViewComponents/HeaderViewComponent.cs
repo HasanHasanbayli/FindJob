@@ -25,10 +25,7 @@ namespace FindJob.ViewComponents
             if (User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-                ViewBag.FullName = user.FullName;
-                ViewBag.Location = user.Location;
-                ViewBag.JobType = user.JobType;
-                ViewBag.Image = user.Image;
+                ViewBag.User = user;
             }
             return View(await Task.FromResult(model));
         }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace FindJob.Controllers
             _env = env;
             _db = db;
             _userManager = userManager;
-            _userManager = userManager;
+            _signInManager = signInManager;
         }
         public IActionResult Index()
         {
@@ -57,20 +57,14 @@ namespace FindJob.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-                #region Email USername
-                //AppUser exisEmail = await _userManager.FindByEmailAsync(update.Email);
-                //if (exisEmail != null)
-                //{
-                //    ModelState.AddModelError("", "Email or Username are Wrong!!");
-                //    return View(exisEmail);
-                //}
-                //AppUser exisUserName = await _userManager.FindByNameAsync(update.UserName);
-                //if (exisUserName != null)
-                //{
-                //    ModelState.AddModelError("", "Email or Username are Wrong!!");
-                //    return View(exisUserName);
-                //}
-                #endregion
+                AppUser existEmail = await _userManager.FindByEmailAsync(update.Email);
+                AppUser existUserName = await _userManager.FindByNameAsync(update.UserName);
+                if (existEmail != null || existUserName != null)
+                {
+                    ModelState.AddModelError("", "Email or UserName already taken!!");
+                    return View(existEmail);
+                }
+                #region Photo
                 if (update.Photo != null)
                 {
                     if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
@@ -95,21 +89,30 @@ namespace FindJob.Controllers
                     string fileName = await update.Photo.SaveImg(_env.WebRootPath, path);
                     user.Image = fileName;
                 }
+                #endregion
                 user.FullName = update.FullName;
+                user.NormalizedEmail = update.Email;
                 user.Email = update.Email;
-                user.JobType = update.JobType;
+                user.UserName = update.UserName;
+                user.NormalizedUserName = update.UserName; 
                 user.Location = update.Location;
                 user.ExpectedSalary = update.ExpectedSalary;
                 user.TotalExperience = update.TotalExperience;
                 user.Skills = update.Skills;
                 user.Description = update.Description;
                 user.AboutCompanyDescription = update.AboutCompanyDescription;
+                user.JobType = update.JobType;
             }
             await _db.SaveChangesAsync();
-            return RedirectToAction("Index", "Users");
+            //await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult ChangePassword()
+        {
+            return View();
+        }
+        public IActionResult PostJob()
         {
             return View();
         }

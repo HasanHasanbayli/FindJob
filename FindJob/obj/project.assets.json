@@ -8631,11 +8631,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hasan Hasanbayli\\Desktop\\Docs\\FindJob\\FindJob\\FindJob.csproj",
+      "projectUniqueName": "C:\\Users\\Hasan Hasanbayli\\Desktop\\FindJob\\FindJob\\FindJob.csproj",
       "projectName": "FindJob",
-      "projectPath": "C:\\Users\\Hasan Hasanbayli\\Desktop\\Docs\\FindJob\\FindJob\\FindJob.csproj",
+      "projectPath": "C:\\Users\\Hasan Hasanbayli\\Desktop\\FindJob\\FindJob\\FindJob.csproj",
       "packagesPath": "C:\\Users\\Hasan Hasanbayli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hasan Hasanbayli\\Desktop\\Docs\\FindJob\\FindJob\\obj\\",
+      "outputPath": "C:\\Users\\Hasan Hasanbayli\\Desktop\\FindJob\\FindJob\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hasan Hasanbayli\\AppData\\Roaming\\NuGet\\NuGet.Config",

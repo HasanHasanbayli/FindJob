@@ -330,3 +330,4 @@ C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\FindJo
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\FindJob.genruntimeconfig.cache
 C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\FindJob.csproj.CoreCompileInputs.cache
 C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\FindJob.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\PostJob.cshtml.g.cs

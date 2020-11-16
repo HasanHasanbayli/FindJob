@@ -1,13 +1,13 @@
-﻿
+﻿@model PostJob
 @{
-    ViewData["Title"] = "ChangePassword";
+    ViewData["Title"] = "EditJob";
 }
 
 <main>
     <div class="header_01 header_inner">
         <div class="header_main">
             <div class="header_btm">
-                <h2>Change Password</h2>
+                <h2>Edit a Job</h2>
             </div>
         </div>
     </div>
@@ -15,9 +15,10 @@
         <div class="container">
             <div class="row job_main">
                 <div class="sidebar">
+
                     <ul class="user_navigation">
                         <li>
-                            <a asp-controller="Seekers" asp-action="JobList"><i class="fas fa-search"></i> Browse Jobs </a>
+                            <a href="find-staff.html"><i class="fas fa-search"></i> Find Staff </a>
                             <a class="filter_btn" href="#sidebar_filter_option">
                                 <i class="fas fa-filter"></i>
                                 <i class="fas fa-times"></i>
@@ -101,10 +102,11 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </form>
                         </li>
                         <li>
-                            <a asp-controller="Seekers" asp-action="Index">
+                            <a href="job-dashboard.html">
                                 <i class="fas fa-border-all"></i> Job Dashboard
                             </a>
                         </li>
@@ -124,13 +126,13 @@
                     <h5>Account</h5>
                     <ul class="user_navigation">
                         <li>
-                            <a asp-controller="Seekers" asp-action="UpdateProfile"><i class="fas fa-user"></i> Update My Profile</a>
-                        </li>
-                        <li class="is-active">
-                            <a asp-controller="Seekers" asp-action="ChangePassword"><i class="fas fa-key"></i>Change Password</a>
+                            <a href="emp-edit-profile.html"><i class="fas fa-user"></i> Update My Profile</a>
                         </li>
                         <li>
-                            <a href="edit-password.html"><i class="fas fa-power-off"></i> Logout</a>
+                            <a href="emp-edit-password.html"><i class="fas fa-key"></i>Change Password</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-power-off"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -138,40 +140,106 @@
                     <div class="row job_section">
                         <div class="col-sm-12">
                             <div class="jm_headings">
-                                <h5>Change Password</h5>
+                                <h5>Post a job</h5>
+                                <a class="btn btn-primary mypbtn" href="compnay-profile-single.html">Company profile</a>
                             </div>
                             <div class="section-divider">
                             </div>
-                            <form>
-                                <div class="form-group row">
-                                    <div class="col-md-3">
-                                        <label for="current-password">Current password</label>
+                            <form method="post">
+                                <div class="big_form_group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group ">
+                                                <label>Job title</label>
+                                                <input asp-for="JobTitle" class="form-control" placeholder="">
+                                                <span asp-validation-for="JobTitle" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-group ">
+                                                <label>Company name</label>
+                                                <input asp-for="CompanyName" class="form-control" placeholder="" value="Donec Software">
+                                                <span asp-validation-for="CompanyName" class="text-danger"></span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-9">
-                                        <input type="password" class="form-control" placeholder="" id="current-password">
+                                </div>
+                                <div class="big_form_group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group ">
+                                                <label>Location</label>
+                                                <input asp-for="Location" class="form-control" placeholder="" value="London, United Kingdom ">
+                                                <span asp-validation-for="Location" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group ">
+                                                <label>Job Type</label>
+                                                <input asp-for="JobType" class="form-control" placeholder="" value="Full time ">
+                                                <span asp-validation-for="JobType" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group ">
+                                                <label>Salary</label>
+                                                <input asp-for="Salary" class="form-control" placeholder="" value="$35k - $38k">
+                                                <span asp-validation-for="Salary" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group ">
+                                                <label>Required experience</label>
+                                                <input asp-for="RequiredExperience" class="form-control" placeholder="" value="5 Years ">
+                                                <span asp-validation-for="RequiredExperience" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="big_form_group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group ">
+                                                <label>Skills</label>
+                                                <select class="form-control">
+                                                    <option>
+                                                        PHP
+                                                    </option>
+                                                    <option>
+                                                        MySQL
+                                                    </option>
+                                                    <option>
+                                                        API Development
+                                                    </option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group ">
+                                                <label>Vacancies</label>
+                                                <input asp-for="Vacancies" class="form-control" placeholder="" value="5 Years ">
+                                                <span asp-validation-for="Vacancies" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group ">
+                                                <label>Job Description</label>
+                                                <textarea asp-for="JobDescription" class="form-control"></textarea>
+                                                <span asp-validation-for="JobDescription" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-md-3">
-                                        <label for="new-password">New password</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="password" class="form-control" placeholder="" id="new-password">
+                                    <div class="col-md-9 ">
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-md-3">
-                                        <label for="confirm-new-password">Confirm new password</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="password" class="form-control" placeholder="" id="confirm-new-password">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-9 offset-md-3">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
+
                             </form>
                         </div>
                     </div>

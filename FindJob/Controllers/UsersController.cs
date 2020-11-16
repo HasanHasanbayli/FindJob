@@ -22,7 +22,10 @@ namespace FindJob.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly IWebHostEnvironment _env;
         private readonly SignInManager<AppUser> _signInManager;
-        public UsersController(AppDbContext db, UserManager<AppUser> userManager, IWebHostEnvironment env, SignInManager<AppUser> signInManager) 
+        public UsersController(AppDbContext db, 
+                UserManager<AppUser> userManager, 
+                IWebHostEnvironment env,
+                SignInManager<AppUser> signInManager) 
         {
             _env = env;
             _db = db;
@@ -34,11 +37,6 @@ namespace FindJob.Controllers
             return View();
         }
         
-        public IActionResult JobList()
-        {
-            return View();
-        }
-        
         public IActionResult StaredJobs()
         {
             return View();
@@ -46,7 +44,7 @@ namespace FindJob.Controllers
         public async Task<IActionResult> UpdateProfile()
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            if (user == null) return View();
+            if (user == null) return RedirectToAction("Index", "Error404");
             return  View(user);
         }
         [HttpPost]
@@ -57,13 +55,15 @@ namespace FindJob.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-                AppUser existEmail = await _userManager.FindByEmailAsync(update.Email);
-                AppUser existUserName = await _userManager.FindByNameAsync(update.UserName);
-                if (existEmail != null || existUserName != null)
-                {
-                    ModelState.AddModelError("", "Email or UserName already taken!!");
-                    return View(existEmail);
-                }
+                #region Unique email
+                //AppUser existEmail = await _userManager.FindByEmailAsync(update.Email);
+                //AppUser existUserName = await _userManager.FindByNameAsync(update.UserName);
+                //if (existEmail != null || existUserName != null)
+                //{
+                //    ModelState.AddModelError("", "Email or UserName already taken!!");
+                //    return View(existEmail);
+                //}
+                #endregion
                 #region Photo
                 if (update.Photo != null)
                 {
@@ -112,9 +112,101 @@ namespace FindJob.Controllers
         {
             return View();
         }
+
         public IActionResult PostJob()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> PostJob(PostJob post)
+        {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (!ModelState.IsValid) return View();
+            PostJob newPost = new PostJob();
+            newPost.JobDescription = post.JobDescription;
+            newPost.JobTitle = post.JobTitle;
+            newPost.CompanyName = post.CompanyName;
+            newPost.RequiredExperience = post.RequiredExperience;
+            newPost.Location = post.Location;
+            newPost.Salary = post.Salary;
+            newPost.JobType = post.JobType;
+            newPost.Vacancies = post.Vacancies;
+            newPost.Skills = post.Skills;
+            newPost.AppUserId = user.Id;
+            await _db.PostJobs.AddAsync(newPost);
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> MyJobList()
+        {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            return View(_db.PostJobs.Where(h=>h.AppUserId==user.Id).ToList());
+        }
+
+        public IActionResult FindStaff()
+        {
+            return View(_db.Users.ToList());
+        }
+
+        public async Task<IActionResult> Active(int? id, bool IsActivated)
+        {
+            if (id == null) return RedirectToAction("Index", "Error404");
+            PostJob job = await _db.PostJobs.FindAsync(id);
+            if (job == null) return RedirectToAction("Index", "Error404");
+            job.IsActivated = IsActivated;
+            await _db.SaveChangesAsync();
+            return RedirectToAction("MyJobList", "Users");
+        }
+
+        public async Task<IActionResult> Deactive(int? id, bool IsActivated)
+        {
+            if (id == null) return RedirectToAction("Index", "Error404");
+            PostJob job = await _db.PostJobs.FindAsync(id);
+            if (job == null) return RedirectToAction("Index", "Error404");
+            job.IsActivated = !IsActivated;
+            await _db.SaveChangesAsync();
+            return RedirectToAction("MyJobList", "Users");
+        }
+
+        public async Task<IActionResult> DeleteJob(int? id, PostJob job)
+        {
+            if (id == null) return RedirectToAction("Index", "Error404");
+            PostJob dbJob = await _db.PostJobs.FindAsync(id);
+            if (dbJob == null) return RedirectToAction("Index", "Error404");
+            _db.PostJobs.Remove(dbJob);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("MyJobList", "Users");
+        }
+
+        public async Task<IActionResult> EditJob(int? id)
+        {
+            if (id == null) return RedirectToAction("Index", "Error404");
+            PostJob job = await _db.PostJobs.FindAsync(id);
+            if (job == null) return RedirectToAction("Index", "Error404");
+            return View(job);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditJob(int? id, PostJob post)
+        {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (!ModelState.IsValid) return View();
+            PostJob dbPost = await _db.PostJobs.FindAsync(id);
+            dbPost.JobDescription = post.JobDescription;
+            dbPost.JobTitle = post.JobTitle;
+            dbPost.CompanyName = post.CompanyName;
+            dbPost.RequiredExperience = post.RequiredExperience;
+            dbPost.Location = post.Location;
+            dbPost.Salary = post.Salary;
+            dbPost.JobType = post.JobType;
+            dbPost.Skills = post.Skills;
+            dbPost.AppUserId = user.Id;
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

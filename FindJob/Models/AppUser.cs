@@ -14,6 +14,7 @@ namespace FindJob.Models
         [Required, MaxLength(20)]
         public string FullName { get; set; }
         public string CompanyName { get; set; }
+        public int Age { get; set; }
         public bool IsActivated { get; set; }
         public string Location { get; set; }
         public string JobType { get; set; }
@@ -25,5 +26,6 @@ namespace FindJob.Models
         public string Image { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
+        public ICollection<PostJob> PostJobs { get; set; }
     }
 }

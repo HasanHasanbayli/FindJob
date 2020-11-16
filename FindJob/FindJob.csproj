@@ -7,6 +7,18 @@
   <ItemGroup>
     <Compile Remove="Migrations\20201106195031_AddIdentity.cs" />
     <Compile Remove="Migrations\20201106195031_AddIdentity.Designer.cs" />
+    <Compile Remove="Migrations\20201116094533_AddColumnToAppUserAndPostJobTable.cs" />
+    <Compile Remove="Migrations\20201116094533_AddColumnToAppUserAndPostJobTable.Designer.cs" />
+    <Compile Remove="Migrations\20201116094714_AddColumnToAppUserAndPostJobTable.cs" />
+    <Compile Remove="Migrations\20201116094714_AddColumnToAppUserAndPostJobTable.Designer.cs" />
+    <Compile Remove="Migrations\20201116100608_AddColumnToAppUserAndPostJobTable.cs" />
+    <Compile Remove="Migrations\20201116100608_AddColumnToAppUserAndPostJobTable.Designer.cs" />
+    <Compile Remove="Migrations\20201116100859_AddColumnToAppUserAndPostJobTable.cs" />
+    <Compile Remove="Migrations\20201116100859_AddColumnToAppUserAndPostJobTable.Designer.cs" />
+    <Compile Remove="Migrations\20201116101233_AddColumnToAppUserAndPostJobTable.cs" />
+    <Compile Remove="Migrations\20201116101233_AddColumnToAppUserAndPostJobTable.Designer.cs" />
+    <Compile Remove="Migrations\20201116102720_AddColumnToAppUserAndPostJobTable.cs" />
+    <Compile Remove="Migrations\20201116102720_AddColumnToAppUserAndPostJobTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

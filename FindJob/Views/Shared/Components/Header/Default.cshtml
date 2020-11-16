@@ -58,13 +58,13 @@
                                     </ul>
                                 </li>
                                 <li class="has-sub-menu">
-                                    <a asp-controller="Employers" asp-action="Index">For employers</a>
+                                    <a asp-controller="Users" asp-action="Index">For employers</a>
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="job-dashboard.html">Job dashboard</a>
                                         </li>
                                         <li>
-                                            <a href="post-a-job.html">Post a job</a>
+                                            <a asp-controller="Users" asp-action="PostJob">Post a job</a>
                                         </li>
                                         <li>
                                             <a href="my-job-listing.html">My Jobs listing</a>
@@ -151,7 +151,12 @@
                                 @if (ViewBag.User.Image != null)
                                 {
                                     <img alt="" src="~/assets/images/Users/@ViewBag.User.Image">
-                                } Hi @ViewBag.User.FullName <i class="fas fa-caret-down"></i>
+                                }
+                                else
+                                {
+                                    <img alt="" src="~/assets/images/Users/prof.PNG">
+                                }
+                                Hi @ViewBag.User.FullName <i class="fas fa-caret-down"></i>
                             </button>
                             <div class="login_pop_box login_pop_box_menu">
                                 <div class="login_pop_box_head">
@@ -159,6 +164,10 @@
                                         @if (ViewBag.User.Image != null)
                                         {
                                             <img alt="" src="~/assets/images/Users/@ViewBag.User.Image">
+                                        }
+                                        else
+                                        {
+                                            <img alt="" src="~/assets/images/Users/prof.PNG">
                                         }
                                         <span>@ViewBag.User.Location</span>
                                         <h5>@ViewBag.User.FullName</h5>

@@ -112,8 +112,14 @@
                     </ul>
                     <h5>Organize and Manage</h5>
                     <ul class="user_navigation">
-                        <li class="is-active">
-                            <a asp-controller="Seekers" asp-action="StaredJobs"><i class="fas fa-star"></i> View My Stared Jobs</a>
+                        <li>
+                            <a asp-controller="Users" asp-action="StaredJobs"><i class="fas fa-star"></i> View My Stared Jobs</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Users" asp-action="PostJob"><i class="fas fa-paper-plane"></i> Post Job</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Users" asp-action="MyJobList"><i class="far fa-list-alt"></i> My job listings</a>
                         </li>
                     </ul>
                     <h5>Account</h5>

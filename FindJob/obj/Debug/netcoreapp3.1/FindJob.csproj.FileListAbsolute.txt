@@ -147,7 +147,6 @@ C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\R
 C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\ChangePassword.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
-C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\JobList.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\StaredJobs.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\UpdateProfile.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
@@ -331,3 +330,7 @@ C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\FindJo
 C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\FindJob.csproj.CoreCompileInputs.cache
 C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\FindJob.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\PostJob.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\PostJob.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\MyJobList.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\FindStaff.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\EditJob.cshtml.g.cs

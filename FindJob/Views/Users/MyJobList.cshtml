@@ -1,13 +1,13 @@
-﻿
+﻿@model IEnumerable<PostJob>
 @{
-    ViewData["Title"] = "ChangePassword";
+    ViewData["Title"] = "MyJobList";
 }
 
 <main>
     <div class="header_01 header_inner">
         <div class="header_main">
             <div class="header_btm">
-                <h2>Change Password</h2>
+                <h2>My Job Listing</h2>
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
                 <div class="sidebar">
                     <ul class="user_navigation">
                         <li>
-                            <a asp-controller="Seekers" asp-action="JobList"><i class="fas fa-search"></i> Browse Jobs </a>
+                            <a href="find-staff.html"><i class="fas fa-search"></i> Find Staff </a>
                             <a class="filter_btn" href="#sidebar_filter_option">
                                 <i class="fas fa-filter"></i>
                                 <i class="fas fa-times"></i>
@@ -66,14 +66,12 @@
                                         </select>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Salary</label>
                                     <div class="field">
                                         <input type="text" placeholder="e.g. 10k" class="form-control">
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Tags</label>
                                     <div class="field">
@@ -104,7 +102,7 @@
                             </form>
                         </li>
                         <li>
-                            <a asp-controller="Seekers" asp-action="Index">
+                            <a href="job-dashboard.html">
                                 <i class="fas fa-border-all"></i> Job Dashboard
                             </a>
                         </li>
@@ -124,13 +122,13 @@
                     <h5>Account</h5>
                     <ul class="user_navigation">
                         <li>
-                            <a asp-controller="Seekers" asp-action="UpdateProfile"><i class="fas fa-user"></i> Update My Profile</a>
-                        </li>
-                        <li class="is-active">
-                            <a asp-controller="Seekers" asp-action="ChangePassword"><i class="fas fa-key"></i>Change Password</a>
+                            <a href="emp-edit-profile.html"><i class="fas fa-user"></i> Update My Profile</a>
                         </li>
                         <li>
-                            <a href="edit-password.html"><i class="fas fa-power-off"></i> Logout</a>
+                            <a href="emp-edit-password.html"><i class="fas fa-key"></i>Change Password</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-power-off"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -138,41 +136,87 @@
                     <div class="row job_section">
                         <div class="col-sm-12">
                             <div class="jm_headings">
-                                <h5>Change Password</h5>
+                                <h6>Your listings are shown in the table below.</h6>
                             </div>
-                            <div class="section-divider">
+                            <div class="table-cont">
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Status</th>
+                                            <th>Vacancies</th>
+                                            <th>Posted</th>
+                                            <th>Expires</th>
+                                            <th>Interest</th>
+                                            <th>Contacted</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (PostJob job in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <h6><a href="post-a-job.html">@job.JobTitle</a></h6>
+                                                    <ul class="job-dashboard-actions">
+                                                        <li>
+                                                            <a asp-action="EditJob" asp-route-id="@job.Id" class="job-dashboard-action-edit">
+                                                                Edit
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            @if (job.IsActivated)
+                                                            {
+                                                                <a asp-action="Active" asp-route-id="@job.Id" class="job-dashboard-action-mark_filled">
+                                                                    Deactivate
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a asp-action="Deactive" asp-route-id="@job.Id" class="job-dashboard-action-mark_filled">
+                                                                    Active
+                                                                </a>
+                                                            }
+                                                        </li>
+                                                        <li>
+                                                            <a asp-action="DeleteJob" asp-route-id="@job.Id"  class="job-dashboard-action-delete">
+                                                                Delete
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                @if (job.IsActivated)
+                                                {
+                                                    <td style="color:lawngreen">
+                                                        Active
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td style="color:red">
+                                                        Deactive
+                                                    </td>
+                                                }
+                                                <td>
+                                                    @job.Vacancies
+                                                </td>
+                                                <td>
+                                                    @job.PostedDate
+                                                </td>
+                                                <td>
+                                                    @job.ExpiresDate
+                                                </td>
+                                                <td>
+                                                    @job.Interest
+                                                </td>
+                                                <td>
+                                                    @job.Contacted
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
                             </div>
-                            <form>
-                                <div class="form-group row">
-                                    <div class="col-md-3">
-                                        <label for="current-password">Current password</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="password" class="form-control" placeholder="" id="current-password">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-3">
-                                        <label for="new-password">New password</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="password" class="form-control" placeholder="" id="new-password">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-3">
-                                        <label for="confirm-new-password">Confirm new password</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="password" class="form-control" placeholder="" id="confirm-new-password">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-9 offset-md-3">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>

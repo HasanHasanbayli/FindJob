@@ -70,7 +70,7 @@ namespace FindJob.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterVM register)
+        public async Task<IActionResult> Register(RegisterVM register, string lorem)
         {
             if (!ModelState.IsValid) return View();
             AppUser newUser = new AppUser
@@ -78,7 +78,8 @@ namespace FindJob.Controllers
                 FullName = register.FullName,
                 UserName = register.UserName,
                 Email = register.Email,
-                IsActivated = true
+                IsActivated = true,
+
             };
             IdentityResult identityResult = await _userManager.CreateAsync(newUser, register.Password);
             if (!identityResult.Succeeded)
@@ -90,7 +91,7 @@ namespace FindJob.Controllers
                 return View(register);
             }
             await _signInManager.SignInAsync(newUser, true);
-            await _userManager.AddToRoleAsync(newUser, "Seeker");
+            await _userManager.AddToRoleAsync(newUser, lorem);
             return RedirectToAction("Index", "Home");
         }
 

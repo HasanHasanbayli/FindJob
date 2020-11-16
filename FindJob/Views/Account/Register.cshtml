@@ -25,13 +25,14 @@
                             <div class="com_class_form">
                                 <div class="form-group user_type_cont">
                                     <label class="user_type" for="usertype-1">
-                                        <input type="radio" checked="" name="usertype" id="usertype-1" value="job seeker">
-                                        <span><i class="far fa-user"></i> Job Seeker</span>
+                                        <input type="radio" checked="" name="usertype" id="usertype-1" value="Seeker">
+                                        <span id="seeker"><i  class="far fa-user"></i> Job Seeker</span>
                                     </label>
                                     <label class="user_type" for="usertype-2">
-                                        <input type="radio" name="usertype" id="usertype-2" value="employer">
-                                        <span><i class="fas fa-landmark"></i> Employer</span>
+                                        <input type="radio" name="usertype" id="usertype-2" value="Employer">
+                                        <span id="employer"><i  class="fas fa-landmark"></i> Employer</span>
                                     </label>
+                                    <input type="text" name="lorem" class="d-none" id="resultInput" value="Seeker" />
                                 </div>
                                 <div class="form-group">
                                     <input asp-for="FullName" class="form-control" placeholder="Full name ">
@@ -77,5 +78,18 @@
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script >
+        let seekerBtn = document.getElementById("seeker")
+        let employerBtn = document.getElementById("employer")
+        let seekerInput = document.getElementById("usertype-1")
+        let employerInput = document.getElementById("usertype-2")
+        let resultInput = document.getElementById("resultInput")
+        seekerBtn.addEventListener("click", function () {
+            resultInput.value = seekerInput.value;
+        })
+        employerBtn.addEventListener("click", function () {
+            resultInput.value = employerInput.value;
+        })
+    </script>
 }
 

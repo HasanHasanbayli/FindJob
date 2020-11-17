@@ -336,3 +336,4 @@ C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\R
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\EditJob.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\FindStaff.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\MyJobList.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\BrowseJobs.cshtml.g.cs

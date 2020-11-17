@@ -137,7 +137,14 @@
                         <div class="col-sm-12">
                             <div class="jm_headings">
                                 <h5>Update My Profile</h5>
-                                <a class="btn btn-primary mypbtn" href="staff-profile-single.html">My profile</a>
+                                @if (User.IsInRole("Seeker"))
+                                {
+                                    <a class="btn btn-primary mypbtn" href="staff-profile-single.html">My profile</a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-primary mypbtn" href="staff-profile-single.html">Company profile</a>
+                                }
                             </div>
                             <div class="section-divider">
                             </div>
@@ -166,13 +173,26 @@
                                                 <span asp-validation-for="Location" class="text-danger"></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label asp-for="UserName"></label>
-                                                <input asp-for="UserName" class="form-control" placeholder="UserName">
-                                                <span asp-validation-for="UserName" class="text-danger"></span>
+                                        @if (User.IsInRole("Seeker"))
+                                        {
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label asp-for="Age"></label>
+                                                    <input asp-for="Age" class="form-control" placeholder="Age">
+                                                    <span asp-validation-for="Age" class="text-danger"></span>
+                                                </div>
                                             </div>
-                                        </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label asp-for="CompanyName"></label>
+                                                    <input asp-for="CompanyName" class="form-control" placeholder="Company Name">
+                                                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
                                 <div class="big_form_group">

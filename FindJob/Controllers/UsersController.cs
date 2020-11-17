@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FindJob.Controllers
 {
@@ -93,8 +94,8 @@ namespace FindJob.Controllers
                 user.FullName = update.FullName;
                 user.NormalizedEmail = update.Email;
                 user.Email = update.Email;
-                user.UserName = update.UserName;
-                user.NormalizedUserName = update.UserName; 
+                user.Age = update.Age;
+                user.CompanyName = update.CompanyName;
                 user.Location = update.Location;
                 user.ExpectedSalary = update.ExpectedSalary;
                 user.TotalExperience = update.TotalExperience;
@@ -113,7 +114,7 @@ namespace FindJob.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Employer")]
+        //[Authorize(Roles = "Employer")]
         public IActionResult PostJob()
         {
             return View();
@@ -208,6 +209,13 @@ namespace FindJob.Controllers
             dbPost.AppUserId = user.Id;
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+
+        public IActionResult BrowseJobs()
+        {
+            var user = _db.PostJobs.Where(x=>x.IsActivated==true).Include(x => x.AppUser).ToList();
+            return View(user);
         }
     }
 }

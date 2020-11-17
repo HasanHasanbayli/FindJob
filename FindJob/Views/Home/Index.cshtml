@@ -167,17 +167,115 @@
                                 else
                                 {
                                     <!--logedin-->
+                                    if (User.IsInRole("Seeker"))
+                                    {
+                                        <div class="login_pop after_login">
+                                            <button class="btn btn-primary withdp">
+                                                @if (Model.AppUser.Image != null)
+                                                {
+                                                    <img alt="" src="assets/images/Users/@Model.AppUser.Image">
+                                                }
+                                                else
+                                                {
+                                                    <img alt="" src="~/assets/images/Users/prof.PNG">
+                                                }
+                                                Hi @Model.AppUser.FullName  <i class="fas fa-caret-down"></i>
+                                            </button>
+                                            <div class="login_pop_box login_pop_box_menu">
+                                                <div class="login_pop_box_head">
+                                                    <div class=" ">
+                                                        @if (Model.AppUser.Image != null)
+                                                        {
+                                                            <img alt="" src="~/assets/images/Users/@Model.AppUser.Image">
+                                                        }
+                                                        else
+                                                        {
+                                                            <img alt="" src="~/assets/images/Users/prof.PNG">
+                                                        }
+                                                        <span>@Model.AppUser.Location</span>
+                                                        <h5>@Model.AppUser.FullName</h5>
+                                                        <h6>@Model.AppUser.JobType</h6>
+                                                    </div>
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <a href="browse-jobs.html"><i class="fas fa-search"></i> Browse Jobs </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="my-stared-jobs.html"><i class="fas fa-star"></i> View My Stared Jobs</a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="Users" asp-action="UpdateProfile"><i class="fas fa-user"></i> Update My Profile</a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="Users" asp-action="ChangePassword"><i class="fas fa-key"></i>Change Password</a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="Account" asp-action="Logout"><i class="fas fa-power-off"></i> Logout</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="login_pop after_login">
+                                            <button class="btn btn-primary withdp">
+                                                @if (Model.AppUser.Image != null)
+                                                {
+                                                    <img alt="" src="~/assets/images/Users/@Model.AppUser.Image">
+                                                }
+                                                else
+                                                {
+                                                    <img alt="" src="~/assets/images/Users/prof.PNG">
+                                                }
+                                                @Model.AppUser.CompanyName   <i class="fas fa-caret-down"></i>
+                                            </button>
+                                            <div class="login_pop_box login_pop_box_menu">
+                                                <div class="login_pop_box_head">
+                                                    <div class=" ">
+                                                        @if (Model.AppUser.Image != null)
+                                                        {
+                                                            <img alt="" src="~/assets/images/Users/@Model.AppUser.Image">
+                                                        }
+                                                        else
+                                                        {
+                                                            <img alt="" src="~/assets/images/Users/prof.PNG">
+                                                        }
+                                                        <span>@Model.AppUser.Location</span>
+                                                        <h5>@Model.AppUser.CompanyName</h5>
+                                                        <h6>&nbsp;</h6>
+                                                    </div>
+                                                </div>
+                                                <ul class="user_navigation">
+                                                    <li>
+                                                        <a asp-controller="Users" asp-action="Index"><i class="fas fa-border-all"></i> Job Dashboard </a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="Users" asp-action="FindStaff"><i class="fas fa-search"></i> Find Staff </a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="Users" asp-action="PostJob"><i class="fas fa-paper-plane"></i> Post Job</a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="Users" asp-action="MyJobList"><i class="far fa-list-alt"></i> My job listings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="Users" asp-action="UpdateProfile"><i class="fas fa-user"></i> Update My Profile</a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="Users" asp-action="ChangePassword"><i class="fas fa-key"></i>Change Password</a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="Account" asp-action="Logout"><i class="fas fa-power-off"></i> Logout</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    }
                                     @if (Model.AppUser != null) { }
                                     <div class="login_pop after_login">
-                                        <button class="btn btn-primary withdp">@if (Model.AppUser.Image != null)
-                                        {
-                                            <img alt="" src="assets/images/Users/@Model.AppUser.Image">
-                                        }
-                                        else
-                                        {
-                                            <img alt="" src="~/assets/images/Users/prof.PNG">
-                                        }
-                                        Hi @Model.AppUser.FullName  <i class="fas fa-caret-down"></i></button>
+
                                         <div class="login_pop_box login_pop_box_menu">
                                             <div class="login_pop_box_head">
                                                 <div>

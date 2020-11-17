@@ -14,10 +14,11 @@ namespace FindJob.ViewModels
         public string FullName { get; set; }
         [StringLength(50), EmailAddress, DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [StringLength(30)]
-        public string UserName { get; set; }
+        public int Age { get; set; }
         [StringLength(50)]
         public string Location { get; set; }
+        [StringLength(50)]
+        public string CompanyName { get; set; }
         [StringLength(50)]
         public string JobType { get; set; }
         [StringLength(50)]

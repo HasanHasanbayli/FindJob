@@ -129,15 +129,44 @@ namespace FindJob.Controllers
             PostJob newPost = new PostJob();
             newPost.JobDescription = post.JobDescription;
             newPost.JobTitle = post.JobTitle;
-            newPost.CompanyName = post.CompanyName;
             newPost.RequiredExperience = post.RequiredExperience;
             newPost.Location = post.Location;
             newPost.Salary = post.Salary;
+            newPost.CreateTime = DateTime.Now;
+            newPost.ExpiresDate = post.ExpiresDate;
             newPost.JobType = post.JobType;
             newPost.Vacancies = post.Vacancies;
             newPost.Skills = post.Skills;
             newPost.AppUserId = user.Id;
             await _db.PostJobs.AddAsync(newPost);
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> EditJob(int? id)
+        {
+            if (id == null) return RedirectToAction("Index", "Error404");
+            PostJob job = await _db.PostJobs.FindAsync(id);
+            if (job == null) return RedirectToAction("Index", "Error404");
+            return View(job);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditJob(int? id, PostJob post)
+        {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (!ModelState.IsValid) return View();
+            PostJob dbPost = await _db.PostJobs.FindAsync(id);
+            dbPost.JobDescription = post.JobDescription;
+            dbPost.JobTitle = post.JobTitle;
+            dbPost.CompanyName = post.CompanyName;
+            dbPost.RequiredExperience = post.RequiredExperience;
+            dbPost.Location = post.Location;
+            dbPost.Salary = post.Salary;
+            dbPost.JobType = post.JobType;
+            dbPost.Skills = post.Skills;
+            dbPost.AppUserId = user.Id;
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -183,33 +212,7 @@ namespace FindJob.Controllers
             return RedirectToAction("MyJobList", "Users");
         }
 
-        public async Task<IActionResult> EditJob(int? id)
-        {
-            if (id == null) return RedirectToAction("Index", "Error404");
-            PostJob job = await _db.PostJobs.FindAsync(id);
-            if (job == null) return RedirectToAction("Index", "Error404");
-            return View(job);
-        }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditJob(int? id, PostJob post)
-        {
-            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            if (!ModelState.IsValid) return View();
-            PostJob dbPost = await _db.PostJobs.FindAsync(id);
-            dbPost.JobDescription = post.JobDescription;
-            dbPost.JobTitle = post.JobTitle;
-            dbPost.CompanyName = post.CompanyName;
-            dbPost.RequiredExperience = post.RequiredExperience;
-            dbPost.Location = post.Location;
-            dbPost.Salary = post.Salary;
-            dbPost.JobType = post.JobType;
-            dbPost.Skills = post.Skills;
-            dbPost.AppUserId = user.Id;
-            await _db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
 
 
         public IActionResult BrowseJobs()

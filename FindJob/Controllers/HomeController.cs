@@ -7,6 +7,7 @@ using FindJob.Models;
 using FindJob.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FindJob.Controllers
 {
@@ -23,11 +24,12 @@ namespace FindJob.Controllers
         {
             HomeVM homeVM = new HomeVM
             {
-                Bio=_db.Bios.FirstOrDefault(),
-                PopularJobCategories=_db.PopularJobCategories,
-                Statistics=_db.Statistics,
-                Partners=_db.Partners,
-                Blogs=_db.Blogs
+                Bio = _db.Bios.FirstOrDefault(),
+                PopularJobCategories = _db.PopularJobCategories,
+                Statistics = _db.Statistics,
+                Partners = _db.Partners,
+                Blogs = _db.Blogs,
+                PostJobs = _db.PostJobs.Where(x=>x.IsActivated==true).Include(x => x.AppUser)
             };
             if (User.Identity.IsAuthenticated)
             {

@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<PostJob>
+@using System.Globalization
 @{
     ViewData["Title"] = "BrowseJobs";
 }
@@ -129,6 +130,9 @@
                     <div class="row full_width featured_box_outer">
                         @foreach (PostJob job in Model)
                         {
+                            var minutePassed = (int)(DateTime.Now - job.CreateTime).TotalMinutes;
+                            var hoursPassed = (int)(DateTime.Now - job.CreateTime).TotalHours;
+                            var daysPassed = (int)(DateTime.Now - job.CreateTime).TotalDays;
                             <div class="col-sm-12">
                                 <div class="featured_box ">
                                     <div class="fb_image">
@@ -149,12 +153,33 @@
                                                     @job.Location
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="far fa-clock"></i>
-                                                    2 days ago
-                                                </a>
-                                            </li>
+                                            @if (minutePassed < 60)
+                                            {
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-clock"></i>
+                                                        @minutePassed minutes ago
+                                                    </a>
+                                                </li>
+                                            }
+                                            else if (hoursPassed < 24)
+                                            {
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-clock"></i>
+                                                        @hoursPassed hours ago
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-clock"></i>
+                                                        @daysPassed days ago
+                                                    </a>
+                                                </li>
+                                            }
                                         </ul>
                                     </div>
                                     <div class="fb_action">

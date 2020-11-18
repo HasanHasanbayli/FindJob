@@ -90,8 +90,8 @@ namespace FindJob.Controllers
                 }
                 return View(register);
             }
-            await _signInManager.SignInAsync(newUser, true);
             await _userManager.AddToRoleAsync(newUser, lorem);
+            await _signInManager.SignInAsync(newUser, true);
             return RedirectToAction("Index", "Home");
         }
 

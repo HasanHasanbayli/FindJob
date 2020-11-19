@@ -177,9 +177,15 @@ namespace FindJob.Controllers
             return View(_db.PostJobs.Where(h=>h.AppUserId==user.Id).ToList());
         }
 
-        public IActionResult FindStaff()
+        public IActionResult FindStaff(AppUser user)
         {
             return View(_db.Users.ToList());
+        }
+
+        public IActionResult UserProfile(string id)
+        {
+            var user = _userManager.Users.Include(p=>p.PostJobs).FirstOrDefault(z=>z.Id==id);
+            return View(user);
         }
 
         public async Task<IActionResult> Active(int? id, bool IsActivated)
@@ -212,13 +218,10 @@ namespace FindJob.Controllers
             return RedirectToAction("MyJobList", "Users");
         }
 
-
-
-
         public IActionResult BrowseJobs()
         {
             var user = _db.PostJobs.Where(x=>x.IsActivated==true).Include(x => x.AppUser).ToList();
             return View(user);
-        }
+        }       
     }
 }

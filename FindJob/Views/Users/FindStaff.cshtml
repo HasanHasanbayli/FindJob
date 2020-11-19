@@ -140,15 +140,15 @@
                                     <div class="staff_img">
                                         @if (user.Image != null)
                                         {
-                                            <img alt="" src="~/assets/images/Users/@user.Image">
+                                            <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><img alt="" src="~/assets/images/Users/@user.Image"></a>
                                         }
                                         else
-                                        {
-                                            <img alt="" src="~/assets/images/Users/prof.PNG">
+                                        { 
+                                            <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><img alt="" src="~/assets/images/Users/prof.PNG"></a>
                                         }
                                     </div>
                                     <div class="staff_detail">
-                                        <h3>@user.FullName<img alt="" src="~/assets/images/au.svg"></h3>
+                                        <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><h3>@user.FullName<img alt="" src="~/assets/images/au.svg"></h3></a>
                                         <p>@user.JobType</p>
                                         <ul>
                                             <li>
@@ -168,7 +168,7 @@
                                             </li>
                                         </ul>
                                         <div class="staffBox_action">
-                                            <a class="btn btn-third" href="staff-profile-single.html">View profile</a>
+                                            <a class="btn btn-third" asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id">View profile</a>
                                         </div>
                                     </div>
                                 </div>

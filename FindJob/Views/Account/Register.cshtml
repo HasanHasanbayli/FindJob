@@ -1,4 +1,5 @@
 ﻿@model RegisterVM
+@using System.Globalization
 @{
     ViewData["Title"] = "Register";
 }
@@ -78,7 +79,7 @@
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
-    <script >
+    <script>
         let seekerBtn = document.getElementById("seeker")
         let employerBtn = document.getElementById("employer")
         let seekerInput = document.getElementById("usertype-1")
@@ -90,5 +91,6 @@
         employerBtn.addEventListener("click", function () {
             resultInput.value = employerInput.value;
         })
+
     </script>
 }

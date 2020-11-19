@@ -79,8 +79,8 @@ namespace FindJob.Controllers
                 UserName = register.UserName,
                 Email = register.Email,
                 IsActivated = true,
-
-            };
+                CreateTime = DateTime.Now
+        };
             IdentityResult identityResult = await _userManager.CreateAsync(newUser, register.Password);
             if (!identityResult.Succeeded)
             {

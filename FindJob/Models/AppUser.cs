@@ -18,12 +18,16 @@ namespace FindJob.Models
         public bool IsActivated { get; set; }
         public string Location { get; set; }
         public string JobType { get; set; }
+        public DateTime CreateTime { get; set; }
         public string ExpectedSalary { get; set; }
         public string TotalExperience { get; set; }
         public string Skills { get; set; }
         public string Description { get; set; }
         public string AboutCompanyDescription{ get; set; }
         public string Image { get; set; }
+        public string PdfFile { get; set; }
+        [NotMapped]
+        public IFormFile Pdf { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
         public ICollection<PostJob> PostJobs { get; set; }

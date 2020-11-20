@@ -42,12 +42,14 @@ namespace FindJob.Controllers
         {
             return View();
         }
+
         public async Task<IActionResult> UpdateProfile()
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             if (user == null) return RedirectToAction("Index", "Error404");
             return  View(user);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateProfile(UpdateVM update)
@@ -114,7 +116,6 @@ namespace FindJob.Controllers
             return View();
         }
 
-        //[Authorize(Roles = "Employer")]
         public IActionResult PostJob()
         {
             return View();
@@ -184,7 +185,13 @@ namespace FindJob.Controllers
 
         public IActionResult UserProfile(string id)
         {
-            var user = _userManager.Users.Include(p=>p.PostJobs).FirstOrDefault(z=>z.Id==id);
+            var user = _userManager.Users.Include(p => p.PostJobs).Where(x => x.IsCompany == false).FirstOrDefault(z => z.Id == id);
+            return View(user);
+        }
+
+        public IActionResult CompanyProfile(string id)
+        {
+            var user = _userManager.Users.Where(x => x.IsCompany == true).FirstOrDefault(z => z.Id == id);
             return View(user);
         }
 

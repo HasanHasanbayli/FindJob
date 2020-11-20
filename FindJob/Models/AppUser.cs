@@ -21,13 +21,11 @@ namespace FindJob.Models
         public DateTime CreateTime { get; set; }
         public string ExpectedSalary { get; set; }
         public string TotalExperience { get; set; }
+        public bool IsCompany { get; set; }
         public string Skills { get; set; }
         public string Description { get; set; }
         public string AboutCompanyDescription{ get; set; }
         public string Image { get; set; }
-        public string PdfFile { get; set; }
-        [NotMapped]
-        public IFormFile Pdf { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
         public ICollection<PostJob> PostJobs { get; set; }

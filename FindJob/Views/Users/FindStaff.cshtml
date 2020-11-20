@@ -138,14 +138,29 @@
                             <div class="col-sm-6">
                                 <div class="staffBox">
                                     <div class="staff_img">
-                                        @if (user.Image != null)
+                                        @if (user.IsCompany == true)
                                         {
-                                            <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><img alt="" src="~/assets/images/Users/@user.Image"></a>
+                                            @if (user.Image != null)
+                                            {
+                                                <a asp-controller="Users" asp-action="CompanyProfile" asp-route-id="@user.Id" class="test"><img alt="" src="~/assets/images/Users/@user.Image"></a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-controller="Users" asp-action="CompanyProfile" asp-route-id="@user.Id" class="test"><img alt="" src="~/assets/images/Users/prof.PNG"></a>
+                                            }
                                         }
                                         else
-                                        { 
-                                            <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><img alt="" src="~/assets/images/Users/prof.PNG"></a>
+                                        {
+                                            @if (user.Image != null)
+                                            {
+                                                <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><img alt="" src="~/assets/images/Users/@user.Image"></a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><img alt="" src="~/assets/images/Users/prof.PNG"></a>
+                                            }
                                         }
+
                                     </div>
                                     <div class="staff_detail">
                                         <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><h3>@user.FullName<img alt="" src="~/assets/images/au.svg"></h3></a>
@@ -168,7 +183,15 @@
                                             </li>
                                         </ul>
                                         <div class="staffBox_action">
-                                            <a class="btn btn-third" asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id">View profile</a>
+                                            @if (user.IsCompany == true)
+                                            {
+                                                <a class="btn btn-third" asp-controller="Users" asp-action="CompanyProfile" asp-route-id="@user.Id">View profile</a>
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-third" asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id">View profile</a>
+
+                                            }
                                         </div>
                                     </div>
                                 </div>

@@ -502,13 +502,22 @@
                             <div class="col-sm-6">
                                 <div class="featured_box ">
                                     <div class="fb_image">
-                                        <a href="compnay-profile-single.html">
-                                            <img alt="brand logo" src="~/assets/images/Users/@job.AppUser.Image">
-                                        </a>
+                                        @if (Model.AppUser.Image != null)
+                                        {
+                                            <a asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">
+                                                <img alt="" src="~/assets/images/Users/@Model.AppUser.Image">
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">
+                                                <img alt="" src="~/assets/images/Users/prof.PNG">
+                                            </a>
+                                        }
                                     </div>
                                     <div class='fb_content'>
                                         <h4>
-                                            <a href="job-single.html">@job.JobTitle</a>
+                                            <a asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">@job.JobTitle</a>
                                         </h4>
                                         <ul>
                                             <li>
@@ -554,7 +563,7 @@
                                     </div>
                                     <div class="fb_action">
                                         <a title="add to favourite" href="#"><i class="far fa-heart"></i></a>
-                                        <a class="btn btn-third" href="job-single.html">Apply Now</a>
+                                        <a class="btn btn-third" asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">Apply Now</a>
                                         <ul class="tags">
                                             <li>copywriting</li>
                                             <li>translating</li>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AppUser> 
+﻿@model IEnumerable<AppUser>
 @{
     ViewData["Title"] = "FindStaff";
 }
@@ -160,7 +160,6 @@
                                                 <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><img alt="" src="~/assets/images/Users/prof.PNG"></a>
                                             }
                                         }
-
                                     </div>
                                     <div class="staff_detail">
                                         <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><h3>@user.FullName<img alt="" src="~/assets/images/au.svg"></h3></a>
@@ -190,7 +189,6 @@
                                             else
                                             {
                                                 <a class="btn btn-third" asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id">View profile</a>
-
                                             }
                                         </div>
                                     </div>

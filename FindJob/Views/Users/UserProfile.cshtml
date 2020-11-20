@@ -2,187 +2,183 @@
 @{
     ViewData["Title"] = "UserProfile";
 }
-    <header class="header_01 header_inner">
-        <div class="header_main header_job_single_main">
-            <div class="header_btm header_job_single">
-                <div class="header_job_single_inner container">
-                    <div class="poster_staff">
-                        @if (Model.Image != null)
-                        {
-                            <img alt="" src="~/assets/images/Users/@Model.Image">
-                        }
-                        else
-                        {
-                            <img alt="" src="~/assets/images/Users/prof.PNG">
-                        }
+<header class="header_01 header_inner">
+    <div class="header_main header_job_single_main">
+        <div class="header_btm header_job_single">
+            <div class="header_job_single_inner container">
+                <div class="poster_staff">
+                    @if (Model.Image != null)
+                    {
+                        <img alt="" src="~/assets/images/Users/@Model.Image">
+                    }
+                    else
+                    {
+                        <img alt="" src="~/assets/images/Users/prof.PNG">
+                    }
+                </div>
+                <div class="poster_details">
+                    <h2>@Model.FullName  <span class="varified"><i class="fas fa-check"></i>Verified</span></h2>
+                    <h5>@Model.JobTitle</h5>
+                    <div class="staff_rating">
+                        <span>4.5</span>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <div class="poster_details">
-                        <h2>@Model.FullName  <span class="varified"><i class="fas fa-check"></i>Verified</span></h2>
-                        <h5>@Model.JobType</h5>
-                        <div class="staff_rating">
-                            <span>4.5</span>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                    <div class="poster_action">
-                        <a class="addtofav" title="add to favourite" href="#"><i class="far fa-heart"></i></a>
-                        <a class="btn btn-third" href="#">Hire me</a>
-                    </div>
+                </div>
+                <div class="poster_action">
+                    <a class="addtofav" title="add to favourite" href="#"><i class="far fa-heart"></i></a>
+                    <a class="btn btn-third" href="#">Hire me</a>
                 </div>
             </div>
         </div>
-    </header>
-    <main>
-        <div class="single_job">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="row ">
-                            <div class="col-md-12 single_job_main">
-                                <h2>Jobseekers Description</h2>
+    </div>
+</header>
+<main>
+    <div class="single_job">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row ">
+                        <div class="col-md-12 single_job_main">
+                            <h2>Jobseekers Description</h2>
 
-                                <p> Suspendisse potenti. Suspendisse efficitur augue enim, a aliquet nunc malesuada sit amet. Praesent finibus egestas velit sit amet lobortis. Aliquam ultricies tempus facilisis. Sed maximus, turpis eu pharetra fringilla, sem tellus pharetra lorem, at dictum tortor libero sit amet nulla. Cras quis enim vitae enim congue elementum. Integer tincidunt sit amet nulla at ultricies. Mauris id hendrerit urna. </p>
-                                <ul>
-                                    <li>Suspendisse efficitur augue enim, a aliquet nunc malesuada sit amet.</li>
-                                    <li>sit amet nulla at ultricies. Mauris id hendrerit urna.</li>
-                                    <li>turpis eu pharetra fringilla, sem tellus pharetra lorem.</li>
-                                    <li>sit amet Mauris id hendrerit urna. nulla at ultricies. </li>
-                                    <li>turpis eu , sem tellus pharetra lorem pharetra fringilla.</li>
-                                </ul>
-                            </div>
+                            <p> Suspendisse potenti. Suspendisse efficitur augue enim, a aliquet nunc malesuada sit amet. Praesent finibus egestas velit sit amet lobortis. Aliquam ultricies tempus facilisis. Sed maximus, turpis eu pharetra fringilla, sem tellus pharetra lorem, at dictum tortor libero sit amet nulla. Cras quis enim vitae enim congue elementum. Integer tincidunt sit amet nulla at ultricies. Mauris id hendrerit urna. </p>
+                            <ul>
+                                <li>Suspendisse efficitur augue enim, a aliquet nunc malesuada sit amet.</li>
+                                <li>sit amet nulla at ultricies. Mauris id hendrerit urna.</li>
+                                <li>turpis eu pharetra fringilla, sem tellus pharetra lorem.</li>
+                                <li>sit amet Mauris id hendrerit urna. nulla at ultricies. </li>
+                                <li>turpis eu , sem tellus pharetra lorem pharetra fringilla.</li>
+                            </ul>
+                        </div>
 
-                            <div class="section-divider"></div>
-                            <div class="col-md-12 single_job_main">
-                                <h2>Similar Employee </h2>
-                                <div class="row two_col featured_box_outer">
-                                    <div class="col-sm-6">
-                                        <div class="featured_box ">
-                                            <div class="fb_image">
-                                                <img alt="brand logo" src="~/assets/images/profile-2.png">
-                                            </div>
-                                            <div class="fb_content">
-                                                <h4>Dedolp Seofls </h4>
-                                                <ul class="tags">
-                                                    <li>PHP</li>
-                                                    <li>MySQL </li>
-                                                    <li>API Development</li>
-                                                </ul>
-                                            </div>
-                                            <div class="fb_action">
-                                                <a title="add to favourite" href="#"><i class="far fa-heart"></i></a>
-                                                <a class="btn btn-third" href="#">View Profile</a>
-                                            </div>
+                        <div class="section-divider"></div>
+                        <div class="col-md-12 single_job_main">
+                            <h2>Similar Employee </h2>
+                            <div class="row two_col featured_box_outer">
+                                <div class="col-sm-6">
+                                    <div class="featured_box ">
+                                        <div class="fb_image">
+                                            <img alt="brand logo" src="~/assets/images/profile-2.png">
+                                        </div>
+                                        <div class="fb_content">
+                                            <h4>Dedolp Seofls </h4>
+                                            <ul class="tags">
+                                                <li>PHP</li>
+                                                <li>MySQL </li>
+                                                <li>API Development</li>
+                                            </ul>
+                                        </div>
+                                        <div class="fb_action">
+                                            <a title="add to favourite" href="#"><i class="far fa-heart"></i></a>
+                                            <a class="btn btn-third" href="#">View Profile</a>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="featured_box ">
-                                            <div class="fb_image">
-                                                <img alt="brand logo" src="~/assets/images/profile-4.png">
-                                            </div>
-                                            <div class="fb_content">
-                                                <h4>Dedolp Seofls </h4>
-                                                <ul class="tags">
-                                                    <li>PHP</li>
-                                                    <li>MySQL </li>
-                                                    <li>API Development</li>
-                                                </ul>
-                                            </div>
-                                            <div class="fb_action">
-                                                <a title="add to favourite" href="#"><i class="fas fa-heart"></i></a>
-                                                <a class="btn btn-third" href="#">View Profile</a>
-                                            </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="featured_box ">
+                                        <div class="fb_image">
+                                            <img alt="brand logo" src="~/assets/images/profile-4.png">
+                                        </div>
+                                        <div class="fb_content">
+                                            <h4>Dedolp Seofls </h4>
+                                            <ul class="tags">
+                                                <li>PHP</li>
+                                                <li>MySQL </li>
+                                                <li>API Development</li>
+                                            </ul>
+                                        </div>
+                                        <div class="fb_action">
+                                            <a title="add to favourite" href="#"><i class="fas fa-heart"></i></a>
+                                            <a class="btn btn-third" href="#">View Profile</a>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 text-center">
-                                        <a class="btn btn-primary" href="find-staff.html">Browse All job seekers <i class="fas fa-long-arrow-alt-right"></i></a>
-                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <a class="btn btn-primary" href="find-staff.html">Browse All job seekers <i class="fas fa-long-arrow-alt-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 ">
-                        <div class="single-job-sidebar">
-                            <div class="sjs_box">
-                                <h3>Employee Summary</h3>
-                                @foreach (var item in Model.PostJobs.Take(1))
+                </div>
+                <div class="col-md-3 ">
+                    <div class="single-job-sidebar">
+                        <div class="sjs_box">
+                            <h3>Employee Summary</h3>
+                            <ul class="single-job-sidebar-features">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <h6>Location</h6>
+                                    <p>@Model.Location</p>
+                                </li>
+                                <li>
+                                    <i class="fas fa-briefcase"></i>
+                                    <h6>Job Type</h6>
+                                    <p>@Model.JobType</p>
+                                </li>
+                                <li>
+                                    <i class="fas fa-money-bill-alt"></i>
+                                    <h6>Expected Salary</h6>
+                                    <p>@Model.ExpectedSalary</p>
+                                </li>
+                                <li>
+                                    <h6>Register Date</h6>
+                                    <i class="far fa-clock"></i>
+                                </li>
+                                @if (true)
                                 {
-                                    var minutePassed = (int)(DateTime.Now - item.CreateTime).TotalMinutes;
-                                    var hoursPassed = (int)(DateTime.Now - item.CreateTime).TotalHours;
-                                    var daysPassed = (int)(DateTime.Now - item.CreateTime).TotalDays;
-                                    <ul class="single-job-sidebar-features">
+                                    var minutePassed = (int)(DateTime.Now - Model.CreateTime).TotalMinutes;
+                                    var hoursPassed = (int)(DateTime.Now - Model.CreateTime).TotalHours;
+                                    var daysPassed = (int)(DateTime.Now - Model.CreateTime).TotalDays;
+                                    @if (minutePassed < 60)
+                                    {
                                         <li>
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            <h6>Location</h6>
-                                            <p>@item.Location</p>
+                                            <p href="#">
+                                                @minutePassed minutes ago
+                                            </p>
                                         </li>
+                                    }
+                                    else if (hoursPassed < 24)
+                                    {
                                         <li>
-                                            <i class="fas fa-briefcase"></i>
-                                            <h6>Job Type</h6>
-                                            <p>@item.JobType</p>
+                                            <p href="#">
+                                                @hoursPassed hours ago
+                                            </p>
                                         </li>
+                                    }
+                                    else
+                                    {
                                         <li>
-                                            <i class="fas fa-money-bill-alt"></i>
-                                            <h6>Expected Salary</h6>
-                                            <p>@item.Salary</p>
+                                            <p href="#">
+                                                @daysPassed days ago
+                                            </p>
                                         </li>
-                                        <li>
-                                            <h6>Register Date</h6>
-                                            <i class="far fa-clock"></i>
-                                        </li>
-                                        @if (minutePassed < 60)
-                                        {
-                                            <li>
-                                                <a href="#">
-                                                    @minutePassed minutes ago
-                                                </a>
-                                            </li>
-                                        }
-                                        else if (hoursPassed < 24)
-                                        {
-                                            <li>
-                                                <a href="#">
-                                                    @hoursPassed hours ago
-                                                </a>
-                                            </li>
-                                        }
-                                        else
-                                        {
-                                            <li>
-                                                <a href="#">
-                                                    @daysPassed days ago
-                                                </a>
-                                            </li>
-                                        }
-                                    </ul>
+                                    }
                                 }
-                            </div>
-                            <div class="sjs_box">
-                                <h3>Skills</h3>
-                                <ul class="tags">
-                                    <li>PHP</li>
-                                    <li>MySQL </li>
-                                    <li>API Development</li>
-                                    <li>PHP</li>
-                                    <li>MySQL </li>
-                                    <li>API Development</li>
-                                </ul>
-                            </div>
+                            </ul>
                         </div>
-                        <div class="sjs_box sjs_box_action">
-                            <h3>Attachments</h3>
-                            <a target="_blank" class="download-cv" href="#"><i class="fas fa-file-download"></i><span>Curriculum Vitae</span></a>
-                            <a class="btn btn-primary" href="#">Hire me</a>
+                        <div class="sjs_box">
+                            <h3>Skills</h3>
+                            <ul class="tags">
+                                <li>PHP</li>
+                                <li>MySQL </li>
+                                <li>API Development</li>
+                                <li>PHP</li>
+                                <li>MySQL </li>
+                                <li>API Development</li>
+                            </ul>
                         </div>
+                    </div>
+                    <div class="sjs_box sjs_box_action">
+                        <h3>Attachments</h3>
+                        <a target="_blank" class="download-cv" href="#"><i class="fas fa-file-download"></i><span>Curriculum Vitae</span></a>
+                        <a class="btn btn-primary" href="#">Hire me</a>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-
-
-
-
+    </div>
+</main>

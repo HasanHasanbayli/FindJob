@@ -175,12 +175,33 @@ namespace FindJob.Controllers
         public async Task<IActionResult> MyJobList()
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            return View(_db.PostJobs.Where(h=>h.AppUserId==user.Id).ToList());
+            return View(_db.PostJobs.Where(h => h.AppUserId == user.Id).ToList());
+        }
+
+        public async Task<IActionResult> DeleteJob(int? id, PostJob job)
+        {
+            if (id == null) return RedirectToAction("Index", "Error404");
+            PostJob dbJob = await _db.PostJobs.FindAsync(id);
+            if (dbJob == null) return RedirectToAction("Index", "Error404");
+            _db.PostJobs.Remove(dbJob);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("MyJobList", "Users");
+        }
+
+        public IActionResult BrowseJobs()
+        {
+            var user = _db.PostJobs.Where(x => x.IsActivated == true).Include(x => x.AppUser).ToList();
+            return View(user);
+        }
+
+        public IActionResult JobDetail(int? id)
+        {
+            return View(_db.PostJobs.Include(p=>p.AppUser).FirstOrDefault(x=>x.Id==id));
         }
 
         public IActionResult FindStaff(AppUser user)
         {
-            return View(_db.Users.ToList());
+            return View(_db.Users.Where(x=>x.IsCompany==false).ToList());
         }
 
         public IActionResult UserProfile(string id)
@@ -215,20 +236,6 @@ namespace FindJob.Controllers
             return RedirectToAction("MyJobList", "Users");
         }
 
-        public async Task<IActionResult> DeleteJob(int? id, PostJob job)
-        {
-            if (id == null) return RedirectToAction("Index", "Error404");
-            PostJob dbJob = await _db.PostJobs.FindAsync(id);
-            if (dbJob == null) return RedirectToAction("Index", "Error404");
-            _db.PostJobs.Remove(dbJob);
-            await _db.SaveChangesAsync();
-            return RedirectToAction("MyJobList", "Users");
-        }
-
-        public IActionResult BrowseJobs()
-        {
-            var user = _db.PostJobs.Where(x=>x.IsActivated==true).Include(x => x.AppUser).ToList();
-            return View(user);
-        }       
+       
     }
 }

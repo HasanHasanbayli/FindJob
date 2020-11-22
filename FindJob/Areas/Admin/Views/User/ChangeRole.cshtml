@@ -1,0 +1,29 @@
+﻿@model UserVM
+@{
+    ViewData["Title"] = "ChangeRole";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row m-3">
+    <div class="col-6">
+        <form method="post">
+            <label class="" style="font-size:30px">Roles</label>
+            @foreach (var item in Model.Roles)
+            {
+                if (item == Model.Role)
+                {
+                    <div class="form-group">
+                        <input type="radio" checked value="@item" style="font-size:large" name="Role"> @item
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        <input type="radio" value="@item" name="Role">@item
+                    </div>
+                }
+            }
+            <button type="submit" class="btn btn-primary my-1">Change Role</button>
+        </form>
+    </div>
+</div>

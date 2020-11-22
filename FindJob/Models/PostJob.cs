@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,9 +24,10 @@ namespace FindJob.Models
         public DateTime ExpiresDate { get; set; }
         public int Interest { get; set; }
         public int Contacted  { get; set; }
+        public string Image { get; set; }
+        [NotMapped]
+        public IFormFile Photo { get; set; }
         public AppUser AppUser { get; set; }
         public string AppUserId { get; set; }
-        
-       
     }
 }

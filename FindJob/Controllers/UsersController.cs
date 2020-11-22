@@ -137,6 +137,7 @@ namespace FindJob.Controllers
             newPost.ExpiresDate = post.ExpiresDate;
             newPost.JobType = post.JobType;
             newPost.Vacancies = post.Vacancies;
+            newPost.Image = user.Image;
             newPost.Skills = post.Skills;
             newPost.AppUserId = user.Id;
             await _db.PostJobs.AddAsync(newPost);

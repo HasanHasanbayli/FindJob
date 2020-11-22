@@ -255,6 +255,9 @@ namespace FindJob.Migrations
                     b.Property<DateTime>("ExpiresDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Interest")
                         .HasColumnType("int");
 

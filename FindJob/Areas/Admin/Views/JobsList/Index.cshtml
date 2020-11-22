@@ -1,0 +1,114 @@
+﻿@model IEnumerable<PostJob>
+@{
+
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    int Count=0;
+}
+<div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Count
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Company Profile
+                            </th>
+                            <th>
+                                Location
+                            </th>
+                            <th>
+                                CreateTime
+                            </th>
+                            <th>
+                                Experies Time
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Vacancies
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody style="cursor:pointer">
+                        @foreach (PostJob job in Model)
+                        {
+                            Count++;
+                            <tr>
+                                <td>
+                                    @Count
+                                </td>
+                                <td class="py-1">
+                                    @if (job.Image != null)
+                                    {
+                                        <img src="~/assets/images/Users/@job.Image" alt="image" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/assets/images/Users/prof.PNG" />
+                                    }
+                                </td>
+                                <td>
+                                    @job.JobTitle
+                                </td>
+                                <td>
+                                    @job.CompanyName
+                                </td>
+                                <td>
+                                    @job.Location
+                                </td>
+                                <td>
+                                    @job.CreateTime
+                                </td>
+                                <td>
+                                    @job.ExpiresDate
+                                </td>
+                                @if (job.IsActivated)
+                                {
+                                    <td style="color:lawngreen">
+                                        Active
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="color:red">
+                                        Disable
+                                    </td>
+                                }
+                                <td>
+                                    @job.Vacancies
+                                </td>
+                                <td>
+                                    <a asp-action="" asp-route-id="@job.Id" class="">
+                                        <i class=""></i>
+                                    </a>
+                                    <a asp-action="" asp-route-id="@job.Id" class="">
+                                        <i class=""></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@job.Id" class="">
+                                        <i class="mdi mdi-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

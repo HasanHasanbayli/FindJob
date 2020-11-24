@@ -19,6 +19,8 @@
     <Compile Remove="Migrations\20201116101233_AddColumnToAppUserAndPostJobTable.Designer.cs" />
     <Compile Remove="Migrations\20201116102720_AddColumnToAppUserAndPostJobTable.cs" />
     <Compile Remove="Migrations\20201116102720_AddColumnToAppUserAndPostJobTable.Designer.cs" />
+    <Compile Remove="Migrations\20201124175953_AddFavoriteJobsTable.cs" />
+    <Compile Remove="Migrations\20201124175953_AddFavoriteJobsTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

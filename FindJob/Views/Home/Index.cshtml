@@ -563,7 +563,7 @@
                                         </ul>
                                     </div>
                                     <div class="fb_action">
-                                        <a title="add to favourite" href="#"><i class="far fa-heart"></i></a>
+                                        <a title="add to favourite" asp-controller="FavoriteJobs" asp-action="AddFavorite" asp-route-id="@job.Id"><i class="far fa-heart"></i></a>
                                         <a class="btn btn-third" asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">Apply Now</a>
                                         <ul class="tags">
                                             <li>copywriting</li>

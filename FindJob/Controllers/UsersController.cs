@@ -41,7 +41,8 @@ namespace FindJob.Controllers
         
         public IActionResult StaredJobs()
         {
-            return View();
+            string favorites = Request.Cookies["favorites"];
+            return Content(favorites);
         }
 
         public async Task<IActionResult> UpdateProfile()
@@ -117,7 +118,6 @@ namespace FindJob.Controllers
             return View();
         }
 
-        
         public IActionResult PostJob()
         {
             return View();

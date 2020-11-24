@@ -77,9 +77,19 @@
                                 <td>
                                     @user.Role
                                 </td>
-                                <td>
-                                    @user.CompanyName
-                                </td>
+                                @if (user.CompanyName != null)
+                                {
+                                    <td>
+                                        @user.CompanyName
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        ------------------------
+                                    </td>
+                                }
+
                                 @if (user.IsActivated)
                                 {
                                     <td style="color:lawngreen">
@@ -96,12 +106,14 @@
                                     @if (user.IsActivated)
                                     {
                                         <a asp-action="Active" asp-route-id="@user.Id" class="btn btn-danger">
-                                        <i class="mdi mdi-account-off"></i></a>
+                                            <i class="mdi mdi-account-off"></i>
+                                        </a>
                                     }
                                     else
                                     {
                                         <a asp-action="Disable" asp-route-id="@user.Id" class="btn btn-success">
-                                        <i class="mdi mdi-account-check"></i></a>
+                                            <i class="mdi mdi-account-check"></i>
+                                        </a>
                                     }
                                     <a asp-action="ChangeRole" asp-route-id="@user.Id" class="btn btn-primary">
                                         <i class="mdi mdi-account-convert"></i>

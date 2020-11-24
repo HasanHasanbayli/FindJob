@@ -151,8 +151,13 @@
                                         <div class="login_pop_box">
                                             <span class="twobtn_cont">
                                                 <a class=" signjs_btn" asp-controller="Account" asp-action="Register">
-                                                    <span>Sign Up</span>
+                                                    <span>EMPLOYES</span> Sign up
                                                     <i class="far fa-user"></i>
+                                                </a>
+                                                <a class=" signrs_btn" asp-controller="Account" asp-action="EmployerRegister">
+                                                    <span>EMPLOYERS</span>
+                                                    Sign up
+                                                    <i class="fas fa-landmark"></i>
                                                 </a>
                                             </span>
                                             <div>
@@ -168,7 +173,7 @@
                                 else
                                 {
                                     <!--logedin-->
-                                    if (User.IsInRole("Seeker"))
+                                    if (User.IsInRole("Employe"))
                                     {
                                         <div class="login_pop after_login">
                                             <button class="btn btn-primary withdp">
@@ -344,7 +349,7 @@
             <div class="header_main">
                 <div class="header_btm">
                     <video autoplay loop>
-                        <source src="~/assets/images/video.mp4" type="video/mp4">
+                        @*<source src="~/assets/images/video.mp4" type="video/mp4">*@
                     </video>
 
                     <!-- <div class="bg-v" >

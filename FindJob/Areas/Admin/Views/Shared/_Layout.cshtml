@@ -18,7 +18,7 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="~/admin/images/favicon.png" />
 </head>
-<body>
+<body class="sidebar-icon-only">
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -181,9 +181,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/charts/chartjs.html">
-                            <i class="mdi mdi-chart-pie menu-icon"></i>
-                            <span class="menu-title">Charts</span>
+                        <a class="nav-link" asp-controller="JobsList" asp-action="Index">
+                            <i class="mdi mdi mdi-briefcase-check menu-icon"></i>
+                            <span class="menu-title">Jobs List</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -238,6 +238,8 @@
             </div>
         </div>
     </div>
+
+
     <!-- plugins:js -->
     <script src="~/admin/vendors/base/vendor.bundle.base.js"></script>
     <script src="~/admin/vendors/chart.js/Chart.min.js"></script>
@@ -250,5 +252,7 @@
     <script src="~/admin/js/data-table.js"></script>
     <script src="~/admin/js/jquery.dataTables.js"></script>
     <script src="~/admin/js/dataTables.bootstrap4.js"></script>
+
+    @RenderSection("Scripts", false)
 </body>
 </html>

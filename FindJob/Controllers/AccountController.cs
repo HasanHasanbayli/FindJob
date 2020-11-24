@@ -70,7 +70,7 @@ namespace FindJob.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterVM register, string lorem)
+        public async Task<IActionResult> Register(EmployeRegisterVM register)
         {
             if (!ModelState.IsValid) return View();
             AppUser newUser = new AppUser
@@ -79,6 +79,7 @@ namespace FindJob.Controllers
                 UserName = register.UserName,
                 Email = register.Email,
                 IsActivated = true,
+                IsCompany=false,
                 CreateTime = DateTime.Now
         };
             IdentityResult identityResult = await _userManager.CreateAsync(newUser, register.Password);
@@ -90,9 +91,43 @@ namespace FindJob.Controllers
                 }
                 return View(register);
             }
-            await _userManager.AddToRoleAsync(newUser, lorem);
+            await _userManager.AddToRoleAsync(newUser, "Employe");
             await _signInManager.SignInAsync(newUser, true);
-            return RedirectToAction("Index", "Home");
+            return Redirect(Url.Action("Index", "Home"));
+        }
+
+        public IActionResult EmployerRegister()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EmployerRegister(EmployerRegisterVM register)
+        {
+            if (!ModelState.IsValid) return View();
+            AppUser newUser = new AppUser
+            {
+                FullName = register.FullName,
+                CompanyName = register.CompanyName,
+                UserName = register.UserName,
+                Email = register.Email,
+                IsActivated = true,
+                IsCompany = true,
+                CreateTime = DateTime.Now
+            };
+            IdentityResult identityResult = await _userManager.CreateAsync(newUser, register.Password);
+            if (!identityResult.Succeeded)
+            {
+                foreach (var error in identityResult.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View(register);
+            }
+            await _userManager.AddToRoleAsync(newUser, "Employer");
+            await _signInManager.SignInAsync(newUser, true);
+            return Redirect(Url.Action("Index", "Home"));
         }
 
         public async Task<IActionResult> Logout()
@@ -115,9 +150,9 @@ namespace FindJob.Controllers
         //    {
         //        await _roleManager.CreateAsync(new IdentityRole { Name = "Employer" });
         //    }
-        //    if (!await _roleManager.RoleExistsAsync("Seeker"))
+        //    if (!await _roleManager.RoleExistsAsync("Employe"))
         //    {
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Seeker" });
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Employe" });
         //    }
         //}
     }

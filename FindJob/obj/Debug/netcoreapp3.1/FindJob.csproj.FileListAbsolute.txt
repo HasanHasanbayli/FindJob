@@ -348,3 +348,5 @@ C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\ChangePassword.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\DeleteUser.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\JobsList\Index.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\JobsList\Update.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Account\EmployerRegister.cshtml.g.cs

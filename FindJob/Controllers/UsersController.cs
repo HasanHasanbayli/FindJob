@@ -33,9 +33,10 @@ namespace FindJob.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            return View(user);
         }
         
         public IActionResult StaredJobs()
@@ -116,6 +117,7 @@ namespace FindJob.Controllers
             return View();
         }
 
+        
         public IActionResult PostJob()
         {
             return View();
@@ -152,7 +154,7 @@ namespace FindJob.Controllers
             if (job == null) return RedirectToAction("Index", "Error404");
             return View(job);
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditJob(int? id, PostJob post)

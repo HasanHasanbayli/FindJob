@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FindJob.ViewModels
 {
-    public class RegisterVM
+    public class EmployerRegisterVM
     {
         [Required, StringLength(50)]
         public string FullName { get; set; }
@@ -18,5 +18,7 @@ namespace FindJob.ViewModels
         public string Password { get; set; }
         [Required, DataType(DataType.Password), Compare(nameof(Password))]
         public string ConfirmPassword { get; set; }
+        [Required, StringLength(50)]
+        public string CompanyName { get; set; }
     }
 }

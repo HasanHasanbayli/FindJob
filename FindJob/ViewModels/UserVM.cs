@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FindJob.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,5 +23,6 @@ namespace FindJob.ViewModels
         public bool IsActivated { get; set; }
         public List<string> Roles { get; set; }
         public bool IsArchived { get; set; }
+        public bool IsCompany { get; set; }
     }
 }

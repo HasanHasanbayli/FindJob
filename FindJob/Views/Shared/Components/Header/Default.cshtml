@@ -128,9 +128,14 @@
                                     <button class="btn btn-primary">Login / Sign up <i class="fas fa-caret-down"></i></button>
                                     <div class="login_pop_box">
                                         <span class="twobtn_cont">
-                                            <a id="seeker" class=" signjs_btn" asp-controller="Account" asp-action="Register">
-                                                <span>Sign Up</span>
+                                            <a class=" signjs_btn" asp-controller="Account" asp-action="Register">
+                                                <span>EMPLOYES</span> Sign up
                                                 <i class="far fa-user"></i>
+                                            </a>
+                                            <a class=" signrs_btn" asp-controller="Account" asp-action="EmployerRegister">
+                                                <span>EMPLOYERS</span>
+                                                Sign up
+                                                <i class="fas fa-landmark"></i>
                                             </a>
                                         </span>
                                         <input type="text" name="lorem" class="d-none" id="resultInput" value="Seeker" />
@@ -147,7 +152,7 @@
                             else
                             {
                                 <!--logedin-->
-                                if (User.IsInRole("Seeker"))
+                                if (ViewBag.User.IsCompany==false)
                                 {
                                     <div class="login_pop after_login">
                                         <button class="btn btn-primary withdp">

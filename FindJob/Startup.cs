@@ -28,7 +28,6 @@ namespace FindJob
             services.AddDbContext<AppDbContext>(options => {
                 options.UseSqlServer(_config["ConnectionString:Default"]);
             });
-
             services.AddIdentity<AppUser, IdentityRole>(identityOptions =>
             {
                 identityOptions.Password.RequiredLength = 6;
@@ -36,9 +35,7 @@ namespace FindJob
                 identityOptions.Password.RequireLowercase = false;
                 identityOptions.Password.RequireUppercase = false;
                 identityOptions.Password.RequireDigit = true;
-
                 identityOptions.User.RequireUniqueEmail = true;
-
                 identityOptions.Lockout.AllowedForNewUsers = true;
                 identityOptions.Lockout.MaxFailedAccessAttempts = 3;
                 identityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
@@ -51,7 +48,6 @@ namespace FindJob
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseRouting();
             app.UseStaticFiles();
             app.UseAuthentication();

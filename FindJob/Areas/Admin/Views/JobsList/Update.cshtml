@@ -93,7 +93,24 @@
                                     <label class="form-check-label status">@(Model.IsActivated == true ? "Active" : "Deactive")</label>
                                     <input type="checkbox" class="form-check-input status-check ml-1" name="membershipRadios" id="membershipRadios1" value="" @(Model.IsActivated == true ? "checked" : "")>
                                 </div>
-
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Vacancies</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Vacancies" class="form-control" placeholder="5 Vacancies" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Skills</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Skills" class="form-control" />
                             </div>
                         </div>
                     </div>

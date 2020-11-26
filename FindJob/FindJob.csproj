@@ -21,6 +21,14 @@
     <Compile Remove="Migrations\20201116102720_AddColumnToAppUserAndPostJobTable.Designer.cs" />
     <Compile Remove="Migrations\20201124175953_AddFavoriteJobsTable.cs" />
     <Compile Remove="Migrations\20201124175953_AddFavoriteJobsTable.Designer.cs" />
+    <Compile Remove="Migrations\20201125185305_CreateStaredJobsTable.cs" />
+    <Compile Remove="Migrations\20201125185305_CreateStaredJobsTable.Designer.cs" />
+    <Compile Remove="Migrations\20201125192405_AddColumnToUserStaredJobsTable.cs" />
+    <Compile Remove="Migrations\20201125192405_AddColumnToUserStaredJobsTable.Designer.cs" />
+    <Compile Remove="Migrations\20201126122319_AddStaredJobsTable.cs" />
+    <Compile Remove="Migrations\20201126122319_AddStaredJobsTable.Designer.cs" />
+    <Compile Remove="Migrations\20201126132622_AddIsFavoriteColumnTable.cs" />
+    <Compile Remove="Migrations\20201126132622_AddIsFavoriteColumnTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

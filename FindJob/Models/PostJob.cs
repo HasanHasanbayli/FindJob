@@ -19,6 +19,7 @@ namespace FindJob.Models
         public string Skills { get; set; }
         public string JobDescription{ get; set; }
         public bool IsActivated { get; set; }
+        public bool IsFavorite { get; set; }
         public int Vacancies { get; set; }
         public DateTime CreateTime { get; set; }
         public DateTime ExpiresDate { get; set; }

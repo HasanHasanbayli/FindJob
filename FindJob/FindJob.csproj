@@ -29,6 +29,8 @@
     <Compile Remove="Migrations\20201126122319_AddStaredJobsTable.Designer.cs" />
     <Compile Remove="Migrations\20201126132622_AddIsFavoriteColumnTable.cs" />
     <Compile Remove="Migrations\20201126132622_AddIsFavoriteColumnTable.Designer.cs" />
+    <Compile Remove="Migrations\20201126132915_AddIsFavoriteColumnTable.cs" />
+    <Compile Remove="Migrations\20201126132915_AddIsFavoriteColumnTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

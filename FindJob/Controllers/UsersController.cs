@@ -33,23 +33,32 @@ namespace FindJob.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
         public async Task<IActionResult> Index()
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             return View(user);
         }
-        
-        public IActionResult StaredJobs()
+
+        public async Task<IActionResult> StaredJobs()
         {
-            string favorites = Request.Cookies["favorites"];
-            return Content(favorites);
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var appUserPostJobs = _db.AppUserPostJobs.Include(x => x.PostJob).Where(x => x.AppUserId == user.Id);
+            return View(appUserPostJobs);
         }
+
+        //public async Task<IActionResult> Applied(int? id)
+        //{
+        //    PostJob postJob = await _db.PostJobs.FindAsync(id);
+        //    postJob.IsFavorite=true;
+        //    return View();
+        //}
 
         public async Task<IActionResult> UpdateProfile()
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             if (user == null) return RedirectToAction("Index", "Error404");
-            return  View(user);
+            return View(user);
         }
 
         [HttpPost]
@@ -86,8 +95,8 @@ namespace FindJob.Controllers
                         ModelState.AddModelError("Photo", "Shekilin olchusu max 200kb ola biler");
                         return View();
                     }
-                    string path = Path.Combine("assets","images", "Users");
-                    if (user.Image!=null)
+                    string path = Path.Combine("assets", "images", "Users");
+                    if (user.Image != null)
                     {
                         Helper.DeleteImage(_env.WebRootPath, path, user.Image);
                     }
@@ -127,7 +136,9 @@ namespace FindJob.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> PostJob(PostJob post)
         {
+            //PostJob postJob =  _db.PostJobs.Include(x=>x./*AppUserPostJobs*/).ThenInclude(x=>x.AppUserId).FirstOrDefault(x=>x.Id==post.Id);
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            //var appUserPostJob = postJob.AppUserPostJobs.Where(x => x.AppUserId == user.Id);
             if (!ModelState.IsValid) return View();
             PostJob newPost = new PostJob();
             newPost.JobDescription = post.JobDescription;
@@ -142,6 +153,13 @@ namespace FindJob.Controllers
             newPost.Image = user.Image;
             newPost.Skills = post.Skills;
             newPost.AppUserId = user.Id;
+            //List<AppUserPostJob> appUserPostJob2 = new List<AppUserPostJob>();
+            //foreach (var item in post.AppUserPostJobs)
+            //{
+            //    appUserPostJob2.Add(item);
+
+            //}
+            //newPost.AppUserPostJobs = appUserPostJob2;
             await _db.PostJobs.AddAsync(newPost);
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -154,7 +172,7 @@ namespace FindJob.Controllers
             if (job == null) return RedirectToAction("Index", "Error404");
             return View(job);
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditJob(int? id, PostJob post)
@@ -199,12 +217,12 @@ namespace FindJob.Controllers
 
         public IActionResult JobDetail(int? id)
         {
-            return View(_db.PostJobs.Include(p=>p.AppUser).FirstOrDefault(x=>x.Id==id));
+            return View(_db.PostJobs.Include(p => p.AppUser).FirstOrDefault(x => x.Id == id));
         }
 
         public IActionResult FindStaff(AppUser user)
         {
-            return View(_db.Users.Where(x=>x.IsCompany==false).ToList());
+            return View(_db.Users.Where(x => x.IsCompany == false).ToList());
         }
 
         public IActionResult UserProfile(string id)
@@ -238,7 +256,5 @@ namespace FindJob.Controllers
             await _db.SaveChangesAsync();
             return RedirectToAction("MyJobList", "Users");
         }
-
-       
     }
 }

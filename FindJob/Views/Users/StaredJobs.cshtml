@@ -1,6 +1,7 @@
-﻿
+﻿@model IEnumerable<AppUserPostJob>
 @{
-    ViewData["Title"] = "StaredJobs";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <main>
@@ -17,7 +18,7 @@
                 <div class="sidebar">
                     <ul class="user_navigation">
                         <li>
-                            <a asp-controller="Seekers" asp-action="JobList"><i class="fas fa-search"></i> Browse Jobs </a>
+                            <a href="browse-jobs.html"><i class="fas fa-search"></i> Browse Jobs </a>
                             <a class="filter_btn" href="#sidebar_filter_option">
                                 <i class="fas fa-filter"></i>
                                 <i class="fas fa-times"></i>
@@ -105,33 +106,24 @@
                             </form>
                         </li>
                         <li>
-                            <a asp-controller="Seekers" asp-action="Index">
+                            <a href="job-seeker-dashboard.html">
                                 <i class="fas fa-border-all"></i> Job Dashboard
                             </a>
                         </li>
                     </ul>
                     <h5>Organize and Manage</h5>
                     <ul class="user_navigation">
-                        <li>
-                            <a asp-controller="Users" asp-action="StaredJobs"><i class="fas fa-star"></i> View My Stared Jobs</a>
+                        <li class="is-active">
+                            <a href="my-stared-jobs.html"><i class="fas fa-star"></i> View My Stared Jobs</a>
                         </li>
-                        @if (Model.IsCompany == true)
-                        {
-                            <li>
-                                <a asp-controller="Users" asp-action="PostJob"><i class="fas fa-paper-plane"></i> Post Job</a>
-                            </li>
-                            <li>
-                                <a asp-controller="Users" asp-action="MyJobList"><i class="far fa-list-alt"></i> My job listings</a>
-                            </li>
-                        }
                     </ul>
                     <h5>Account</h5>
                     <ul class="user_navigation">
                         <li>
-                            <a asp-controller="Seekers" asp-action="UpdateProfile"><i class="fas fa-user"></i> Update My Profile</a>
+                            <a href="edit-profile.html"><i class="fas fa-user"></i> Update My Profile</a>
                         </li>
                         <li>
-                            <a asp-controller="Seekers" asp-action="ChangePassword"><i class="fas fa-key"></i>Change Password</a>
+                            <a href="edit-password.html"><i class="fas fa-key"></i>Change Password</a>
                         </li>
                         <li>
                             <a href="edit-password.html"><i class="fas fa-power-off"></i> Logout</a>
@@ -152,18 +144,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="job_title"><a href="job-single.html">TEST Full Job Waiter</a></td>
-                                        <td class="expires">September 30, 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="job_title"><a href="job-single.html">Resort Manage</a></td>
-                                        <td class="expires">October 15, 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="job_title"><a href="job-single.html">Resort Manage</a></td>
-                                        <td class="expires">October 15, 2020</td>
-                                    </tr>
+                                    @foreach (AppUserPostJob postJob1 in Model)
+                                    {
+                                        <tr>
+                                            @if (postJob1.IsFavorite == true)
+                                            {
+                                                <td class="job_title"><a asp-controller="Users" asp-action="JobDetail" asp-route-id="@postJob1.Id">@postJob1.PostJob.JobTitle</a></td>
+                                                <td class="expires">@postJob1.PostJob.CreateTime</td>
+                                            }
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>
@@ -183,22 +173,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="job_title"><a href="job-single.html">Job for waitor</a></td>
-                                        <td class="expires">September 26, 2019</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="job_title"><a href="job-single.html">test new</a></td>
-                                        <td class="expires">September 26, 2019</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="job_title"><a href="job-single.html">Hotel Assistance</a></td>
-                                        <td class="expires">September 26, 2019</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="job_title"><a href="job-single.html">Assistance </a></td>
-                                        <td class="expires">September 26, 2019</td>
-                                    </tr>
+                                    @foreach (AppUserPostJob postJob in Model)
+                                    {
+                                        @if (postJob.IsContacted == true)
+                                        {
+                                            <tr>
+                                                <td class="job_title"><a asp-controller="Users" asp-action="JobDetail" asp-route-id="@postJob.Id">@postJob.PostJob.JobTitle</a></td>
+                                                <td class="expires">@postJob.PostJob.CreateTime</td>
+                                            </tr>
+                                        }
+                                    }
                                 </tbody>
                             </table>
                         </div>

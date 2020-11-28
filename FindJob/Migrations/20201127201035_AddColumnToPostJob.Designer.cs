@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FindJob.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201126132915_AddIsFavoriteColumnTable")]
-    partial class AddIsFavoriteColumnTable
+    [Migration("20201127201035_AddColumnToPostJob")]
+    partial class AddColumnToPostJob
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -131,6 +131,34 @@ namespace FindJob.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("FindJob.Models.AppUserPostJob", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("IsContacted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsFavorite")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PostJobId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("PostJobId");
+
+                    b.ToTable("AppUserPostJobs");
                 });
 
             modelBuilder.Entity("FindJob.Models.Bio", b =>
@@ -452,10 +480,23 @@ namespace FindJob.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("FindJob.Models.AppUserPostJob", b =>
+                {
+                    b.HasOne("FindJob.Models.AppUser", "AppUser")
+                        .WithMany("AppUserPostJobs")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("FindJob.Models.PostJob", "PostJob")
+                        .WithMany("AppUserPostJobs")
+                        .HasForeignKey("PostJobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("FindJob.Models.PostJob", b =>
                 {
                     b.HasOne("FindJob.Models.AppUser", "AppUser")
-                        .WithMany("PostJobs")
+                        .WithMany()
                         .HasForeignKey("AppUserId");
                 });
 

@@ -19,5 +19,6 @@ namespace FindJob.DAL
         public DbSet<Partners> Partners { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<PostJob> PostJobs { get; set; }
+        public DbSet<AppUserPostJob> AppUserPostJobs { get; set; }
     }
 }

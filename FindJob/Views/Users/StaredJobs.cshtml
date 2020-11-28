@@ -149,7 +149,7 @@
                                         <tr>
                                             @if (postJob1.IsFavorite == true)
                                             {
-                                                <td class="job_title"><a asp-controller="Users" asp-action="JobDetail" asp-route-id="@postJob1.Id">@postJob1.PostJob.JobTitle</a></td>
+                                                <td class="job_title"><a asp-controller="Users" asp-action="JobDetail" asp-route-id="@postJob1.PostJob.Id">@postJob1.PostJob.JobTitle</a></td>
                                                 <td class="expires">@postJob1.PostJob.CreateTime</td>
                                             }
                                         </tr>
@@ -178,7 +178,7 @@
                                         @if (postJob.IsContacted == true)
                                         {
                                             <tr>
-                                                <td class="job_title"><a asp-controller="Users" asp-action="JobDetail" asp-route-id="@postJob.Id">@postJob.PostJob.JobTitle</a></td>
+                                                <td class="job_title"><a asp-controller="Users" asp-action="JobDetail" asp-route-id="@postJob.PostJob.Id">@postJob.PostJob.JobTitle</a></td>
                                                 <td class="expires">@postJob.PostJob.CreateTime</td>
                                             </tr>
                                         }

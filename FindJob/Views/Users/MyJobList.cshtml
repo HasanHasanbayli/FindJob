@@ -220,10 +220,10 @@
                                                     @job.ExpiresDate
                                                 </td>
                                                 <td>
-                                                    @job.Interest
+                                                    @job.AppUserPostJobs.Where(x=>x.IsFavorite==true).Count()
                                                 </td>
                                                 <td>
-                                                    @job.Contacted
+                                                    @job.AppUserPostJobs.Where(x=>x.IsContacted==true).Count()
                                                 </td>
                                             </tr>
                                         }

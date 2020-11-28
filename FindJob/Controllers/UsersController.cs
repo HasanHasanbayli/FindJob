@@ -196,7 +196,7 @@ namespace FindJob.Controllers
         public async Task<IActionResult> MyJobList()
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            return View(_db.PostJobs.Where(h => h.AppUserId == user.Id).ToList());
+            return View(_db.PostJobs.Include(x=>x.AppUserPostJobs).Where(h => h.AppUserId == user.Id).ToList());
         }
 
         public async Task<IActionResult> DeleteJob(int? id, PostJob job)

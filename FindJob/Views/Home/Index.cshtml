@@ -565,25 +565,35 @@
                                     <div class="fb_action">
                                         @if (User.Identity.IsAuthenticated)
                                         {
-                                            <a title="add to favourite" asp-controller="Home" asp-action="AddToFavorite" asp-route-id="@job.Id">
-
-                                                @if (job.AppUserPostJobs.Where(x => x.AppUserId == Model.AppUser.Id).Any(x => x.IsFavorite == true))
-                                                {
+                                            @if (job.AppUserPostJobs.Where(x => x.AppUserId == Model.AppUser.Id).Any(x => x.IsFavorite == true))
+                                            {
+                                                <a title="add to favourite" asp-controller="Home" asp-action="RemoveFavorite" asp-route-id="@job.AppUserPostJobs.FirstOrDefault().Id">
                                                     <i class="fas fa-star"></i>
-                                                }
-                                                else
-                                                {
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a title="add to favourite" asp-controller="Home" asp-action="AddToFavorite" asp-route-id="@job.Id">
                                                     <i class="far fa-star"></i>
-                                                }
-                                            </a>
+                                                </a>
+                                            }
+                                            if (job.AppUserPostJobs.Where(x => x.AppUserId == Model.AppUser.Id).Any(x => x.IsContacted == true))
+                                            {
+                                                <a class="btn btn-third disabled" href="job-single.html">Applied</a>
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-third" asp-controller="Home" asp-action="AddApply" asp-route-id="@job.Id">Apply Now</a>
+                                            }
                                         }
                                         else
                                         {
                                             <a title="add to favourite" asp-controller="Home" asp-action="AddToFavorite" asp-route-id="@job.Id">
                                                 <i class="far fa-heart"></i>
                                             </a>
+                                            <a class="btn btn-third" asp-controller="Home" asp-action="AddApply" asp-route-id="@job.Id">Apply Now</a>
                                         }
-                                        <a class="btn btn-third" asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">Apply Now</a>
+
                                         <ul class="tags">
                                             <li>copywriting</li>
                                             <li>translating</li>

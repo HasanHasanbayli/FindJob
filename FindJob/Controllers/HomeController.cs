@@ -41,7 +41,7 @@ namespace FindJob.Controllers
             return View(homeVM);
         }
       
-        [Authorize()]
+        [Authorize]
         public async Task<IActionResult> AddToFavorite(int? id)
         {
             PostJob postJob = _db.PostJobs.Include(x => x.AppUserPostJobs).FirstOrDefault(x => x.Id == id);
@@ -54,10 +54,51 @@ namespace FindJob.Controllers
                     AppUserId = user.Id,
                     IsFavorite = true,
                     PostJobId = postJob.Id,
-                    IsContacted = false
                 };
                 _db.AppUserPostJobs.Add(appUserPost);
             }
+            await _db.SaveChangesAsync();
+            return NoContent();
+        }
+        
+        [Authorize]
+        public async Task<IActionResult> RemoveFavorite(int? id, AppUserPostJob appUserPostJob)
+        {
+            if (id == null) return NotFound();
+            AppUserPostJob dbPostjob = await _db.AppUserPostJobs.FindAsync(id);
+            if (dbPostjob == null) return NotFound();
+            _db.AppUserPostJobs.Remove(dbPostjob);
+            await _db.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> AddApply(int? id)
+        {
+            PostJob postJob = _db.PostJobs.Include(x => x.AppUserPostJobs).FirstOrDefault(x => x.Id == id);
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.activeUser = user;
+            if (user.AppUserPostJobs == null)
+            {
+                AppUserPostJob appUserPost = new AppUserPostJob
+                {
+                    AppUserId = user.Id,
+                    PostJobId = postJob.Id,
+                    IsContacted = true
+                };
+                _db.AppUserPostJobs.Add(appUserPost);
+            }
+            await _db.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> RemoveApply(int? id, AppUserPostJob appUserPostJob)
+        {
+            if (id == null) return NotFound();
+            AppUserPostJob dbPostjob = await _db.AppUserPostJobs.FindAsync(id);
+            if (dbPostjob == null) return NotFound();
+            _db.AppUserPostJobs.Remove(dbPostjob);
             await _db.SaveChangesAsync();
             return NoContent();
         }

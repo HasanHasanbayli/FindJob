@@ -19,12 +19,9 @@ namespace FindJob.Models
         public string Skills { get; set; }
         public string JobDescription{ get; set; }
         public bool IsActivated { get; set; }
-        public bool IsFavorite { get; set; }
         public int Vacancies { get; set; }
         public DateTime CreateTime { get; set; }
         public DateTime ExpiresDate { get; set; }
-        public int Interest { get; set; }
-        public int Contacted  { get; set; }
         public string Image { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
@@ -32,5 +29,4 @@ namespace FindJob.Models
         public AppUser AppUser { get; set; }
         public string AppUserId { get; set; }
     }
-
 }

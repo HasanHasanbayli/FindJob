@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PostJob>
+﻿@model PostJobVM
 @using System.Globalization
 @{
     ViewData["Title"] = "BrowseJobs";
@@ -99,7 +99,7 @@
                             </form>
                         </li>
                         <li>
-                            <a asp-controller="Users" asp-action="Index">>
+                            <a asp-controller="Users" asp-action="Index">
                                 <i class="fas fa-border-all"></i> Job Dashboard
                             </a>
                         </li>
@@ -128,7 +128,7 @@
                         <h5>Browse Jobs in list</h5>
                     </div>
                     <div class="row full_width featured_box_outer">
-                        @foreach (PostJob job in Model)
+                        @foreach (PostJob job in Model.PostJobs.Take(6))
                         {
                             var minutePassed = (int)(DateTime.Now - job.CreateTime).TotalMinutes;
                             var hoursPassed = (int)(DateTime.Now - job.CreateTime).TotalHours;
@@ -136,13 +136,17 @@
                             <div class="col-sm-12">
                                 <div class="featured_box ">
                                     <div class="fb_image">
-                                        <img alt="brand logo" src="~/assets/images/Users/@job.AppUser.Image">
+                                        <a asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">
+                                            <img alt="brand logo" src="~/assets/images/Users/@job.AppUser.Image">
+                                        </a>
                                     </div>
                                     <div class="fb_content">
-                                        <h4>@job.JobTitle</h4>
+                                        <a asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">
+                                            <h4>@job.JobTitle</h4>
+                                        </a>
                                         <ul>
                                             <li>
-                                                <a href="#">
+                                                <a asp-controller="Users" asp-action="CompanyProfile" asp-route-id="@job.AppUser.Id">
                                                     <i class="fas fa-landmark"></i>
                                                     @job.AppUser.FullName
                                                 </a>
@@ -183,8 +187,36 @@
                                         </ul>
                                     </div>
                                     <div class="fb_action">
-                                        <a title="add to favourite" href="#"><i class="far fa-heart"></i></a>
-                                        <a class="btn btn-primary" asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">Apply Now</a>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            @if (job.AppUserPostJobs.Where(x => x.AppUserId == Model.AppUser.Id).Any(x => x.IsFavorite == true))
+                                            {
+                                                <a title="add to favourite" asp-controller="Home" asp-action="RemoveFavorite" asp-route-id="@job.AppUserPostJobs.FirstOrDefault().Id">
+                                                    <i class="fas fa-star"></i>
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a title="add to favourite" asp-controller="Home" asp-action="AddToFavorite" asp-route-id="@job.Id">
+                                                    <i class="far fa-star"></i>
+                                                </a>
+                                            }
+                                            if (job.AppUserPostJobs.Where(x => x.AppUserId == Model.AppUser.Id).Any(x => x.IsContacted == true))
+                                            {
+                                                <a class="btn btn-third disabled" href="job-single.html">Applied</a>
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-third" asp-controller="Home" asp-action="AddApply" asp-route-id="@job.Id">Apply Now</a>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <a title="add to favourite" asp-controller="Home" asp-action="AddToFavorite" asp-route-id="@job.Id">
+                                                <i class="far fa-heart"></i>
+                                            </a>
+                                            <a class="btn btn-third" asp-controller="Home" asp-action="AddApply" asp-route-id="@job.Id">Apply Now</a>
+                                        }
                                     </div>
                                 </div>
                             </div>

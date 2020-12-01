@@ -31,7 +31,7 @@ namespace FindJob.Controllers
                 Statistics = _db.Statistics,
                 Partners = _db.Partners,
                 Blogs = _db.Blogs,
-                PostJobs = _db.PostJobs.Where(x => x.IsActivated == true).Include(x=>x.AppUser).Include(x=>x.AppUserPostJobs).ThenInclude(x=>x.AppUser)
+                PostJobs = _db.PostJobs.Where(x => x.IsActivated == true).Include(x=>x.AppUser).Include(x=>x.AppUserPostJobs)
             };
             if (User.Identity.IsAuthenticated)
             {

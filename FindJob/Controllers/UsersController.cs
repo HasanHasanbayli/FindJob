@@ -36,8 +36,16 @@ namespace FindJob.Controllers
 
         public async Task<IActionResult> Index()
         {
-            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            return View(user);
+            PostJobVM postJobVM = new PostJobVM
+            {
+                AppUserPostJobs = _db.AppUserPostJobs.Include(x => x.AppUser).Include(x => x.PostJob)
+            };
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                postJobVM.AppUser = user;
+            }
+            return View(postJobVM);
         }
 
         public async Task<IActionResult> StaredJobs()
@@ -46,7 +54,6 @@ namespace FindJob.Controllers
             var appUserPostJobs = _db.AppUserPostJobs.Include(x => x.PostJob).Where(x => x.AppUserId == user.Id);
             return View(appUserPostJobs);
         }
-
         //public async Task<IActionResult> Applied(int? id)
         //{
         //    PostJob postJob = await _db.PostJobs.FindAsync(id);
@@ -209,10 +216,18 @@ namespace FindJob.Controllers
             return RedirectToAction("MyJobList", "Users");
         }
 
-        public IActionResult BrowseJobs()
+        public async Task<IActionResult> BrowseJobs()
         {
-            var user = _db.PostJobs.Where(x => x.IsActivated == true).Include(x => x.AppUser).ToList();
-            return View(user);
+            PostJobVM postJobVM = new PostJobVM
+            {
+                PostJobs = _db.PostJobs.Where(x => x.IsActivated == true).Include(x => x.AppUser).Include(x => x.AppUserPostJobs).ThenInclude(x => x.AppUser)
+            };
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                postJobVM.AppUser = user;
+            }
+            return View(postJobVM);
         }
 
         public IActionResult JobDetail(int? id)

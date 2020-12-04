@@ -565,26 +565,30 @@
                                     <div class="fb_action">
                                         @if (User.Identity.IsAuthenticated)
                                         {
-                                            @if (job.AppUserPostJobs.Where(x => x.AppUserId == Model.AppUser.Id).Any(x => x.IsFavorite == true))
+                                            @if (Model.AppUser.IsCompany == false)
                                             {
-                                                <a title="add to favourite" asp-controller="Home" asp-action="RemoveFavorite" asp-route-id="@job.AppUserPostJobs.FirstOrDefault().Id">
-                                                    <i class="fas fa-star"></i>
-                                                </a>
+                                                @if (job.AppUserPostJobs.Where(x => x.AppendUserId == Model.AppUser.Id).Any(x => x.IsFavorite == true))
+                                                {
+                                                    <a title="add to favourite" asp-controller="Home" asp-action="RemoveFavorite" asp-route-id="@job.AppUserPostJobs.FirstOrDefault().Id">
+                                                        <i class="fas fa-star"></i>
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a title="add to favourite" asp-controller="Home" asp-action="AddToFavorite" asp-route-id="@job.Id">
+                                                        <i class="far fa-star"></i>
+                                                    </a>
+                                                }
+                                                if (job.AppUserPostJobs.Where(x => x.AppendUserId == Model.AppUser.Id).Any(x => x.IsContacted == true))
+                                                {
+                                                    <a class="btn btn-third disabled" href="job-single.html">Applied</a>
+                                                }
+                                                else
+                                                {
+                                                    <a class="btn btn-third" asp-controller="Home" asp-action="AddApply" asp-route-id="@job.Id">Apply Now</a>
+                                                }
                                             }
-                                            else
-                                            {
-                                                <a title="add to favourite" asp-controller="Home" asp-action="AddToFavorite" asp-route-id="@job.Id">
-                                                    <i class="far fa-star"></i>
-                                                </a>
-                                            }
-                                            if (job.AppUserPostJobs.Where(x => x.AppUserId == Model.AppUser.Id).Any(x => x.IsContacted == true))
-                                            {
-                                                <a class="btn btn-third disabled" href="job-single.html">Applied</a>
-                                            }
-                                            else
-                                            {
-                                                <a class="btn btn-third" asp-controller="Home" asp-action="AddApply" asp-route-id="@job.Id">Apply Now</a>
-                                            }
+
                                         }
                                         else
                                         {

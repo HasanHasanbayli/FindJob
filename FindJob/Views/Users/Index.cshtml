@@ -176,28 +176,19 @@
                                 <div class=" job_seekernotifi ondahsboard">
                                     @if (Model.AppUserPostJobs.Count() > 0)
                                     {
+                                        <h4>Inbox</h4>
+                                        <h6>Star Notifications</h6>
                                         <ul>
-                                            @foreach (AppUserPostJob item in Model.AppUserPostJobs.Where(x => x.IsFavorite).Take(5).OrderByDescending(x => x.Id))
+                                            @foreach (var star in Model.StareddUser.Take(4))
                                             {
-                                                @if (item.AppUser.Image != null)
-                                                {
-                                                    <li><img alt="" src="~/assets/images/Users/@item.AppUser.Image"><a asp-controller="Users" asp-action="UserProfile" asp-route-id="@item.AppUser.Id"> @item.AppUser.FullName interest this job  contact  </a> </li>
-                                                }
-                                                else
-                                                {
-                                                    <li><img alt="" src="~/assets/images/Users/prof.PNG"><a asp-controller="Users" asp-action="UserProfile" asp-route-id="@item.AppUser.Id"> @item.AppUser.FullName interest this job  contact  </a> </li>
-                                                }
+                                                <li><img alt="" src="assets/images/Users/@star.Image"><a href="#">  @star.FullName stared this job  contact  </a> </li>
                                             }
-                                            @foreach (AppUserPostJob item in Model.AppUserPostJobs.Where(x => x.IsContacted))
+                                        </ul>
+                                        <h6>Apply Notifications</h6>
+                                        <ul>
+                                            @foreach (var apply in Model.AppliedUser.Take(4))
                                             {
-                                                @if (item.AppUser.Image != null)
-                                                {
-                                                    <li><img alt="" src="~/assets/images/Users/@item.AppUser.Image"><a asp-controller="Users" asp-action="UserProfile" asp-route-id="@item.AppUser.Id"> @item.AppUser.FullName applying this job  contact  </a> </li>
-                                                }
-                                                else
-                                                {
-                                                    <li><img alt="" src="~/assets/images/Users/prof.PNG"><a asp-controller="Users" asp-action="UserProfile" asp-route-id="@item.AppUser.Id"> @item.AppUser.FullName applying this job  contact  </a> </li>
-                                                }
+                                                <li><img alt="" src="assets/images/Users/@apply.Image"><a href="#">  @apply.FullName applying this job  contact  </a> </li>
                                             }
                                         </ul>
                                     }

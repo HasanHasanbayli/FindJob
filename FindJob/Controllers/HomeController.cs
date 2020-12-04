@@ -51,7 +51,8 @@ namespace FindJob.Controllers
             {
                 AppUserPostJob appUserPost = new AppUserPostJob
                 {
-                    AppUserId = user.Id,
+                    AppUserId = postJob.AppUserId,
+                    AppendUserId = user.Id,
                     IsFavorite = true,
                     PostJobId = postJob.Id,
                 };
@@ -82,7 +83,8 @@ namespace FindJob.Controllers
             {
                 AppUserPostJob appUserPost = new AppUserPostJob
                 {
-                    AppUserId = user.Id,
+                    AppUserId = postJob.AppUserId,
+                    AppendUserId = user.Id,
                     PostJobId = postJob.Id,
                     IsContacted = true
                 };

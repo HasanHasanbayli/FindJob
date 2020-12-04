@@ -10,6 +10,7 @@ namespace FindJob.Models
         public int Id { get; set; }
         public bool IsFavorite { get; set; }
         public bool IsContacted { get; set; }
+        public string AppendUserId { get; set; }
         public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }
         public int PostJobId { get; set; }

@@ -36,22 +36,59 @@ namespace FindJob.Controllers
 
         public async Task<IActionResult> Index()
         {
+            #region
+            //PostJobVM postJobVM = new PostJobVM
+            //{
+            //    AppUserPostJobs = _db.AppUserPostJobs.Include(x => x.AppUser).Include(x => x.PostJob)
+            //};
+            //if (User.Identity.IsAuthenticated)
+            //{
+            //    AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            //    postJobVM.AppUser = user;
+            //}
+            //var job = _db.PostJobs.Include(x=>x.).Where(x => x.AppUserId == user.Id).ToList();
+            //return View(postJobVM);
+            #endregion
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            List<AppUserPostJob> postJobs = _db.AppUserPostJobs.Where(x=>x.AppUserId==user.Id).ToList();
+            List<AppUser> users = _userManager.Users.ToList();
+            List<AppUser> StaredUsers = new List<AppUser>();
+            List<AppUser> AppliedUsers = new List<AppUser>();
+
+            foreach (var j in postJobs)
+            {
+                foreach (var u in users)
+                {
+                    if (u.Id == j.AppendUserId && j.IsFavorite==true)
+                    {
+                        StaredUsers.Add(u);
+                    }
+                }
+            }
+            foreach (var j in postJobs)
+            {
+                foreach (var u in users)
+                {
+                    if (u.Id == j.AppendUserId && j.IsContacted == true)
+                    {
+                        AppliedUsers.Add(u);
+                    }
+                }
+            }
             PostJobVM postJobVM = new PostJobVM
             {
-                AppUserPostJobs = _db.AppUserPostJobs.Include(x => x.AppUser).Include(x => x.PostJob)
+                AppUserPostJobs = _db.AppUserPostJobs.Include(x => x.AppUser).Where(x=>x.PostJob.AppUserId==user.Id).ToList(),
+                StareddUser= StaredUsers,
+                AppliedUser=AppliedUsers
             };
-            if (User.Identity.IsAuthenticated)
-            {
-                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-                postJobVM.AppUser = user;
-            }
+            postJobVM.AppUser = user;
             return View(postJobVM);
         }
 
         public async Task<IActionResult> StaredJobs()
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            var appUserPostJobs = _db.AppUserPostJobs.Include(x => x.PostJob).Where(x => x.AppUserId == user.Id);
+            var appUserPostJobs = _db.AppUserPostJobs.Include(x => x.PostJob).Where(x => x.AppendUserId == user.Id);
             return View(appUserPostJobs);
         }
         //public async Task<IActionResult> Applied(int? id)

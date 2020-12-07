@@ -27,7 +27,7 @@ namespace FindJob.Controllers
             HomeVM homeVM = new HomeVM
             {
                 Bio = _db.Bios.FirstOrDefault(),
-                PopularJobCategories = _db.PopularJobCategories,
+                PopularJobs = _db.PopularJobs,
                 Statistics = _db.Statistics,
                 Partners = _db.Partners,
                 Blogs = _db.Blogs,

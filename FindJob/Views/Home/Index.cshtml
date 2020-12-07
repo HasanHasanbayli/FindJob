@@ -463,17 +463,17 @@
                 <div class="bg-v-11">
                 </div> -->
             </div>
-            @if (Model.PopularJobCategories.Count() > 0)
+            @if (Model.PopularJobs.Count() > 0)
             {
                 <div class="container">
                     <h2 data-aos="fade-up" data-aos-delay="400" class="section_h">Popular Job Categories</h2>
                     <div class="row">
-                        @foreach (PopularJobCategories jobCategories in Model.PopularJobCategories.Take(8))
+                        @foreach (PopularJob jobCategories in Model.PopularJobs.OrderByDescending(x=>x.Id).Take(8))
                         {
                             <div class="col-md-3">
                                 <div class="category_box">
                                     <div class="cb_header">
-                                        <img alt="" src="~/assets/images/@jobCategories.Image">
+                                        <img alt="" src="~/assets/images/PopularJobs/@jobCategories.Image">
                                         <span class="job_count">@jobCategories.DataCount</span>
                                     </div>
                                     <div class="cb_bottom">

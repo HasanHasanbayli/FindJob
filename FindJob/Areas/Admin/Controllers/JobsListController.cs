@@ -18,10 +18,10 @@ namespace FindJob.Areas.Admin.Controllers
             _db = db;
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View(_db.PostJobs.Include(x=>x.AppUser).ToList());
-        //}
+        public IActionResult Index()
+        {
+            return View(_db.PostJobs.Include(x => x.AppUser).ToList());
+        }
 
         public IActionResult Update(int? id)
         {

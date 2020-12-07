@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FindJob.Migrations
 {
-    public partial class AddIdentity : Migration
+    public partial class CreateDataBaseTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,18 +42,104 @@ namespace FindJob.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     FullName = table.Column<string>(maxLength: 20, nullable: false),
                     CompanyName = table.Column<string>(nullable: true),
+                    Age = table.Column<int>(nullable: false),
                     IsActivated = table.Column<bool>(nullable: false),
                     Location = table.Column<string>(nullable: true),
                     JobType = table.Column<string>(nullable: true),
+                    JobTitle = table.Column<string>(nullable: true),
                     ExpectedSalary = table.Column<string>(nullable: true),
                     TotalExperience = table.Column<string>(nullable: true),
+                    IsCompany = table.Column<bool>(nullable: false),
                     Skills = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    AboutCompanyDescription = table.Column<string>(nullable: true)
+                    AboutCompanyDescription = table.Column<string>(nullable: true),
+                    CreateTime = table.Column<DateTime>(nullable: false),
+                    Image = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Bios",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Logo = table.Column<string>(nullable: true),
+                    Mobile = table.Column<string>(nullable: true),
+                    Mobile2 = table.Column<string>(nullable: true),
+                    Fax = table.Column<string>(nullable: true),
+                    Adress = table.Column<string>(nullable: true),
+                    Facebook = table.Column<string>(nullable: true),
+                    Twitter = table.Column<string>(nullable: true),
+                    Linkedin = table.Column<string>(nullable: true),
+                    Youtube = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bios", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Blogs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Image = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Blogs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Partners",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Image = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Partners", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PopularJobs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Image = table.Column<string>(nullable: true),
+                    MyProperty = table.Column<string>(nullable: true),
+                    DataCount = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PopularJobs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Statistics",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Image = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    DataCount = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Statistics", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -162,6 +248,77 @@ namespace FindJob.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "PostJobs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    JobTitle = table.Column<string>(nullable: true),
+                    CompanyName = table.Column<string>(nullable: true),
+                    RequiredExperience = table.Column<string>(nullable: true),
+                    Location = table.Column<string>(nullable: true),
+                    Salary = table.Column<string>(nullable: true),
+                    JobType = table.Column<string>(nullable: true),
+                    Skills = table.Column<string>(nullable: true),
+                    JobDescription = table.Column<string>(nullable: true),
+                    IsActivated = table.Column<bool>(nullable: false),
+                    Vacancies = table.Column<int>(nullable: false),
+                    CreateTime = table.Column<DateTime>(nullable: false),
+                    ExpiresDate = table.Column<DateTime>(nullable: false),
+                    Image = table.Column<string>(nullable: true),
+                    AppUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PostJobs", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PostJobs_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AppUserPostJobs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IsFavorite = table.Column<bool>(nullable: false),
+                    IsContacted = table.Column<bool>(nullable: false),
+                    AppendUserId = table.Column<string>(nullable: true),
+                    AppUserId = table.Column<string>(nullable: true),
+                    PostJobId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppUserPostJobs", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AppUserPostJobs_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AppUserPostJobs_PostJobs_PostJobId",
+                        column: x => x.PostJobId,
+                        principalTable: "PostJobs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppUserPostJobs_AppUserId",
+                table: "AppUserPostJobs",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppUserPostJobs_PostJobId",
+                table: "AppUserPostJobs",
+                column: "PostJobId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -200,10 +357,18 @@ namespace FindJob.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PostJobs_AppUserId",
+                table: "PostJobs",
+                column: "AppUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AppUserPostJobs");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -218,6 +383,24 @@ namespace FindJob.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Bios");
+
+            migrationBuilder.DropTable(
+                name: "Blogs");
+
+            migrationBuilder.DropTable(
+                name: "Partners");
+
+            migrationBuilder.DropTable(
+                name: "PopularJobs");
+
+            migrationBuilder.DropTable(
+                name: "Statistics");
+
+            migrationBuilder.DropTable(
+                name: "PostJobs");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -141,6 +141,9 @@ namespace FindJob.Migrations
                     b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("AppendUserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsContacted")
                         .HasColumnType("bit");
 
@@ -234,7 +237,7 @@ namespace FindJob.Migrations
                     b.ToTable("Partners");
                 });
 
-            modelBuilder.Entity("FindJob.Models.PopularJobCategories", b =>
+            modelBuilder.Entity("FindJob.Models.PopularJob", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -258,7 +261,7 @@ namespace FindJob.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PopularJobCategories");
+                    b.ToTable("PopularJobs");
                 });
 
             modelBuilder.Entity("FindJob.Models.PostJob", b =>

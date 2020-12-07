@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FindJob.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201120185741_AddJobTitleColumnToAppUser")]
-    partial class AddJobTitleColumnToAppUser
+    [Migration("20201206093749_CreateDataBaseTable")]
+    partial class CreateDataBaseTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -133,6 +133,37 @@ namespace FindJob.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("FindJob.Models.AppUserPostJob", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AppendUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsContacted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsFavorite")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PostJobId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("PostJobId");
+
+                    b.ToTable("AppUserPostJobs");
+                });
+
             modelBuilder.Entity("FindJob.Models.Bio", b =>
                 {
                     b.Property<int>("Id")
@@ -208,7 +239,7 @@ namespace FindJob.Migrations
                     b.ToTable("Partners");
                 });
 
-            modelBuilder.Entity("FindJob.Models.PopularJobCategories", b =>
+            modelBuilder.Entity("FindJob.Models.PopularJob", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -232,7 +263,7 @@ namespace FindJob.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PopularJobCategories");
+                    b.ToTable("PopularJobs");
                 });
 
             modelBuilder.Entity("FindJob.Models.PostJob", b =>
@@ -248,17 +279,14 @@ namespace FindJob.Migrations
                     b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Contacted")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("ExpiresDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Interest")
-                        .HasColumnType("int");
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActivated")
                         .HasColumnType("bit");
@@ -444,6 +472,19 @@ namespace FindJob.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("FindJob.Models.AppUserPostJob", b =>
+                {
+                    b.HasOne("FindJob.Models.AppUser", "AppUser")
+                        .WithMany("AppUserPostJobs")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("FindJob.Models.PostJob", "PostJob")
+                        .WithMany("AppUserPostJobs")
+                        .HasForeignKey("PostJobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FindJob.Models.PostJob", b =>

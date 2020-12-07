@@ -14,7 +14,7 @@ namespace FindJob.DAL
         {
         }
         public DbSet<Bio> Bios { get; set; }
-        public DbSet<PopularJobCategories> PopularJobCategories { get; set; }
+        public DbSet<PopularJob> PopularJobs { get; set; }
         public DbSet<Statistics> Statistics { get; set; }
         public DbSet<Partners> Partners { get; set; }
         public DbSet<Blog> Blogs { get; set; }

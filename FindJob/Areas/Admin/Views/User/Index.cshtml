@@ -63,7 +63,8 @@
                                     }
                                 </td>
                                 <td>
-                                    @user.FullName
+                                    <a asp-controller="User" asp-action="UserDetail" asp-route-id="@user.Id"> @user.FullName</a>
+                                   
                                 </td>
                                 <td>
                                     @user.UserName

@@ -353,3 +353,6 @@ C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\FindJo
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\PopularJob\Index.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\PopularJob\Create.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\PopularJob\Update.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\UserDetail.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_PostJobPartial.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_PopularJobPartial.cshtml.g.cs

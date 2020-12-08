@@ -4,7 +4,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     int Count = 0;
 }
-
+<input type="hidden" id="hidden" value="popularjob" />
 <div>
     <div class="card">
         <div class="card-body">
@@ -37,7 +37,7 @@
                         @foreach (PopularJob job in Model)
                         {
                             <!-- Popular Job Delete Modal -->
-                            <div class="modal fade" data-id="#lorem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="@job.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -86,7 +86,11 @@
                                     <a asp-action="Update" asp-route-id="@job.Id" class="btn btn-success">
                                         <i class="mdi mdi-settings"></i>
                                     </a>
-                                    <a asp-action="Delete" asp-route-id="@job.Id" class="btn btn-danger" data-toggle="modal" data-id="#lorem">
+                                    @{ 
+                                        string customId = "#" + job.Id;
+                                        string customSecondId = $"#{job.Id}";
+                                    }
+                                    <a  class="btn btn-danger" data-toggle="modal" data-target=@customId>
                                         <i class="mdi mdi-delete"></i>
                                     </a>
                                 </td>

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<PostJob>
+@foreach (PostJob job in Model)
+{
+    <a class="dropdown-item" href="@job.Id">
+        <div class="item-thumbnail">
+            <img src="~/assets/images/Users/@job.Image" alt="image" class="profile-pic">
+        </div>
+        <div class="item-content flex-grow">
+            <h6 class="ellipsis font-weight-normal">
+                @job.JobTitle
+            </h6>
+            <p class="font-weight-light small-text text-muted mb-0">
+                @job.JobDescription
+            </p>
+        </div>
+    </a>
+}

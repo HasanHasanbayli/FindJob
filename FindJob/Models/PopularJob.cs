@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FindJob.Models
 {
-    public class PopularJob
+    public class PopularJob: SearchBase
     {
         public int Id { get; set; }
         public string Title { get; set; }

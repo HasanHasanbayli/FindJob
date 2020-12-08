@@ -132,26 +132,29 @@ namespace FindJob.Areas.Admin.Controllers
             return View(user);
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //[ActionName("DeleteUser")]
-        //public async Task<IActionResult> DeleteUsers (string id)
-        //{
-        //    AppUser appUser = _db.Users.Include(x => x.PostJobs).FirstOrDefault(s => s.Id == id);
-        //    if (appUser == null) return RedirectToAction("Index", "Error404");
-        //    foreach (var jobs in appUser.PostJobs)
-        //    {
-        //        _db.PostJobs.Remove(jobs);
-        //    }
-        //    if (_db.Users.Count() > 1)
-        //    {
-        //        _db.Users.Remove(appUser);
-        //    }
-           
-        //    await _db.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-            
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("DeleteUser")]
+        public async Task<IActionResult> DeleteUsers(string id)
+        {
+            AppUser appUser = _db.Users.Include(x => x.PostJobs).FirstOrDefault(s => s.Id == id);
+            if (appUser == null) return RedirectToAction("Index", "Error404");
+            foreach (var jobs in appUser.PostJobs)
+            {
+                _db.PostJobs.Remove(jobs);
+            }
+            if (_db.Users.Count() > 1)
+            {
+                _db.Users.Remove(appUser);
+            }
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
-        //}
+        public IActionResult UserDetail(string id)
+        {
+            var user = _userManager.Users.Where(x => x.IsCompany == true).FirstOrDefault(z => z.Id == id);
+            return View(user);
+        }
     }
 }

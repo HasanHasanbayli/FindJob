@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FindJob.Models
 {
-    public class PostJob
+    public class PostJob:SearchBase
     {
         public int Id { get; set; }
         public string JobTitle { get; set; }

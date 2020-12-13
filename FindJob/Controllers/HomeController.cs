@@ -24,6 +24,7 @@ namespace FindJob.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            ViewBag.City = _db.Cities.ToList();
             HomeVM homeVM = new HomeVM
             {
                 Bio = _db.Bios.FirstOrDefault(),

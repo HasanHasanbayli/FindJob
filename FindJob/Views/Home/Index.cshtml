@@ -370,11 +370,11 @@
                                     </div>
                                     <div class="col-md-12" data-aos="fade-down" data-aos-delay="200">
                                         <div class="banner_form_cont">
-                                            <form action="http://veepixel.com/tf/html/jodice/browse-jobs.html">
+                                            <form asp-controller="Users" asp-action="BrowseJobs">
                                                 <div class="banerSearch" data-aos="fade-up" data-aos-delay="200">
                                                     <div class="fild-wrap fw-job-title">
                                                         <i class="fas fa-briefcase"></i>
-                                                        <select class="js-example-basic-multiple" name="state">
+                                                        <select class="js-example-basic-multiple" name="category">
                                                             <option value="AL"> JOB TITLE, SKILL, INDUSTRY</option>
                                                             <option value="1">Concierge</option>
                                                             <option value="2">Event Planner</option>
@@ -384,9 +384,9 @@
                                                     </div>
                                                     <div class="fild-wrap fw-job-location">
                                                         <i class="fas fa-map-marker-alt"></i>
-                                                        <select class="js-example-basic-single" name="state">
-                                                            <option value="AL">ALABAMA</option>
-                                                            <option value="WY">WYOMING</option>
+                                                        <select class="js-example-basic-single" name="city">
+                                                            <option value="1">ALABAMA</option>
+                                                            <option value="2">WYOMING</option>
                                                         </select>
                                                     </div>
                                                     <div class="fild-wrap fw-submit">
@@ -446,29 +446,13 @@
                 </div>
                 <div class="bg-v-2 bg-b-r" data-aos="zoom-in">
                 </div>
-                <!-- <div class="bg-v-4">
-                </div>
-                <div class="bg-v-5">
-                </div>
-                <div class="bg-v-6">
-                </div>
-                <div class="bg-v-7">
-                </div>
-                <div class="bg-v-8">
-                </div>
-                <div class="bg-v-9">
-                </div>
-                <div class="bg-v-10">
-                </div>
-                <div class="bg-v-11">
-                </div> -->
             </div>
             @if (Model.PopularJobs.Count() > 0)
             {
                 <div class="container">
                     <h2 data-aos="fade-up" data-aos-delay="400" class="section_h">Popular Job Categories</h2>
                     <div class="row">
-                        @foreach (PopularJob jobCategories in Model.PopularJobs.OrderByDescending(x=>x.Id).Take(8))
+                        @foreach (PopularJob jobCategories in Model.PopularJobs.OrderByDescending(x => x.Id).Take(8))
                         {
                             <div class="col-md-3">
                                 <div class="category_box">
@@ -530,7 +514,7 @@
                                             <li>
                                                 <a href="#">
                                                     <i class="fas fa-map-marker-alt"></i>
-                                                    @job.Location
+                                                    @job.City.Name
                                                 </a>
                                             </li>
                                             @if (minutePassed < 60)
@@ -597,12 +581,6 @@
                                             </a>
                                             <a class="btn btn-third" asp-controller="Home" asp-action="AddApply" asp-route-id="@job.Id">Apply Now</a>
                                         }
-
-                                        <ul class="tags">
-                                            <li>copywriting</li>
-                                            <li>translating</li>
-                                            <li>editing</li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

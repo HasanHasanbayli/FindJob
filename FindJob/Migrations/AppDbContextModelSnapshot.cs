@@ -222,6 +222,36 @@ namespace FindJob.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("FindJob.Models.City", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("FindJob.Models.JobCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("JobCategories");
+                });
+
             modelBuilder.Entity("FindJob.Models.Partners", b =>
                 {
                     b.Property<int>("Id")
@@ -274,6 +304,9 @@ namespace FindJob.Migrations
                     b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
                     b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
@@ -288,6 +321,9 @@ namespace FindJob.Migrations
 
                     b.Property<bool>("IsActivated")
                         .HasColumnType("bit");
+
+                    b.Property<int>("JobCategoryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("JobDescription")
                         .HasColumnType("nvarchar(max)");
@@ -316,6 +352,10 @@ namespace FindJob.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("JobCategoryId");
 
                     b.ToTable("PostJobs");
                 });
@@ -490,6 +530,18 @@ namespace FindJob.Migrations
                     b.HasOne("FindJob.Models.AppUser", "AppUser")
                         .WithMany("PostJobs")
                         .HasForeignKey("AppUserId");
+
+                    b.HasOne("FindJob.Models.City", "City")
+                        .WithMany("PostJobs")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FindJob.Models.JobCategory", "JobCategory")
+                        .WithMany("PostJobs")
+                        .HasForeignKey("JobCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

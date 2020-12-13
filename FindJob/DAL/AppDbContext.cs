@@ -20,5 +20,7 @@ namespace FindJob.DAL
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<PostJob> PostJobs { get; set; }
         public DbSet<AppUserPostJob> AppUserPostJobs { get; set; }
+        public DbSet<JobCategory> JobCategories { get; set; }
+        public DbSet<City> Cities { get; set; }
     }
 }

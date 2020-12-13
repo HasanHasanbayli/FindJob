@@ -73,6 +73,18 @@
     <Compile Remove="Migrations\20201128165739_RemoveColumnFromPostJob.Designer.cs" />
     <Compile Remove="Migrations\20201206092939_CreatePopularJobTable.cs" />
     <Compile Remove="Migrations\20201206092939_CreatePopularJobTable.Designer.cs" />
+    <Compile Remove="Migrations\20201212173911_CreateCityAndCategoryTable.cs" />
+    <Compile Remove="Migrations\20201212173911_CreateCityAndCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20201212174114_CreateCityAndCategoryTable.cs" />
+    <Compile Remove="Migrations\20201212174114_CreateCityAndCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20201212174330_CreateCityAndCategoryTable.cs" />
+    <Compile Remove="Migrations\20201212174330_CreateCityAndCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20201212174854_CreateCityAndCategoryTable.cs" />
+    <Compile Remove="Migrations\20201212174854_CreateCityAndCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20201212175316_CreateCityAndCategoryTable.cs" />
+    <Compile Remove="Migrations\20201212175316_CreateCityAndCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20201212181219_CreateCityAndCategoryTable.cs" />
+    <Compile Remove="Migrations\20201212181219_CreateCityAndCategoryTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

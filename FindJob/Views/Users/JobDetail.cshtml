@@ -30,7 +30,7 @@
                         <li>
                             <a href="#">
                                 <i class="fas fa-map-marker-alt"></i>
-                                @Model.Location
+                                @Model.City.Name
                             </a>
                         </li>
                         @if (true)
@@ -85,7 +85,7 @@
                         <div class="col-md-12 single_job_main">
                             <h2>Job Description</h2>
                             <p>
-                                @Model.JobDescription
+                                @Html.Raw(Model.JobDescription)
                             </p>
                         </div>
                         <div class="section-divider"></div>
@@ -116,7 +116,7 @@
                                                 <li>
                                                     <a href="#">
                                                         <i class="fas fa-map-marker-alt"></i>
-                                                        @Model.Location
+                                                        @Model.City.Name
                                                     </a>
                                                 </li>
                                                 <li>
@@ -184,7 +184,7 @@
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>
                                     <h6>Location</h6>
-                                    <p>@Model.Location</p>
+                                    <p>@Model.City.Name</p>
                                 </li>
                                 <li>
                                     <i class="fas fa-briefcase"></i>
@@ -231,17 +231,6 @@
                                         </li>
                                     }
                                 }
-                            </ul>
-                        </div>
-                        <div class="sjs_box">
-                            <h3>Tags</h3>
-                            <ul class="tags">
-                                <li>PHP</li>
-                                <li>MySQL </li>
-                                <li>API Development</li>
-                                <li>PHP</li>
-                                <li>MySQL </li>
-                                <li>API Development</li>
                             </ul>
                         </div>
                     </div>

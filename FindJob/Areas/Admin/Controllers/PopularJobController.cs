@@ -55,10 +55,10 @@ namespace FindJob.Areas.Admin.Controllers
                 return View();
             }
 
-            //if (_db.PopularJobs.Count() >= 8)
-            //{
-            //    return RedirectToAction(nameof(Index));
-            //}
+            if (_db.PopularJobs.Count() >= 8)
+            {
+                return RedirectToAction(nameof(Index));
+            }
             string path = Path.Combine("assets","images", "PopularJobs");
             string fileName = await popularJob.Photo.SaveImg(_env.WebRootPath, path);
             PopularJob newJob = new PopularJob();
@@ -106,10 +106,6 @@ namespace FindJob.Areas.Admin.Controllers
                     return View();
                 }
 
-                if (_db.PopularJobs.Count() >= 8)
-                {
-                    return RedirectToAction(nameof(Index));
-                }
                 string path = Path.Combine("assets", "images", "PopularJobs");
                 Helper.DeleteImage(_env.WebRootPath, path, dbPopularJob.Image);
                 string fileName = await popularJob.Photo.SaveImg(_env.WebRootPath, path);
@@ -123,7 +119,18 @@ namespace FindJob.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult>  Delete(int? id)
+        public IActionResult Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            PopularJob popularJob = _db.PopularJobs.FirstOrDefault(x => x.Id == id);
+            if (popularJob == null) return NotFound();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public async Task<IActionResult>  DeletePost(int? id)
         {
             if (id == null) return NotFound();
             PopularJob popularJob = _db.PopularJobs.FirstOrDefault(x => x.Id == id);

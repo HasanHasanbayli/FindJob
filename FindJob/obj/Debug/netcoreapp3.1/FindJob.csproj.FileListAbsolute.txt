@@ -169,7 +169,6 @@ C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\R
 C:\Users\Hasan Hasanbayli\Desktop\Docs\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Users\EditJob.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\bin\Debug\netcoreapp3.1\FindJob.exe
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\bin\Debug\netcoreapp3.1\FindJob.deps.json
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\bin\Debug\netcoreapp3.1\FindJob.runtimeconfig.json
@@ -306,7 +305,6 @@ C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\FindJo
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\FindJob.RazorCoreGenerate.cache
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\JobsList\Index.cshtml.g.cs
-C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\JobsList\Update.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\ChangePassword.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\ChangeRole.cshtml.g.cs
@@ -356,3 +354,8 @@ C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\UserDetail.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_PostJobPartial.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_PopularJobPartial.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\scopedcss\bundle\FindJob.styles.css
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Chat\Index.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\JobsList\Delete.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\PopularJob\Delete.cshtml.g.cs

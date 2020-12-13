@@ -91,12 +91,6 @@ namespace FindJob.Controllers
             var appUserPostJobs = _db.AppUserPostJobs.Include(x => x.PostJob).Where(x => x.AppendUserId == user.Id);
             return View(appUserPostJobs);
         }
-        //public async Task<IActionResult> Applied(int? id)
-        //{
-        //    PostJob postJob = await _db.PostJobs.FindAsync(id);
-        //    postJob.IsFavorite=true;
-        //    return View();
-        //}
 
         public async Task<IActionResult> UpdateProfile()
         {
@@ -173,6 +167,8 @@ namespace FindJob.Controllers
 
         public IActionResult PostJob()
         {
+            ViewBag.City = _db.Cities.ToList();
+            ViewBag.JobCategory = _db.JobCategories.ToList();
             return View();
         }
 
@@ -180,15 +176,16 @@ namespace FindJob.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> PostJob(PostJob post)
         {
-            //PostJob postJob =  _db.PostJobs.Include(x=>x./*AppUserPostJobs*/).ThenInclude(x=>x.AppUserId).FirstOrDefault(x=>x.Id==post.Id);
+            ViewBag.City = _db.Cities.ToList();
+            ViewBag.JobCategory = _db.JobCategories.ToList();
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            //var appUserPostJob = postJob.AppUserPostJobs.Where(x => x.AppUserId == user.Id);
             if (!ModelState.IsValid) return View();
             PostJob newPost = new PostJob();
             newPost.JobDescription = post.JobDescription;
             newPost.JobTitle = post.JobTitle;
+            newPost.CityId = post.CityId;
+            newPost.JobCategoryId = post.JobCategoryId;
             newPost.RequiredExperience = post.RequiredExperience;
-            newPost.Location = post.Location;
             newPost.Salary = post.Salary;
             newPost.CreateTime = DateTime.Now;
             newPost.ExpiresDate = post.ExpiresDate;
@@ -197,13 +194,7 @@ namespace FindJob.Controllers
             newPost.Image = user.Image;
             newPost.Skills = post.Skills;
             newPost.AppUserId = user.Id;
-            //List<AppUserPostJob> appUserPostJob2 = new List<AppUserPostJob>();
-            //foreach (var item in post.AppUserPostJobs)
-            //{
-            //    appUserPostJob2.Add(item);
 
-            //}
-            //newPost.AppUserPostJobs = appUserPostJob2;
             await _db.PostJobs.AddAsync(newPost);
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -211,6 +202,8 @@ namespace FindJob.Controllers
 
         public async Task<IActionResult> EditJob(int? id)
         {
+            ViewBag.City = _db.Cities.ToList();
+            ViewBag.JobCategory = _db.JobCategories.ToList();
             if (id == null) return RedirectToAction("Index", "Error404");
             PostJob job = await _db.PostJobs.FindAsync(id);
             if (job == null) return RedirectToAction("Index", "Error404");
@@ -221,14 +214,17 @@ namespace FindJob.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditJob(int? id, PostJob post)
         {
+            ViewBag.City = _db.Cities.ToList();
+            ViewBag.JobCategory = _db.JobCategories.ToList();
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             if (!ModelState.IsValid) return View();
             PostJob dbPost = await _db.PostJobs.FindAsync(id);
             dbPost.JobDescription = post.JobDescription;
             dbPost.JobTitle = post.JobTitle;
+            dbPost.CityId = post.CityId;
+            dbPost.JobCategoryId = post.JobCategoryId;
             dbPost.CompanyName = post.CompanyName;
             dbPost.RequiredExperience = post.RequiredExperience;
-            dbPost.Location = post.Location;
             dbPost.Salary = post.Salary;
             dbPost.JobType = post.JobType;
             dbPost.Skills = post.Skills;
@@ -253,23 +249,41 @@ namespace FindJob.Controllers
             return RedirectToAction("MyJobList", "Users");
         }
 
-        public async Task<IActionResult> BrowseJobs()
+        public async Task<IActionResult> BrowseJobs(string category, string city, int? page)
         {
-            PostJobVM postJobVM = new PostJobVM
-            {
-                PostJobs = _db.PostJobs.Where(x => x.IsActivated == true).Include(x => x.AppUser).Include(x => x.AppUserPostJobs).ThenInclude(x => x.AppUser)
-            };
+            PostJobVM postJobVM = new PostJobVM();
+            
             if (User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
                 postJobVM.AppUser = user;
+            }
+            ViewBag.PageCount = Math.Ceiling((decimal)_db.PostJobs.Count() / 5);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+               postJobVM.PostJobs = _db.PostJobs.Where(x => x.IsActivated == true)
+                    .Include(x => x.City)
+                    .Include(x => x.AppUser)
+                    .Include(x => x.AppUserPostJobs)
+                    .ThenInclude(x => x.AppUser)
+                    .OrderByDescending(p => p.Id).Take(5).ToList();
+            }
+            else
+            {
+                postJobVM.PostJobs = _db.PostJobs.Where(x => x.IsActivated == true)
+                    .Include(x => x.City)
+                    .Include(x => x.AppUser)
+                    .Include(x => x.AppUserPostJobs)
+                    .ThenInclude(x => x.AppUser).OrderByDescending(p => p.Id).Skip(((int)page - 1) * 5).Take(5).ToList();
             }
             return View(postJobVM);
         }
 
         public IActionResult JobDetail(int? id)
         {
-            return View(_db.PostJobs.Include(p => p.AppUser).FirstOrDefault(x => x.Id == id));
+            ViewBag.City = _db.Cities.FirstOrDefault();
+            return View(_db.PostJobs.Include(x=>x.City).Include(p => p.AppUser).FirstOrDefault(x => x.Id == id));
         }
 
         public IActionResult FindStaff(AppUser user)

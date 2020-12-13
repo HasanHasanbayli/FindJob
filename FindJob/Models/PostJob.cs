@@ -13,7 +13,6 @@ namespace FindJob.Models
         public string JobTitle { get; set; }
         public string CompanyName { get; set; }
         public string RequiredExperience { get; set; }
-        public string Location { get; set; }
         public string Salary { get; set; }
         public string JobType { get; set; }
         public string Skills { get; set; }
@@ -26,7 +25,14 @@ namespace FindJob.Models
         [NotMapped]
         public IFormFile Photo { get; set; }
         public IEnumerable<AppUserPostJob> AppUserPostJobs { get; set; }
+
         public AppUser AppUser { get; set; }
         public string AppUserId { get; set; }
+
+        public JobCategory JobCategory { get; set; }
+        public int JobCategoryId { get; set; }
+
+        public City City { get; set; }
+        public int CityId { get; set; }       
     }
 }

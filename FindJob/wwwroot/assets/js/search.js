@@ -5,8 +5,8 @@ $(document).ready(function () {
     let hidden = $("#hidden").val().trim();
     $(document).on("keyup", "#input-search", function () {
         let search = $(this).val().trim();
-        $("#searchList a").slice().remove();
-        if (search.length > 0) {
+        $("#searchList a").remove();
+        if (search.length != 0) {
             $.ajax({
                 url: "/Admin/Dashboard/Search?search=" + search + "&hidden=" + hidden,
                 type: "Get",

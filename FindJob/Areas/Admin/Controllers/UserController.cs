@@ -21,7 +21,7 @@ namespace FindJob.Areas.Admin.Controllers
             _userManager = userManager;
             _db = db;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
             List<AppUser> users = _userManager.Users.ToList();
             List<UserVM> usersVM = new List<UserVM>();
@@ -43,6 +43,16 @@ namespace FindJob.Areas.Admin.Controllers
                     Location=user.Location
                 };
                 usersVM.Add(userVM);
+            }
+            ViewBag.PageCount = Math.Ceiling((decimal)_db.Users.Count() / 5);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+                return View(_db.Users.OrderByDescending(p => p.Id).Take(5).ToList());
+            }
+            else
+            {
+                return View(_db.Users.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 5).Take(5).ToList());
             }
             return View(usersVM);
         }

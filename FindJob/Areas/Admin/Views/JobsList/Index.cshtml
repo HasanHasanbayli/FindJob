@@ -3,7 +3,7 @@
 
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    int Count=0;
+    int Count = 0;
 }
 <input type="hidden" id="hidden" value="postjob" />
 <div>
@@ -38,9 +38,6 @@
                                 Status
                             </th>
                             <th>
-                                Vacancies
-                            </th>
-                            <th>
                                 Settings
                             </th>
                         </tr>
@@ -67,16 +64,16 @@
                                     @job.JobTitle
                                 </td>
                                 <td>
-                                    @job.CompanyName
+                                    @job.AppUser.CompanyName
                                 </td>
                                 <td>
-                                    @job.Location
+                                    @job.City.Name
                                 </td>
                                 <td>
-                                    @job.CreateTime
+                                    @job.CreateTime.ToString("dd/MMMM/yyyy")
                                 </td>
                                 <td>
-                                    @job.ExpiresDate
+                                    @job.ExpiresDate.ToString("dd/MMMM/yyyy")
                                 </td>
                                 @if (job.IsActivated)
                                 {
@@ -91,15 +88,12 @@
                                     </td>
                                 }
                                 <td>
-                                    @job.Vacancies
-                                </td>
-                                <td>
-                                    <a asp-action="" asp-route-id="@job.Id" class="btn btn-primary">
+                                    <a asp-area="" asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id"  target="_blank" class="btn btn-primary">
                                         <i class="mdi mdi-account-card-details"></i>
                                     </a>
-                                    <a asp-action="Update" asp-route-id="@job.Id" class="btn btn-success">
+                                    @*<a asp-action="Update" asp-route-id="@job.Id" class="btn btn-success">
                                         <i class="mdi mdi-settings"></i>
-                                    </a>
+                                    </a>*@
                                     <a asp-action="Delete" asp-route-id="@job.Id" class="btn btn-danger">
                                         <i class="mdi mdi-delete"></i>
                                     </a>

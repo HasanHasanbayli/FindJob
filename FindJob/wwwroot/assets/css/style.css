@@ -83,7 +83,7 @@ button:focus, button:hover,  select, a, select:focus  {
 	box-shadow: none;	
 }
 .select2-container {
-		width: 100% !important;
+		/*width: 100% !important;*/
 	}
 .section-divider {
 	border-top: 1px solid rgba(0,0,0,0.06);

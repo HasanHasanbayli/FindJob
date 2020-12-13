@@ -20,15 +20,28 @@ namespace FindJob.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View(_db.PostJobs.Include(x => x.AppUser).ToList());
+            return View(_db.PostJobs.Include(x => x.City).Include(x=>x.AppUser).ToList());
         }
-
-        public IActionResult Update(int? id)
+        public IActionResult Delete(int? id)
         {
-            if (id == null) return RedirectToAction("Index", "Error404");
+            if (id == null) return NotFound();
             PostJob postJob = _db.PostJobs.FirstOrDefault(x => x.Id == id);
-            if(postJob==null) return RedirectToAction("Index", "Error404");
+            if (postJob == null) return NotFound();
             return View(postJob);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeletePost(int? id)
+        {
+            if (id == null) return NotFound();
+            PostJob postJob = _db.PostJobs.FirstOrDefault(x => x.Id == id);
+            if (postJob == null) return NotFound();
+            _db.PostJobs.Remove(postJob);
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

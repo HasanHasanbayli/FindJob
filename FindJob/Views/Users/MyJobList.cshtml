@@ -217,7 +217,7 @@
                                                     </td>
                                                 }
                                                 <td>
-                                                    @job.ExpiresDate
+                                                    @job.ExpiresDate.ToString("dd/MMMM/yyyy")
                                                 </td>
                                                 <td>
                                                     @job.AppUserPostJobs.Where(x=>x.IsFavorite==true).Count()

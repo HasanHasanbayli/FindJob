@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Blog>
 @{
     ViewData["Title"] = "Index";
 }
@@ -16,42 +16,21 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="post_box">
-                                <img alt="" src="~/assets/images/blog1.jpg" class="img-responsive">
-                                <div class="post_content">
-                                    <h6>
-                                        <a href="blog-single.html">4 Secrets To Be Strategic About Your Job Search</a>
-                                    </h6>
-                                    <p>Queequeg removed himself to just beyond the head of the … </p>
-                                    <a class="btn btn-secondary btn-rounded" href="blog-single.html">Continue reading</a>
+                        @foreach (Blog blog in Model)
+                        {
+                            <div class="col-md-12">
+                                <div class="post_box">
+                                    <img alt="" src="~/assets/images/Blog/@blog.Image" class="img-responsive">
+                                    <div class="post_content">
+                                        <h6>
+                                            <a href="blog-single.html">@blog.Title</a>
+                                        </h6>
+                                        <p>@blog.FontDescription ...</p>
+                                        <a class="btn btn-secondary btn-rounded" asp-action="Detail" asp-route-id="@blog.Id">Continue reading</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="post_box">
-                                <img alt="" src="~/assets/images/blog2.jpg" class="img-responsive">
-                                <div class="post_content">
-                                    <h6>
-                                        <a href="blog-single.html">Why Long-Term Unemployment Isn’t As Bad As You Think</a>
-                                    </h6>
-                                    <p>Queequeg removed himself to just beyond the head of the … </p>
-                                    <a class="btn btn-secondary btn-rounded" href="blog-single.html">Continue reading</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="post_box">
-                                <img alt="" src="~/assets/images/blog3.jpg" class="img-responsive">
-                                <div class="post_content">
-                                    <h6>
-                                        <a href="blog-single.html">6 Ways Your Job is Losing You Future Earnings</a>
-                                    </h6>
-                                    <p>Queequeg removed himself to just beyond the head of the … </p>
-                                    <a class="btn btn-secondary btn-rounded" href="blog-single.html">Continue reading</a>
-                                </div>
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
                 <div class="col-md-3">

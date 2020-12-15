@@ -17,6 +17,9 @@ $(document).ready(function () {
                     else if (hidden == "popularjob") {
                         $("#searchList").append(res);
                     }
+                    else if (hidden == "user") {
+                        $("#searchList").append(res);
+                    }
                     console.log(res)
                 }
             })

@@ -1,4 +1,4 @@
-﻿
+﻿@model Blog
 @{
     ViewData["Title"] = "Detail";
 }
@@ -7,7 +7,7 @@
     <div class="header_01 header_inner">
         <div class="header_main">
             <div class="header_btm">
-                <h2>4 Secrets To Be Strategic About Your Job Search</h2>
+                <h2>@Model.Title</h2>
             </div>
         </div>
     </div>
@@ -18,19 +18,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="post_box singlepb">
-                                <img alt="" src="~/assets/images/blog1.jpg" class="img-responsive">
+                                <img alt="" src="~/assets/images/Blog/@Model.Image" class="img-responsive">
                                 <div class="post_content">
                                     <h6>
-                                        <a href="blog-single.html">4 Secrets To Be Strategic About Your Job Search</a>
+                                        <a>@Model.Title</a>
                                     </h6>
-                                    <p>Queequeg removed himself to just beyond the head of the sleeper, and lighted his tomahawk pipe. We kept the pipe passing over the sleeper, from one to the other. Meanwhile, upon questioning him in his broken fashion, Queequeg gave me to understand that, in his land, owing to the absence of settees and sofas of all sorts, the king, chiefs, and great people generally, were in the custom of fattening some of the lower orders for ottomans.</p>
-
-                                    <p>I was going to warn ye against — but never mind, never mind — it’s all one, all in the family too — sharp frost this morning, ain’t it? The cabin entrance was locked within; the hatches were all on, and lumbered with coils of rigging. Going forward to the forecastle, we found the slide of the scuttle open. Seeing a light, we went down, and found only an old rigger there, wrapped in a tattered pea-jacket. He was thrown at whole length upon two chests, his face downwards and inclosed in his folded arms. The profoundest slumber slept upon him.</p>
-
-                                    <p>
-                                        But it seemed that, when on the wharf, Queequeg had not at all noticed what I now alluded to; hence I would have thought myself to have been optically deceived in that matter, were it not for Elijah’s otherwise inexplicable question. But I beat the thing down; and again marking the sleeper, jocularly hinted to Queequeg that perhaps we had best sit up with the body; telling him to establish himself accordingly. He put his hand upon the sleeper’s rear, as though feeling if it was soft enough; and then, without more ado, sat quietly down there.
-                                    </p>
-
+                                    <p>@Html.Raw(Model.Description)</p>
                                 </div>
                             </div>
                         </div>

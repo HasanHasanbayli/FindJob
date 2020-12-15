@@ -118,6 +118,9 @@ namespace FindJob.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
+                    b.Property<string>("UserResume")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -209,6 +212,9 @@ namespace FindJob.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FontDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
@@ -334,9 +340,6 @@ namespace FindJob.Migrations
                     b.Property<string>("JobType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("RequiredExperience")
                         .HasColumnType("nvarchar(max)");
 
@@ -345,9 +348,6 @@ namespace FindJob.Migrations
 
                     b.Property<string>("Skills")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Vacancies")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

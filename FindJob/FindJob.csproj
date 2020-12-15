@@ -85,6 +85,10 @@
     <Compile Remove="Migrations\20201212175316_CreateCityAndCategoryTable.Designer.cs" />
     <Compile Remove="Migrations\20201212181219_CreateCityAndCategoryTable.cs" />
     <Compile Remove="Migrations\20201212181219_CreateCityAndCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20201215132253_AddColumnToUserTable.cs" />
+    <Compile Remove="Migrations\20201215132253_AddColumnToUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20201215132443_AddColumnToAppUserTable.cs" />
+    <Compile Remove="Migrations\20201215132443_AddColumnToAppUserTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -106,7 +110,11 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="wwwroot\assets\images\Blog\" />
+    <Folder Include="wwwroot\assets\images\Partners\" />
+    <Folder Include="wwwroot\assets\images\Statistics\" />
     <Folder Include="wwwroot\assets\images\PopularJobs\" />
+    <Folder Include="wwwroot\assets\pdf\" />
   </ItemGroup>
 
   <ItemGroup>

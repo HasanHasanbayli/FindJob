@@ -142,6 +142,32 @@ namespace FindJob.Controllers
                     user.Image = fileName;
                 }
                 #endregion
+                #region Resume
+                if (update.Resume != null)
+                {
+                    if (ModelState["Resume"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
+                    {
+                        return View();
+                    }
+                    if (!update.Resume.ContentType.Contains("pdf"))
+                    {
+                        ModelState.AddModelError("Resume", "Zehmet olmasa pdf formati sechin");
+                        return View();
+                    }
+                    if (update.Resume.MaxLength(3000))
+                    {
+                        ModelState.AddModelError("Resume", "Pdf olchusu max 3000kb ola biler");
+                        return View();
+                    }
+                    string path = Path.Combine("assets", "pdf");
+                    if (user.Resume != null)
+                    {
+                        Helper.DeleteImage(_env.WebRootPath, path, user.UserResume);
+                    }
+                    string fileName = await update.Resume.SaveImg(_env.WebRootPath, path);
+                    user.UserResume = fileName;
+                }
+                #endregion
                 user.FullName = update.FullName;
                 user.NormalizedEmail = update.Email;
                 user.Email = update.Email;
@@ -190,7 +216,6 @@ namespace FindJob.Controllers
             newPost.CreateTime = DateTime.Now;
             newPost.ExpiresDate = post.ExpiresDate;
             newPost.JobType = post.JobType;
-            newPost.Vacancies = post.Vacancies;
             newPost.Image = user.Image;
             newPost.Skills = post.Skills;
             newPost.AppUserId = user.Id;
@@ -293,9 +318,15 @@ namespace FindJob.Controllers
 
         public IActionResult UserProfile(string id)
         {
+
             var user = _userManager.Users.Include(p => p.PostJobs).Where(x => x.IsCompany == false).FirstOrDefault(z => z.Id == id);
             return View(user);
         }
+
+        //public IActionResult DownloadFile()
+        //{
+        //    string path = Path.Combine("assets", "pdf");
+        //}
 
         public IActionResult CompanyProfile(string id)
         {

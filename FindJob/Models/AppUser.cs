@@ -29,6 +29,9 @@ namespace FindJob.Models
         public string Image { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
+        public string UserResume { get; set; }
+        [NotMapped]
+        public IFormFile Resume { get; set; }
         public ICollection<AppUserPostJob> AppUserPostJobs { get; set; }
         public ICollection<PostJob> PostJobs { get; set; }
     }

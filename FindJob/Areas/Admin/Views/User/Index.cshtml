@@ -4,7 +4,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     int Count = 0;
 }
-
+<input type="hidden" id="hidden" value="user" />
 <div class="">
     <div class="card">
         <div class="card-body">
@@ -141,7 +141,7 @@
                         }
                         else
                         {
-                            <li class="page-item"><a class="page-link" asp-controller="Users" asp-action="BrowseJobs" asp-route-page="@i">@i</a></li>
+                            <li class="page-item"><a class="page-link" asp-area="Admin" asp-controller="User" asp-action="Index" asp-route-page="@i">@i</a></li>
                         }
                     }
                 </ul>

@@ -359,3 +359,16 @@ C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\scoped
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Chat\Index.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\JobsList\Delete.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\PopularJob\Delete.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_UserPartial.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Index.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Create.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Update.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Delete.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Statistics\Index.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Statistics\Create.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Partner\Index.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Partner\Create.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Statistics\Update.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Statistics\Delete.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Partner\Update.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Partner\Delete.cshtml.g.cs

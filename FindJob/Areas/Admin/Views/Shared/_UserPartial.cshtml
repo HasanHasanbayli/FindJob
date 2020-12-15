@@ -1,0 +1,24 @@
+﻿@model IEnumerable<AppUser>
+@foreach (AppUser user in Model)
+{
+    <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id">
+        <div class="item-thumbnail">
+            @if (user.Image != null)
+            {
+                <img src="~/assets/images/Users/@user.Image" alt="image" class="profile-pic">
+            }
+            else
+            {
+                <img src="~/assets/images/Users/prof.PNG" alt="image" class="profile-pic">
+            }
+        </div>
+        <div class="item-content flex-grow">
+            <h6 class="ellipsis font-weight-normal">
+                @user.FullName
+            </h6>
+            <p class="font-weight-light small-text text-muted mb-0">
+                    @user.UserName
+                </p>
+        </div>
+    </a>
+}

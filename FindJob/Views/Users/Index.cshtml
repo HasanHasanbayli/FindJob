@@ -181,7 +181,7 @@
                                         <ul>
                                             @foreach (var star in Model.StareddUser.Take(4))
                                             {
-                                                <li><img alt="" src="assets/images/Users/@star.Image"><a href="#">  @star.FullName stared this job  contact  </a> </li>
+                                                <li><img alt="" src="assets/images/Users/@star.Image"><a href="#">  @star.FullName stared @star.JobTitle job  contact  </a> </li>
                                             }
                                         </ul>
                                         <h6>Apply Notifications</h6>

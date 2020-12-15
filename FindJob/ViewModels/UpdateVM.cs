@@ -34,5 +34,8 @@ namespace FindJob.ViewModels
         public string Image { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
+        public string UserResume { get; set; }
+        [NotMapped]
+        public IFormFile Resume { get; set; }
     }
 }

@@ -609,13 +609,13 @@
                         {
                             <div class="col-md-4" data-aos="fade-left" data-aos-delay="600">
                                 <div class="post_box">
-                                    <img alt="" src="~/assets/images/@blog.Image" class="img-responsive">
+                                    <img alt="" src="~/assets/images/Blog/@blog.Image" class="img-responsive">
                                     <div class="post_content">
                                         <h6>
                                             <a href="blog-single.html">@blog.Title</a>
                                         </h6>
-                                        <p>@blog.Description</p>
-                                        <a class="btn btn-secondary btn-rounded" href="blog-single.html">Continue reading</a>
+                                        <p>@blog.FontDescription ...</p>
+                                        <a class="btn btn-secondary btn-rounded" asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">Continue reading</a>
                                     </div>
                                 </div>
                             </div>
@@ -640,7 +640,7 @@
                         {
                             <div class="col-auto">
                                 <div class="status_box" data-aos="fade-in" data-aos-delay="600">
-                                    <img alt="" data-aos="fade-up" data-aos-delay="1000" src="~/assets/images/@statistics.Image">
+                                    <img alt="" data-aos="fade-up" data-aos-delay="1000" src="~/assets/images/Statistics/@statistics.Image">
                                     <h3>@statistics.DataCount</h3>
                                     <p>@statistics.Title</p>
                                 </div>
@@ -665,7 +665,7 @@
                         @foreach (Partners partners in Model.Partners)
                         {
                             <li>
-                                <a href="#"><img alt="brand logo" src="~/assets/images/@partners.Image"></a>
+                                <a href="#"><img alt="brand logo" src="~/assets/images/Partners/@partners.Image"></a>
                             </li>
                         }
                     </ul>

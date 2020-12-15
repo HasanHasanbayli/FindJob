@@ -33,6 +33,7 @@ namespace FindJob.Areas.Admin.Controllers
        
         public IActionResult Search(string search, string hidden)
         {
+            List<AppUser> users = new List<AppUser>();
             IEnumerable<SearchBase> list = new List<SearchBase>();
             switch (hidden)
             {
@@ -42,6 +43,9 @@ namespace FindJob.Areas.Admin.Controllers
                 case "popularjob":
                     list = _db.PopularJobs.Where(b => b.Title.ToLower().Contains(search.ToLower()));
                     return PartialView("_PopularJobPartial", list);
+                case "user":
+                    users = _userManager.Users.Where(t => t.FullName.ToLower().Contains(search.ToLower())).ToList();
+                    return PartialView("_UserPartial", users);
                 default:
                     break;
             }

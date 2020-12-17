@@ -6,19 +6,12 @@ using System.Threading.Tasks;
 
 namespace FindJob.Models
 {
-    public class ContactFromUser
+    public class ContactFromAdmin
     {
         public int Id { get; set; }
-        [Required]
-        public string FullName { get; set; }
-        [Required]
-        public string PhoneNumber { get; set; }
-        [Required, EmailAddress, DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Required]
         public string Subject { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please, add your message!")]
         public string Message { get; set; }
-        public bool IsArchive { get; set; }
     }
 }

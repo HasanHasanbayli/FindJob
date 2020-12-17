@@ -17,10 +17,8 @@
                 <div class="col-md-12">
                     <div class=" contact_us">
                         <div class="row ">
-
                             <div class="col-md-12 col-lg-6 ">
                                 <div class="newslatter_outer">
-
                                     <div>
                                         <h5>Address:</h5>
                                         <ul>
@@ -46,39 +44,66 @@
                             </div>
                             <div class="col-md-12 col-lg-6">
                                 <div class="only-form-box ">
-                                    <form method="post">
+                                    <form method="post" id="contactForm">
                                         <div class="com_class_form">
                                             <div class="form-group">
-                                                @Html.TextBoxFor(m => m.ContactFromUser.FullName, new { @class = "form-control" })
+                                                @Html.TextBoxFor(m => m.ContactFromUser.FullName, new { @class = "form-control", @placeholder = "Full Name", @style = "text-align:center" })
+                                                <span asp-validation-for="ContactFromUser.FullName" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
-                                                @Html.TextBoxFor(m => m.ContactFromUser.Email, new { @class = "form-control" })
-                                                @*<input class="form-control" asp-for="ContactFromUser.Email" name="email" placeholder="Email">*@
+                                                @Html.TextBoxFor(m => m.ContactFromUser.Email, new { @class = "form-control", @placeholder = "Email", @style = "text-align:center" })
+                                                <span asp-validation-for="ContactFromUser.Email" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
-                                                @Html.TextBoxFor(m => m.ContactFromUser.PhoneNumber, new { @class = "form-control" })
-                                                @*<input class="form-control" asp-for="ContactFromUser.PhoneNumber" name="email" placeholder="Number">*@
+                                                @Html.TextBoxFor(m => m.ContactFromUser.PhoneNumber, new { @class = "form-control", @placeholder = "Phone Number", @style = "text-align:center" })
+                                                <span asp-validation-for="ContactFromUser.PhoneNumber" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
-                                                @Html.TextBoxFor(m => m.ContactFromUser.Subject, new { @class = "form-control" })
-                                                @*<input class="form-control" asp-for="ContactFromUser.Subject" type="text" name="subject" placeholder="Subject">*@
+                                                @Html.TextBoxFor(m => m.ContactFromUser.Subject, new { @class = "form-control", @placeholder = "Subject", @style = "text-align:center" })
+                                                <span asp-validation-for="ContactFromUser.Subject" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
-                                                @Html.TextBoxFor(m => m.ContactFromUser.Message, new { @class = "form-control" })
-                                                @*<textarea class="form-control" asp-for="ContactFromUser.Message" name="message" cols="40" rows="3" placeholder="Message"></textarea>*@
+                                                @Html.TextBoxFor(m => m.ContactFromUser.Message, new { @class = "form-control", @placeholder = "Message", @style = "text-align:center" })
+                                                <span asp-validation-for="ContactFromUser.Message" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
-                                                <input class="btn btn-primary" type="submit" value="Send">
+                                                <input class="btn btn-primary" onclick="return validateData();" type="submit" id="sendmessage" value="Send">
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        $("#sendmessage").click(function () {
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+            )
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#sendmessage").click(function () {
+                var data = $("#contactForm");
+                $.ajax({
+                    type: "POST",
+                    url: "/ContactUs/Index",
+                    data: data,
+                    success: function (response) {
+                    }
+                })
+            })
+        })
+    </script>
+}

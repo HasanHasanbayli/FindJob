@@ -22,8 +22,7 @@ namespace FindJob.Controllers
             ContactVM contact = new ContactVM
             {
                 Bio = _db.Bios.FirstOrDefault(),
-                ContactFromUser = _db.ContactFromUsers.FirstOrDefault()
-            };
+                            };
             return View(contact);
         }
 
@@ -31,12 +30,14 @@ namespace FindJob.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(ContactVM contact)
         {
-            ContactVM contact2 = new ContactVM
-            {
-                Bio = _db.Bios.FirstOrDefault(),
-                ContactFromUser = _db.ContactFromUsers.FirstOrDefault()
-            };
-            if (!ModelState.IsValid) return View(contact2);
+            //ContactVM contact2 = new ContactVM
+            //{
+            //    //Bio = _db.Bios.FirstOrDefault(),
+            //    ContactFromUser = _db.ContactFromUsers.FirstOrDefault()
+            //};
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+
             ContactFromUser newContact = new ContactFromUser();
             newContact.FullName = contact.ContactFromUser.FullName;
             newContact.Email = contact.ContactFromUser.Email;
@@ -45,7 +46,7 @@ namespace FindJob.Controllers
             newContact.PhoneNumber = contact.ContactFromUser.PhoneNumber;
             await _db.ContactFromUsers.AddAsync(newContact);
             await _db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return NoContent();
         }
     }
 }

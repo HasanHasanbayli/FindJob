@@ -89,6 +89,8 @@
     <Compile Remove="Migrations\20201215132253_AddColumnToUserTable.Designer.cs" />
     <Compile Remove="Migrations\20201215132443_AddColumnToAppUserTable.cs" />
     <Compile Remove="Migrations\20201215132443_AddColumnToAppUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20201217131108_CreateContactFromAdminTable.cs" />
+    <Compile Remove="Migrations\20201217131108_CreateContactFromAdminTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

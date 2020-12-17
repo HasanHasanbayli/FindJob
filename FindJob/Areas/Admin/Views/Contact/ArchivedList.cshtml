@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<ContactFromUser>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ArchivedList";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     int Count = 0;
 }
-<input type="hidden" id="hidden" value="contact" />
-<div>    
+
+<input type="hidden" id="hidden" value="archivecontact" />
+<div>
     <div class="card">
         <div class="card-body">
-            <a asp-action="ArchivedList" class="btn btn-success mt-3">Archiv List</a>
+            <a asp-action="Index" class="btn btn-primary mt-3">Contact List</a>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -60,11 +61,8 @@
                                     @contact.Message
                                 </td>
                                 <td>
-                                    <a asp-action="Archive" asp-route-id="@contact.Id" class="btn btn-dark">
-                                        <i class="mdi mdi mdi-archive"></i>
-                                    </a>
-                                    <a asp-action="SendEmail" asp-route-id="@contact.Id" class="btn btn-warning">
-                                        <i class="mdi mdi mdi-reply"></i>
+                                    <a asp-action="Restore" asp-route-id="@contact.Id" class="btn btn-success">
+                                        <i class="mdi mdi mdi-backup-restore"></i>
                                     </a>
                                     <a asp-action="Detail" asp-route-id="@contact.Id" class="btn btn-primary">
                                         <i class="mdi mdi-account-card-details"></i>
@@ -81,3 +79,4 @@
         </div>
     </div>
 </div>
+

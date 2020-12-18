@@ -20,6 +20,12 @@ $(document).ready(function () {
                     else if (hidden == "user") {
                         $("#searchList").append(res);
                     }
+                    else if (hidden == "blog") {
+                        $("#searchList").append(res);
+                    }
+                    else if (hidden == "contact") {
+                        $("#searchList").append(res);
+                    }
                     console.log(res)
                 }
             })

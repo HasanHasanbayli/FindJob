@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FindJob.Models
 {
-    public class ContactFromUser
+    public class ContactFromUser:SearchBase
     {
         public int Id { get; set; }
         [Required]

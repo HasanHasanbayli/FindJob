@@ -24,5 +24,6 @@ namespace FindJob.DAL
         public DbSet<City> Cities { get; set; }
         public DbSet<ContactFromUser> ContactFromUsers { get; set; }
         public DbSet<ContactFromAdmin> ContactFromAdmins { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
     }
 }

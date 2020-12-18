@@ -258,10 +258,21 @@ namespace FindJob.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> MyJobList()
+        public async Task<IActionResult> MyJobList(int? page)
         {
-            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            return View(_db.PostJobs.Include(x=>x.AppUserPostJobs).Where(h => h.AppUserId == user.Id).ToList());
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);            
+            ViewBag.PageCount = Math.Ceiling((decimal)_db.PostJobs.Count() / 5);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+                return View(_db.PostJobs.Include(p => p.AppUserPostJobs).OrderByDescending(p => p.Id).Take(5).ToList());
+            }
+            else
+            {
+                return View(_db.PostJobs.Include(p => p.AppUserPostJobs).OrderByDescending(p => p.Id).Skip(((int)page - 1) * 5).Take(5).ToList());
+
+            }
+            return View(_db.PostJobs.Include(x => x.AppUserPostJobs).Where(h => h.AppUserId == user.Id).ToList());
         }
 
         public async Task<IActionResult> DeleteJob(int? id, PostJob job)

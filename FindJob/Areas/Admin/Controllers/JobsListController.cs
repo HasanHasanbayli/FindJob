@@ -20,8 +20,18 @@ namespace FindJob.Areas.Admin.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
+            ViewBag.PageCount = Math.Ceiling((decimal)_db.PostJobs.Count() / 5);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+                return View(_db.PostJobs.Include(x => x.City).Include(x => x.AppUser).OrderByDescending(p => p.Id).Take(6).ToList());
+            }
+            else
+            {
+                return View(_db.PostJobs.Include(x => x.City).Include(x => x.AppUser).OrderByDescending(p => p.Id).Skip(((int)page - 1) * 6).Take(6).ToList());
+            }
             return View(_db.PostJobs.Include(x => x.City).Include(x=>x.AppUser).ToList());
         }
         public IActionResult Delete(int? id)

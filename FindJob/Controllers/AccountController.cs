@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FindJob.Models;
+using FindJob.Services;
 using FindJob.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -92,8 +94,13 @@ namespace FindJob.Controllers
                 return View(register);
             }
             await _userManager.AddToRoleAsync(newUser, "Employe");
+            var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
+            var href = Url.Action("ConfirmEmail", "Account", new { userId = newUser.Id, code = code }, protocol: Request.Scheme);
+            EmailService emailService = new EmailService();
+            await emailService.SendEmailAsync(newUser.Email,
+            "Confirm your Account", $"Qeydiyyati tamamlamaq ucun linkden kecid edin <a href='{href}'>click link</a>");
             await _signInManager.SignInAsync(newUser, true);
-            return Redirect(Url.Action("Index", "Home"));
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult EmployerRegister()
@@ -134,6 +141,26 @@ namespace FindJob.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        {
+            if (userId == null || code == null)
+            {
+                return View("Error");
+            }
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return View("Error");
+            }
+            var result = await _userManager.ConfirmEmailAsync(user, code);
+            if (result.Succeeded)
+                return RedirectToAction("Index", "Home");
+            else
+                return View("Error");
         }
 
         //public async Task CreateRole()

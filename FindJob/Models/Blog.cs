@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FindJob.Models
 {
-    public class Blog
+    public class Blog:SearchBase
     {
         public int Id { get; set; }
         public string Image { get; set; }

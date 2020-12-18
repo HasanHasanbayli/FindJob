@@ -5,7 +5,7 @@
     int Count = 0;
 }
 
-<input type="hidden" id="hidden" value="popularjob" />
+<input type="hidden" id="hidden" value="blog" />
 <div>
     <div class="card">
         <div class="card-body">
@@ -53,7 +53,7 @@
                                     @blog.Title
                                 </td>
                                 <td>
-                                    @blog.FontDescription 
+                                    @blog.FontDescription
                                 </td>
                                 <td>
                                     <a asp-area="" asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" target="_blank" class="btn btn-primary">
@@ -70,6 +70,21 @@
                         }
                     </tbody>
                 </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        @for (int i = 1; i <= ViewBag.PageCount; i++)
+                        {
+                            if (ViewBag.Page == i)
+                            {
+                                <li class="page-item disabled"><a class="page-link" href="#">@i</a></li>
+                            }
+                            else
+                            {
+                                <li class="page-item"><a class="page-link" asp-controller="Blog" asp-action="Index" asp-route-page="@i">@i</a></li>
+                            }
+                        }
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

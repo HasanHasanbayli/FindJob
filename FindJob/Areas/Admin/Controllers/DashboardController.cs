@@ -48,6 +48,12 @@ namespace FindJob.Areas.Admin.Controllers
                 case "user":
                     users = _userManager.Users.Where(t => t.FullName.ToLower().Contains(search.ToLower())).ToList();
                     return PartialView("_UserPartial", users);
+                case "blog":
+                    list = _db.Blogs.Where(t => t.Title.ToLower().Contains(search.ToLower())).ToList();
+                    return PartialView("_BlogPartial", list);
+                case "contact":
+                    list = _db.ContactFromUsers.Where(t => t.FullName.ToLower().Contains(search.ToLower())).ToList();
+                    return PartialView("_ContactPartial", list);
                 default:
                     break;
             }

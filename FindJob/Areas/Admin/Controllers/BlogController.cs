@@ -25,8 +25,19 @@ namespace FindJob.Areas.Admin.Controllers
             _env = env;
         }
         
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
+            ViewBag.PageCount = Math.Ceiling((decimal)_db.Blogs.Count() / 5);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+                return View(_db.Blogs.OrderByDescending(p => p.Id).Take(6).ToList());
+            }
+            else
+            {
+                return View(_db.Blogs.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 6).Take(6).ToList());
+
+            }
             return View(_db.Blogs.ToList());
         }
 

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<ContactFromUser>
+@foreach (ContactFromUser contact in Model)
+{
+    <a class="dropdown-item" asp-area="Admin" asp-controller="Contact" asp-action="Detail" asp-route-id="@contact.Id">
+        <div class="item-content flex-grow">
+            <h6 class="ellipsis font-weight-normal">
+                @contact.FullName
+            </h6>
+        </div>
+    </a>
+}

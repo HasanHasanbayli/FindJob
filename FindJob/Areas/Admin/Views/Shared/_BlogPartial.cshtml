@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Blog>
+@foreach (Blog blog in Model)
+{
+    <a class="dropdown-item" href="@blog.Id">
+        <div class="item-thumbnail">
+            <img src="~/assets/images/Blog/@blog.Image" alt="image" class="profile-pic">
+        </div>
+        <div class="item-content flex-grow">
+            <h6 class="">
+                @blog.Title
+            </h6>
+            @*<p class="font-weight-light small-text text-muted mb-0">
+                    @job.Description
+                </p>*@
+        </div>
+    </a>
+}

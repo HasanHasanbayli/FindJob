@@ -190,7 +190,7 @@ namespace FindJob.Controllers
         {
             return View();
         }
-
+        //[Authorize(Roles = ("Employer"))]
         public IActionResult PostJob()
         {
             ViewBag.City = _db.Cities.ToList();

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,5 +19,7 @@ namespace FindJob.Models
         public string Twitter { get; set; }
         public string Linkedin { get; set; }
         public string Youtube { get; set; }
+        [NotMapped]
+        public IFormFile Photo { get; set; }
     }
 }

@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using FindJob.DAL;
 using FindJob.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FindJob.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Authorize(Roles =("Admin, Moderator"))]
     public class DashboardController : Controller
     {
         private readonly AppDbContext _db;

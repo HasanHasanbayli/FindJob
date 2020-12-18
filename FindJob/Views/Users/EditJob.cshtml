@@ -16,13 +16,13 @@
             <div class="row job_main">
                 <div class="sidebar">
                     <ul class="user_navigation">
-                        <li>
+                        @*<li>
                             <a href="find-staff.html"><i class="fas fa-search"></i> Find Staff </a>
                             <a class="filter_btn" href="#sidebar_filter_option">
                                 <i class="fas fa-filter"></i>
                                 <i class="fas fa-times"></i>
                             </a>
-                        </li>
+                        </li>*@
                         <li>
                             <form id="#sidebar_filter_option" class="filter_option">
                                 <div class="form-group">
@@ -65,7 +65,7 @@
                         </li>
                     </ul>
                     <h5>Organize and Manage</h5>
-                    <ul class="user_navigation">
+                   <ul class="user_navigation">
                         <li>
                             <a asp-controller="Users" asp-action="StaredJobs"><i class="fas fa-star"></i> View My Stared Jobs</a>
                         </li>
@@ -73,13 +73,13 @@
                     <h5>Account</h5>
                     <ul class="user_navigation">
                         <li>
-                            <a href="emp-edit-profile.html"><i class="fas fa-user"></i> Update My Profile</a>
+                            <a asp-controller="Users" asp-action="UpdateProfile"><i class="fas fa-user"></i> Update My Profile</a>
                         </li>
+                        @*<li>
+                                <a href="edit-password.html"><i class="fas fa-key"></i>Change Password</a>
+                            </li>*@
                         <li>
-                            <a href="emp-edit-password.html"><i class="fas fa-key"></i>Change Password</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fas fa-power-off"></i> Logout</a>
+                            <a asp-controller="Account" asp-action="Logout"><i class="fas fa-power-off"></i> Logout</a>
                         </li>
                     </ul>
                 </div>

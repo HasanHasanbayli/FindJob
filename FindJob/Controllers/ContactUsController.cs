@@ -30,12 +30,12 @@ namespace FindJob.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(ContactVM contact)
         {
-            //ContactVM contact2 = new ContactVM
-            //{
-            //    //Bio = _db.Bios.FirstOrDefault(),
-            //    ContactFromUser = _db.ContactFromUsers.FirstOrDefault()
-            //};
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            ContactVM contact2 = new ContactVM
+            {
+                Bio = _db.Bios.FirstOrDefault(),
+                ContactFromUser = _db.ContactFromUsers.FirstOrDefault()
+            };
+            if (!ModelState.IsValid) return View(contact2);
 
 
             ContactFromUser newContact = new ContactFromUser();

@@ -15,5 +15,9 @@ namespace FindJob.ViewModels
         public IEnumerable<Blog> Blogs { get; set; }
         public AppUser AppUser { get; set; }
         public IEnumerable<PostJob> PostJobs { get; set; }
+        public int CompaniesCount { get; set; }
+        public int MembersCount { get; set; }
+        public int PostJobCount { get; set; }
+        public int ApplyCount { get; set; }
     }
 }

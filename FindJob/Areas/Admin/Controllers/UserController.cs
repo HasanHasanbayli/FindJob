@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using FindJob.DAL;
 using FindJob.Models;
 using FindJob.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 namespace FindJob.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Authorize(Roles = ("Admin"))]
     public class UserController : Controller
     {
         private readonly AppDbContext _db;

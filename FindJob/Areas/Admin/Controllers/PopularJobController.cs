@@ -7,12 +7,14 @@ using FindJob.DAL;
 using FindJob.Extentions;
 using FindJob.Helpers;
 using FindJob.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FindJob.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = ("Admin, Moderator"))]
     public class PopularJobController : Controller
     {
         private readonly AppDbContext _db;

@@ -21,6 +21,7 @@ namespace FindJob.Controllers
         public IActionResult Detail(int? id)
         {
             return View(_db.Blogs.FirstOrDefault(x => x.Id == id));
+
         }
     }
 }

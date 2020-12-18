@@ -32,7 +32,11 @@ namespace FindJob.Controllers
                 Statistics = _db.Statistics,
                 Partners = _db.Partners,
                 Blogs = _db.Blogs,
-                PostJobs = _db.PostJobs.Where(x => x.IsActivated == true).Include(x=>x.AppUser).Include(x=>x.AppUserPostJobs)
+                PostJobs = _db.PostJobs.Where(x => x.IsActivated == true).Include(x => x.AppUser).Include(x => x.AppUserPostJobs),
+                CompaniesCount = _userManager.Users.Where(x => x.IsCompany == true).Count(),
+                PostJobCount = _db.PostJobs.Count(),
+                MembersCount=_userManager.Users.Where(x=>x.IsCompany==false).Count(),
+                ApplyCount=_db.AppUserPostJobs.Count(x=>x.IsContacted==true)
             };
             if (User.Identity.IsAuthenticated)
             {

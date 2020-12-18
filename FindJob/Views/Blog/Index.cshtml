@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="row">
-                        @foreach (Blog blog in Model)
+                        @foreach (Blog blog in Model.OrderByDescending(x=>x.Id).Take(3))
                         {
                             <div class="col-md-12">
                                 <div class="post_box">
@@ -36,7 +36,7 @@
                 <div class="col-md-3">
                     <div class="blog_sidebar">
                         <div class="single-job-sidebar">
-                            <div class="sjs_box">
+                            @*<div class="sjs_box">
                                 <h3>Search blog</h3>
                                 <form class="form-inline" action="http://veepixel.com/action_page.php">
                                     <input type="text" class="form-control" placeholder="Search" id="search-blog">
@@ -44,8 +44,8 @@
                                     <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                                 </form>
 
-                            </div>
-                            <div class="sjs_box">
+                            </div>*@
+                            @*<div class="sjs_box">
                                 <h3>Tags</h3>
                                 <ul class="tags">
                                     <li><a href="#">business</a></li>
@@ -65,12 +65,14 @@
                                     <li><a href="#">unemployment</a></li>
                                     <li><a href="#">work</a></li>
                                 </ul>
-                            </div>
+                            </div>*@
                             <div class="sjs_box">
                                 <h3>Recent Posts</h3>
                                 <ul class="recentpost">
-                                    <li><a href="blog-single.html">4 Secrets To Be Strategic About Your Job Search</a></li>
-                                    <li><a href="blog-single.html">Why Long-Term Unemployment Isn’t As Bad As You Think</a></li>
+                                    @foreach (Blog blog1 in Model.Take(3).OrderByDescending(x=>x.Id))
+                                    {
+                                        <li><a href="blog-single.html">@blog1.Title</a></li>
+                                    }
                                 </ul>
                             </div>
                         </div>

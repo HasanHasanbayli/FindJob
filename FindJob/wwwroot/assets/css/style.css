@@ -1438,7 +1438,7 @@ form {
 }
 
 .has-sub-menu > a::after {
-	content: "";
+	/*content: "";*/
 	display: inline-block;
 	width: 0;
 	height: 0;

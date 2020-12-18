@@ -1,5 +1,6 @@
 ﻿using FindJob.DAL;
 using FindJob.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 namespace FindJob.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = ("Admin, Moderator"))]
     public class ContactController : Controller
     {
         private readonly AppDbContext _db;

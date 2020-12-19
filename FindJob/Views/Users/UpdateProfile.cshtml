@@ -16,91 +16,6 @@
             <div class="row job_main">
                 <div class="sidebar">
                     <ul class="user_navigation">
-                        @*<li>
-                            <a asp-controller="Seekers" asp-action="JobList"><i class="fas fa-search"></i> Browse Jobs </a>
-                            <a class="filter_btn" href="#sidebar_filter_option">
-                                <i class="fas fa-filter"></i>
-                                <i class="fas fa-times"></i>
-                            </a>
-                        </li>*@
-                        <li>
-                            @*<form id="#sidebar_filter_option" class="filter_option">
-                                <div class="form-group">
-                                    <label>Location</label>
-                                    <div class="field">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <select class="js-example-basic-single" name="state">
-                                            <option value="AL">ALABAMA</option>
-                                            <option value="WY">WYOMING</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Keywords</label>
-                                    <div class="field">
-                                        <i class="fas fa-briefcase"></i>
-                                        <select class="js-example-basic-single" name="state">
-                                            <option value="AL">e.g. job title</option>
-                                            <option value="WY">Title 1</option>
-                                            <option value="WY">Title 2</option>
-                                            <option value="WY">Title 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Category</label>
-                                    <div class="field">
-                                        <i class="fas fa-briefcase"></i>
-                                        <select class="js-example-basic-single" name="state">
-                                            <option>Admin Support</option>
-                                            <option>Customer Service</option>
-                                            <option>Data Analytics</option>
-                                            <option>Design &amp; Creative</option>
-                                            <option>Legal</option>
-                                            <option>Software Developing</option>
-                                            <option>IT &amp; Networking</option>
-                                            <option>Writing</option>
-                                            <option>Translation</option>
-                                            <option>Sales &amp; Marketing</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Salary</label>
-                                    <div class="field">
-                                        <input type="text" placeholder="e.g. 10k" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Tags</label>
-                                    <div class="field">
-                                        <div class="form-group custom_checkboxes">
-                                            <label class="custom_checkbox" for="tag-1">
-                                                <input type="checkbox" name="usertype" id="tag-1" value="job seeker">
-                                                <span><i class="fas fa-check"></i>PHP</span>
-                                            </label>
-                                            <label class="custom_checkbox" for="tag-2">
-                                                <input type="checkbox" name="usertype" id="tag-2" value="employer">
-                                                <span><i class="fas fa-check"></i> MySQL</span>
-                                            </label>
-                                            <label class="custom_checkbox" for="tag-3">
-                                                <input type="checkbox" name="usertype" id="tag-3" value="employer">
-                                                <span><i class="fas fa-check"></i> API</span>
-                                            </label>
-                                            <label class="custom_checkbox" for="tag-4">
-                                                <input type="checkbox" name="usertype" id="tag-4" value="employer">
-                                                <span><i class="fas fa-check"></i> react</span>
-                                            </label>
-                                            <label class="custom_checkbox" for="tag-5">
-                                                <input type="checkbox" name="usertype" id="tag-5" value="employer">
-                                                <span><i class="fas fa-check"></i> design</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>*@
-                        </li>
                         <li>
                             <a asp-controller="Users" asp-action="Index">
                                 <i class="fas fa-border-all"></i> Job Dashboard
@@ -112,15 +27,15 @@
                         <li>
                             <a asp-controller="Users" asp-action="StaredJobs"><i class="fas fa-star"></i> View My Stared Jobs</a>
                         </li>
-                        @if (Model.IsCompany == true)
-                        {
-                            <li>
-                                <a asp-controller="Users" asp-action="PostJob"><i class="fas fa-paper-plane"></i> Post Job</a>
-                            </li>
-                            <li>
-                                <a asp-controller="Users" asp-action="MyJobList"><i class="far fa-list-alt"></i> My job listings</a>
-                            </li>
-                        }
+                        @*@if (Model.IsCompany == true)
+                            {
+                                <li>
+                                    <a asp-controller="Users" asp-action="PostJob"><i class="fas fa-paper-plane"></i> Post Job</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Users" asp-action="MyJobList"><i class="far fa-list-alt"></i> My job listings</a>
+                                </li>
+                            }*@
                     </ul>
                     <h5>Account</h5>
                     <ul class="user_navigation">
@@ -140,14 +55,14 @@
                         <div class="col-sm-12">
                             <div class="jm_headings">
                                 <h5>Update My Profile</h5>
-                                @if (Model.IsCompany==false)
-                                {
-                                    <a class="btn btn-primary mypbtn" href="staff-profile-single.html">My profile</a>
-                                }
-                                else
-                                {
-                                    <a class="btn btn-primary mypbtn" href="staff-profile-single.html">Company profile</a>
-                                }
+                                @*@if (Model.IsCompany==false)
+                                    {
+                                        <a class="btn btn-primary mypbtn" href="staff-profile-single.html">My profile</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-primary mypbtn" href="staff-profile-single.html">Company profile</a>
+                                    }*@
                             </div>
                             <div class="section-divider">
                             </div>
@@ -176,51 +91,6 @@
                                                 <span asp-validation-for="Location" class="text-danger"></span>
                                             </div>
                                         </div>
-                                        @if (Model.IsCompany==false)
-                                        {
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label asp-for="Age"></label>
-                                                    <input asp-for="Age" class="form-control" placeholder="Age">
-                                                    <span asp-validation-for="Age" class="text-danger"></span>
-                                                </div>
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label asp-for="CompanyName"></label>
-                                                    <input asp-for="CompanyName" class="form-control" placeholder="Company Name">
-                                                    <span asp-validation-for="CompanyName" class="text-danger"></span>
-                                                </div>
-                                            </div>
-                                        }
-                                    </div>
-                                </div>
-                                <div class="big_form_group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label asp-for="JobType"></label>
-                                                <input asp-for="JobType" class="form-control" placeholder="JobType">
-                                                <span asp-validation-for="JobType" class="text-danger"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label asp-for="ExpectedSalary"></label>
-                                                <input asp-for="ExpectedSalary" class="form-control" placeholder="Expected Salary">
-                                                <span asp-validation-for="ExpectedSalary" class="text-danger"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label asp-for="TotalExperience"></label>
-                                                <input asp-for="TotalExperience" class="form-control" placeholder="Total Experience">
-                                                <span asp-validation-for="TotalExperience" class="text-danger"></span>
-                                            </div>
-                                        </div>
                                         <div class="col-md-6">
                                             <div class="col-md-6">
                                                 <div class="form-group ">
@@ -230,31 +100,73 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @if (Model.IsCompany == true)
+                                        {
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>History Of Founder</label>
+                                                    <input asp-for="Age" class="form-control" placeholder="Age">
+                                                    <span asp-validation-for="Age" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Age</label>
+                                                    <input asp-for="Age" class="form-control" placeholder="Age">
+                                                    <span asp-validation-for="Age" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        }
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label asp-for="CompanyName"></label>
+                                                <input asp-for="CompanyName" class="form-control" placeholder="Company Name">
+                                                <span asp-validation-for="CompanyName" class="text-danger"></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="big_form_group">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label asp-for="Description"></label>
-                                                <input asp-for="Description" class="form-control" placeholder="JobSeekers Description">
-                                                <span asp-validation-for="Description" class="text-danger"></span>
+                                        @if (Model.IsCompany == false)
+                                        {
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label asp-for="ExpectedSalary"></label>
+                                                    <input asp-for="ExpectedSalary" class="form-control" placeholder="Expected Salary">
+                                                    <span asp-validation-for="ExpectedSalary" class="text-danger"></span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label asp-for="Skills"></label>
-                                                <input asp-for="Skills" class="form-control" placeholder="Skills">
-                                                <span asp-validation-for="Skills" class="text-danger"></span>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label asp-for="TotalExperience"></label>
+                                                    <input asp-for="TotalExperience" class="form-control" placeholder="Total Experience">
+                                                    <span asp-validation-for="TotalExperience" class="text-danger"></span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        @if (Model.IsCompany == true)
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label asp-for="JobType"></label>
+                                                    <input asp-for="JobType" class="form-control" placeholder="JobType">
+                                                    <span asp-validation-for="JobType" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        }
+                                      
+                                    </div>
+                                </div>
+                                <div class="big_form_group">
+                                    <div class="row">
+                                        @if (Model.IsCompany == false)
                                         {
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label asp-for="AboutCompanyDescription"></label>
-                                                    <input asp-for="AboutCompanyDescription" class="form-control" placeholder="About Company Description">
-                                                    <span asp-validation-for="AboutCompanyDescription" class="text-danger"></span>
+                                                    <label asp-for="Description"></label>
+                                                    <textarea asp-for="Description" class="form-control" placeholder="JobSeekers Description"></textarea>
+                                                    <span asp-validation-for="Description" class="text-danger"></span>
                                                 </div>
                                             </div>
                                         }
@@ -262,13 +174,12 @@
                                         {
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label asp-for="Resume"></label>
-                                                    <input asp-for="Resume" class="form-control" placeholder="Resume">
-                                                    <span asp-validation-for="Resume" class="text-danger"></span>
+                                                    <label asp-for="AboutCompanyDescription"></label>
+                                                    <textarea asp-for="AboutCompanyDescription" class="form-control" placeholder="About Company Description"></textarea>
+                                                    <span asp-validation-for="AboutCompanyDescription" class="text-danger"></span>
                                                 </div>
                                             </div>
                                         }
-
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -284,3 +195,20 @@
         </div>
     </div>
 </main>
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#AboutCompanyDescription'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}

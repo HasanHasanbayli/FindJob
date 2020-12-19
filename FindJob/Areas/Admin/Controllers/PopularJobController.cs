@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FindJob.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = ("Admin, Moderator"))]
+    //[Authorize(Roles = ("Admin, Moderator"))]
     public class PopularJobController : Controller
     {
         private readonly AppDbContext _db;

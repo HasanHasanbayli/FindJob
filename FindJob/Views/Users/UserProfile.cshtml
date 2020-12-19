@@ -19,14 +19,14 @@
                 <div class="poster_details">
                     <h2>@Model.FullName  <span class="varified"><i class="fas fa-check"></i>Verified</span></h2>
                     <h5>@Model.JobTitle</h5>
-                    <div class="staff_rating">
+                    @*<div class="staff_rating">
                         <span>4.5</span>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
-                    </div>
+                    </div>*@
                 </div>
                 <div class="poster_action">
                     <a class="addtofav" title="add to favourite" href="#"><i class="far fa-heart"></i></a>
@@ -44,15 +44,7 @@
                     <div class="row ">
                         <div class="col-md-12 single_job_main">
                             <h2>Jobseekers Description</h2>
-
-                            <p> Suspendisse potenti. Suspendisse efficitur augue enim, a aliquet nunc malesuada sit amet. Praesent finibus egestas velit sit amet lobortis. Aliquam ultricies tempus facilisis. Sed maximus, turpis eu pharetra fringilla, sem tellus pharetra lorem, at dictum tortor libero sit amet nulla. Cras quis enim vitae enim congue elementum. Integer tincidunt sit amet nulla at ultricies. Mauris id hendrerit urna. </p>
-                            <ul>
-                                <li>Suspendisse efficitur augue enim, a aliquet nunc malesuada sit amet.</li>
-                                <li>sit amet nulla at ultricies. Mauris id hendrerit urna.</li>
-                                <li>turpis eu pharetra fringilla, sem tellus pharetra lorem.</li>
-                                <li>sit amet Mauris id hendrerit urna. nulla at ultricies. </li>
-                                <li>turpis eu , sem tellus pharetra lorem pharetra fringilla.</li>
-                            </ul>
+                            <p>@Html.Raw(Model.Description)</p>
                         </div>
 
                         <div class="section-divider"></div>
@@ -160,22 +152,6 @@
                                 }
                             </ul>
                         </div>
-                        <div class="sjs_box">
-                            <h3>Skills</h3>
-                            <ul class="tags">
-                                <li>PHP</li>
-                                <li>MySQL </li>
-                                <li>API Development</li>
-                                <li>PHP</li>
-                                <li>MySQL </li>
-                                <li>API Development</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="sjs_box sjs_box_action">
-                        <h3>Attachments</h3>
-                        <a target="_blank" class="download-cv" asp-controller="Users" asp-action="DownloadFile" asp-route-id="@Model.Id" asp- ><i class="fas fa-file-download" ></i><span>Curriculum Vitae</span></a>
-                        <a class="btn btn-primary" href="#">Hire me</a>
                     </div>
                 </div>
             </div>

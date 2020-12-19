@@ -3,6 +3,7 @@
     ViewData["Title"] = "FindStaff";
 }
 
+<input type="hidden" id="hidden" value="userfront" />
 <main>
     <div class="header_01 header_inner">
         <div class="header_main">
@@ -16,92 +17,11 @@
             <div class="row job_main">
                 <div class="sidebar">
                     <ul class="user_navigation">
-                        @*<li class="is-active">
-                            <a href="find-staff.html"><i class="fas fa-search"></i> Find Staff </a>
-                            <a class="filter_btn" href="#sidebar_filter_option">
-                                <i class="fas fa-filter"></i>
-                                <i class="fas fa-times"></i>
-                            </a>
-                        </li>*@
+                        <ul id="searchList2" aria-labelledby="messageDropdown">
+                            <input type="text" style="border:none" class="form-control" id="input-search2" autocomplete="off" placeholder="Search now" aria-label="search" aria-describedby="search">
+                        </ul>
                         <li>
-                            @*<form id="#sidebar_filter_option" class="filter_option">
-                                <div class="form-group">
-                                    <label>Location</label>
-                                    <div class="field">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <select class="js-example-basic-single" name="state">
-                                            <option value="AL">ALABAMA</option>
-                                            <option value="WY">WYOMING</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Keywords</label>
-                                    <div class="field">
-                                        <i class="fas fa-briefcase"></i>
-                                        <select class="js-example-basic-single" name="state">
-                                            <option value="AL">e.g. job title</option>
-                                            <option value="WY">Title 1</option>
-                                            <option value="WY">Title 2</option>
-                                            <option value="WY">Title 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Category</label>
-                                    <div class="field">
-                                        <i class="fas fa-briefcase"></i>
-                                        <select class="js-example-basic-single" name="state">
-                                            <option>Admin Support</option>
-                                            <option>Customer Service</option>
-                                            <option>Data Analytics</option>
-                                            <option>Design &amp; Creative</option>
-                                            <option>Legal</option>
-                                            <option>Software Developing</option>
-                                            <option>IT &amp; Networking</option>
-                                            <option>Writing</option>
-                                            <option>Translation</option>
-                                            <option>Sales &amp; Marketing</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Salary</label>
-                                    <div class="field">
-                                        <input type="text" placeholder="e.g. 10k" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tags</label>
-                                    <div class="field">
-                                        <div class="form-group custom_checkboxes">
-                                            <label class="custom_checkbox" for="tag-1">
-                                                <input type="checkbox" name="usertype" id="tag-1" value="job seeker">
-                                                <span><i class="fas fa-check"></i>PHP</span>
-                                            </label>
-                                            <label class="custom_checkbox" for="tag-2">
-                                                <input type="checkbox" name="usertype" id="tag-2" value="employer">
-                                                <span><i class="fas fa-check"></i> MySQL</span>
-                                            </label>
-                                            <label class="custom_checkbox" for="tag-3">
-                                                <input type="checkbox" name="usertype" id="tag-3" value="employer">
-                                                <span><i class="fas fa-check"></i> API</span>
-                                            </label>
-                                            <label class="custom_checkbox" for="tag-4">
-                                                <input type="checkbox" name="usertype" id="tag-4" value="employer">
-                                                <span><i class="fas fa-check"></i> react</span>
-                                            </label>
-                                            <label class="custom_checkbox" for="tag-5">
-                                                <input type="checkbox" name="usertype" id="tag-5" value="employer">
-                                                <span><i class="fas fa-check"></i> design</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>*@
-                        </li>
-                        <li>
-                            <a asp-controller="Users" asp-action="Index">>
+                            <a asp-controller="Users" asp-action="Index">
                                 <i class="fas fa-border-all"></i> Job Dashboard
                             </a>
                         </li>
@@ -156,7 +76,7 @@
                                         }
                                     </div>
                                     <div class="staff_detail">
-                                        <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><h3>@user.FullName<img alt="" src="~/assets/images/au.svg"></h3></a>
+                                        <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@user.Id"><h3>@user.FullName@*<img alt="" src="~/assets/images/au.svg">*@</h3></a>
                                         <p>@user.JobType</p>
                                         <ul>
                                             <li>
@@ -190,8 +110,24 @@
                             </div>
                         }
                     </div>
+                  
                 </div>
             </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    @for (int i = 1; i <= ViewBag.PageCount; i++)
+                    {
+                        if (ViewBag.Page == i)
+                        {
+                            <li class="page-item disabled"><a class="page-link" href="#">@i</a></li>
+                        }
+                        else
+                        {
+                            <li class="page-item"><a class="page-link" asp-controller="Users" asp-action="FindStaff" asp-route-page="@i">@i</a></li>
+                        }
+                    }
+                </ul>
+            </nav>
         </div>
     </div>
 </main>

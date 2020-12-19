@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace FindJob.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = ("Admin, Moderator"))]
+    //[Authorize(Roles = ("Admin, Moderator"))]
     public class ContactController : Controller
     {
         private readonly AppDbContext _db;
@@ -21,8 +21,19 @@ namespace FindJob.Areas.Admin.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
+            ViewBag.PageCount = Math.Ceiling((decimal)_db.ContactFromUsers.Count() / 5);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+                return View(_db.ContactFromUsers.OrderByDescending(p => p.Id).Take(6).ToList());
+            }
+            else
+            {
+                return View(_db.ContactFromUsers.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 6).Take(6).ToList());
+
+            }
             return View(_db.ContactFromUsers.Where(x=>x.IsArchive==false).ToList());
         }
 

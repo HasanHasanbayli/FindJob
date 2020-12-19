@@ -22,7 +22,7 @@
                     <h5>About the Employer</h5>
                     <ul>
                         <li>
-                            <a href="#">
+                            <a asp-controller="Users" asp-action="CompanyProfile" asp-route-id="@Model.AppUserId">
                                 <i class="fas fa-landmark"></i>
                                 @Model.AppUser.FullName
                             </a>

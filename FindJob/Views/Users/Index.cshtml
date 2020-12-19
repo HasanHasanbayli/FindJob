@@ -181,14 +181,17 @@
                                         <ul>
                                             @foreach (var star in Model.StareddUser.Take(4))
                                             {
-                                                <li><img alt="" src="assets/images/Users/@star.Image"><a href="#">  @star.FullName stared @star.JobTitle job  contact  </a> </li>
+                                                <li>
+                                                <img alt="" src="assets/images/Users/@star.Image">
+                                                <a asp-controller="Users" asp-action="UserProfile" asp-route-id="@star.Id">  @star.FullName stared @star.JobTitle job  contact</a>
+                                                </li>
                                             }
                                         </ul>
                                         <h6>Apply Notifications</h6>
                                         <ul>
                                             @foreach (var apply in Model.AppliedUser.Take(4))
                                             {
-                                                <li><img alt="" src="assets/images/Users/@apply.Image"><a href="#">  @apply.FullName applying this job  contact  </a> </li>
+                                                <li><img alt="" src="assets/images/Users/@apply.Image"><a asp-controller="Users" asp-action="UserProfile" asp-route-id="@apply.Id">  @apply.FullName applying this job  contact  </a> </li>
                                             }
                                         </ul>
                                     }

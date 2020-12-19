@@ -3,6 +3,7 @@
     ViewData["Title"] = "Index";
 }
 
+<input type="hidden" id="hidden" value="blogfront" />
 <main>
     <div class="header_01 header_inner">
         <div class="header_main">
@@ -51,42 +52,18 @@
                 <div class="col-md-3">
                     <div class="blog_sidebar">
                         <div class="single-job-sidebar">
-                            @*<div class="sjs_box">
+                            <div class="sjs_box">
                                 <h3>Search blog</h3>
-                                <form class="form-inline" action="http://veepixel.com/action_page.php">
-                                    <input type="text" class="form-control" placeholder="Search" id="search-blog">
-
-                                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                                </form>
-
-                            </div>*@
-                            @*<div class="sjs_box">
-                                <h3>Tags</h3>
-                                <ul class="tags">
-                                    <li><a href="#">business</a></li>
-                                    <li><a href="#">company</a></li>
-                                    <li><a href="#">earnings</a></li>
-                                    <li><a href="#">employees</a></li>
-                                    <li><a href="#">future</a></li>
-                                    <li><a href="#">job</a></li>
-                                    <li><a href="#">jobseek</a></li>
-                                    <li><a href="#">market</a></li>
-                                    <li><a href="#">resume</a></li>
-                                    <li><a href="#">secrets</a></li>
-                                    <li><a href="#">skills</a></li>
-                                    <li><a href="#">strategy</a></li>
-                                    <li><a href="#">suggestions</a></li>
-                                    <li><a href="#">training</a></li>
-                                    <li><a href="#">unemployment</a></li>
-                                    <li><a href="#">work</a></li>
+                                <ul class="recentpost" id="searchList2">
+                                    <input type="text" style="border:none" class="form-control" id="input-search2" autocomplete="off" placeholder="Search now" aria-label="search" aria-describedby="search">
                                 </ul>
-                            </div>*@
+                            </div>                            
                             <div class="sjs_box">
                                 <h3>Recent Posts</h3>
                                 <ul class="recentpost">
-                                    @foreach (Blog blog1 in Model.Take(3).OrderByDescending(x=>x.Id))
+                                    @foreach (Blog blog1 in Model.Take(3).OrderByDescending(x => x.Id))
                                     {
-                                        <li><a href="blog-single.html">@blog1.Title</a></li>
+                                        <li><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog1.Id">@blog1.Title</a></li>
                                     }
                                 </ul>
                             </div>

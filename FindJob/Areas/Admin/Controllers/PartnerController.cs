@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace FindJob.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = ("Admin, Moderator"))]
+    //[Authorize(Roles = ("Admin, Moderator"))]
     public class PartnerController : Controller
     {
         private readonly AppDbContext _db;

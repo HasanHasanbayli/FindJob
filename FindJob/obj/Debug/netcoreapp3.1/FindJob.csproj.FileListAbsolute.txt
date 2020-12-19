@@ -384,3 +384,6 @@ C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\bin\Debug\netcoreapp3.1\MimeKi
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_BlogPartial.cshtml.g.cs
 C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_ContactPartial.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PostJobPartialFront.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_UserPartialFront.cshtml.g.cs
+C:\Users\Hasan Hasanbayli\Desktop\FindJob\FindJob\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BlogPartialFront.cshtml.g.cs

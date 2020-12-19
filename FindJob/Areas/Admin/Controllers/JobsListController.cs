@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace FindJob.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = ("Admin, Moderator"))]
+    //[Authorize(Roles = ("Admin, Moderator"))]
     public class JobsListController : Controller
     {
         private readonly AppDbContext _db;

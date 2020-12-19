@@ -19,5 +19,6 @@ namespace FindJob.ViewModels
         public int MembersCount { get; set; }
         public int PostJobCount { get; set; }
         public int ApplyCount { get; set; }
+        public IEnumerable<JobCategory> JobCategory { get; set; }
     }
 }

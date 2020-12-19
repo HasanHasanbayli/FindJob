@@ -176,7 +176,7 @@ namespace FindJob.Controllers
                 user.Location = update.Location;
                 user.ExpectedSalary = update.ExpectedSalary;
                 user.TotalExperience = update.TotalExperience;
-                user.Skills = update.Skills;
+                //user.Skills = update.Skills;
                 user.Description = update.Description;
                 user.AboutCompanyDescription = update.AboutCompanyDescription;
                 user.JobType = update.JobType;
@@ -322,8 +322,18 @@ namespace FindJob.Controllers
             return View(_db.PostJobs.Include(x=>x.City).Include(p => p.AppUser).FirstOrDefault(x => x.Id == id));
         }
 
-        public IActionResult FindStaff(AppUser user)
+        public IActionResult FindStaff(AppUser user, int? page)
         {
+            ViewBag.PageCount = Math.Ceiling((decimal)_userManager.Users.Count() / 5);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+                return View(_userManager.Users.Where(x=>x.IsCompany==false).OrderByDescending(p => p.Id).Take(6).ToList());
+            }
+            else
+            {
+                return View(_userManager.Users.Where(x=>x.IsCompany==false).OrderByDescending(p => p.Id).Skip(((int)page - 1) * 6).Take(6).ToList());
+            }
             return View(_db.Users.Where(x => x.IsCompany == false).ToList());
         }
 
@@ -333,11 +343,6 @@ namespace FindJob.Controllers
             var user = _userManager.Users.Include(p => p.PostJobs).Where(x => x.IsCompany == false).FirstOrDefault(z => z.Id == id);
             return View(user);
         }
-
-        //public IActionResult DownloadFile()
-        //{
-        //    string path = Path.Combine("assets", "pdf");
-        //}
 
         public IActionResult CompanyProfile(string id)
         {
@@ -364,5 +369,6 @@ namespace FindJob.Controllers
             await _db.SaveChangesAsync();
             return RedirectToAction("MyJobList", "Users");
         }
+              
     }
 }

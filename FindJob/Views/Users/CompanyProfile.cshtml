@@ -21,7 +21,7 @@
                     <h2>@Model.CompanyName <span class="varified"><i class="fas fa-check"></i>Verified</span></h2>
                     <h5>About company</h5>
                     <ul>
-                        <li>
+                        @*<li>
                             <div class="staff_rating">
                                 <span>4.9</span>
                                 <i class="fas fa-star"></i>
@@ -30,14 +30,14 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                        </li>
+                        </li>*@
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            @Model.Location & 15 more
+                            @Model.Location
                         </li>
                         <li>
                             <i class="far fa-clock"></i>
-                            Since 2005
+                            Since @Model.Age
                         </li>
                     </ul>
                 </div>
@@ -53,14 +53,12 @@
                     <div class="row ">
                         <div class="col-md-12 single_job_main">
                             <h2>About Company</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget vestibulum ante, sit amet blandit tellus. Pellentesque sit amet viverra lorem. Sed non diam egestas ex aliquam feugiat. Nullam urna mauris, rutrum sed erat quis, gravida scelerisque enim. Cras dapibus orci magna, sit amet fringilla est porttitor sit amet. Proin eget justo mauris. Proin leo urna, ornare quis lacus id, pretium ullamcorper libero. Suspendisse congue tortor pellentesque diam accumsan, vel dictum tellus tincidunt. Vivamus dapibus dignissim posuere. Aliquam eget sem semper, feugiat mauris eget, convallis nisi. Curabitur interdum, mi vitae commodo mattis, lacus erat aliquet urna, ut malesuada elit quam quis justo. </p>
-                            <p> Quisque aliquet eros libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc vitae sapien sit amet ante mattis laoreet. Sed at quam quis ligula suscipit iaculis in tempus diam. Cras pulvinar facilisis commodo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean a leo eget felis porta pharetra. Donec vitae metus metus. Fusce pharetra turpis non felis laoreet cursus. </p>
-                            <p> Suspendisse potenti. Suspendisse efficitur augue enim, a aliquet nunc malesuada sit amet. Praesent finibus egestas velit sit amet lobortis. Aliquam ultricies tempus facilisis. Sed maximus, turpis eu pharetra fringilla, sem tellus pharetra lorem, at dictum tortor libero sit amet nulla. Cras quis enim vitae enim congue elementum. Integer tincidunt sit amet nulla at ultricies. Mauris id hendrerit urna. </p>
+                            <p>@Html.Raw(Model.AboutCompanyDescription)</p>
                         </div>
                         <div class="section-divider"></div>
                         <div class="col-md-12 single_job_main">
                             <h2>Location</h2>
-                            <iframe class="full-width-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3428.916507434128!2d76.78322631470263!3d30.748846681631466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed76ab9f14c1%3A0xd6362b158b8994aa!2sEiffel%20Tower%20Replica!5e0!3m2!1sen!2sin!4v1581932177674!5m2!1sen!2sin" height="300" allowfullscreen=""></iframe>
+                            <iframe class="full-width-iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12157.569688213613!2d49.8547166!3d40.3779945!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d077c61fef3%3A0xfa4594c97092ca01!2sAF%20Business%20House!5e0!3m2!1saz!2s!4v1608373987476!5m2!1saz!2s" width="1000" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                         </div>
                         <div class="section-divider"></div>
                         <div class="col-md-12 single_job_main">

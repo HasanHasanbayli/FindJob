@@ -2699,7 +2699,7 @@ padding-bottom: 0;*/
 /*--------------------------------------------------*/
 
 .job_container {
-	background-image: url(../images/jobtamplatebg3.png);
+	/*background-image: url(../images/jobtamplatebg3.png);*/
 	background-color: #f2f2f2;
 	position: relative;
 	background-size: 1920px 1920px;
@@ -3346,7 +3346,7 @@ padding-bottom: 0;*/
 	width: auto;
 }
 .only-form-pages {
-	background-image: url(../images/jobtamplatebg3.png);
+	/*background-image: url(../images/vector1.jpg);*/
 	background-color: #f2f2f2;
 	position: relative;
 	background-size: 1920px 1920px;

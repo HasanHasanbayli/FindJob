@@ -40,31 +40,14 @@ namespace FindJob.Areas.Admin.Controllers
         public async Task<IActionResult> Create(PopularJob popularJob)
         {
             if (!ModelState.IsValid) return View();
-            if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
-            {
-                return View();
-            }
-
-            if (!popularJob.Photo.IsImage())
-            {
-                ModelState.AddModelError("Photo", "Zehmet olmasa shekil formati sechin");
-                return View();
-            }
-
-            if (popularJob.Photo.MaxLength(2000))
-            {
-                ModelState.AddModelError("Photo", "Shekilin olchusu max 200kb ola biler");
-                return View();
-            }
-
+           
             if (_db.PopularJobs.Count() >= 8)
             {
                 return RedirectToAction(nameof(Index));
             }
-            string path = Path.Combine("assets","images", "PopularJobs");
-            string fileName = await popularJob.Photo.SaveImg(_env.WebRootPath, path);
+            
             PopularJob newJob = new PopularJob();
-            newJob.Image = fileName;
+            newJob.Image = popularJob.Image;
             newJob.Title = popularJob.Title;
             newJob.Description = popularJob.Description;
             newJob.DataCount = popularJob.DataCount;
@@ -88,33 +71,9 @@ namespace FindJob.Areas.Admin.Controllers
             if (id == null) return NotFound();
             PopularJob dbPopularJob = _db.PopularJobs.FirstOrDefault(x => x.Id == id);
             if (popularJob == null) return NotFound();
-            #region Photo
-            if (popularJob.Photo!=null)
-            {
-                if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
-                {
-                    return View();
-                }
-
-                if (!popularJob.Photo.IsImage())
-                {
-                    ModelState.AddModelError("Photo", "Zehmet olmasa shekil formati sechin");
-                    return View();
-                }
-
-                if (popularJob.Photo.MaxLength(2000))
-                {
-                    ModelState.AddModelError("Photo", "Shekilin olchusu max 200kb ola biler");
-                    return View();
-                }
-
-                string path = Path.Combine("assets", "images", "PopularJobs");
-                Helper.DeleteImage(_env.WebRootPath, path, dbPopularJob.Image);
-                string fileName = await popularJob.Photo.SaveImg(_env.WebRootPath, path);
-                dbPopularJob.Image = fileName;
-            }
-            #endregion
+           
             dbPopularJob.Title = popularJob.Title;
+            dbPopularJob.Image = popularJob.Image;
             dbPopularJob.Description = popularJob.Description;
             dbPopularJob.DataCount = popularJob.DataCount;
             await _db.SaveChangesAsync();

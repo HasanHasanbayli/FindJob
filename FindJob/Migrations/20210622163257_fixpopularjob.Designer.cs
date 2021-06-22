@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FindJob.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201218185843_CreateSubscriptionTable")]
-    partial class CreateSubscriptionTable
+    [Migration("20210622163257_fixpopularjob")]
+    partial class fixpopularjob
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

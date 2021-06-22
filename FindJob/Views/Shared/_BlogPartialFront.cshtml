@@ -2,13 +2,14 @@
 @foreach (Blog blog in Model)
 {
     <a class="dropdown-item" asp-area="" asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">
-            @*<div class="item-thumbnail">
-                <img src="~/assets/images/Blog/@blog.Image" alt="image" style="width:30px; height:30px" class="profile-pic">
-            </div>*@
+ 
             <div class="item-content flex-grow">
-                <li class="recentpost">
-                    <a href="#">@blog.Title</a>
-                </li>
+                <ul class="recentpost">
+                    <li>
+                        <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">@blog.Title</a>
+                    </li>
+                    
+                </ul>
             </div>
     </a>
 }

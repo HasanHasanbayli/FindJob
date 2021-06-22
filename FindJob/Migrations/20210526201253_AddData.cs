@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FindJob.Migrations
 {
-    public partial class CreateDataBaseTable : Migration
+    public partial class AddData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,7 +54,8 @@ namespace FindJob.Migrations
                     Description = table.Column<string>(nullable: true),
                     AboutCompanyDescription = table.Column<string>(nullable: true),
                     CreateTime = table.Column<DateTime>(nullable: false),
-                    Image = table.Column<string>(nullable: true)
+                    Image = table.Column<string>(nullable: true),
+                    UserResume = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -90,11 +91,71 @@ namespace FindJob.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Image = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true),
+                    FontDescription = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Blogs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cities", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ContactFromAdmins",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(nullable: true),
+                    Subject = table.Column<string>(nullable: true),
+                    Message = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContactFromAdmins", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ContactFromUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FullName = table.Column<string>(nullable: false),
+                    PhoneNumber = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    Subject = table.Column<string>(nullable: false),
+                    Message = table.Column<string>(nullable: false),
+                    IsArchive = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContactFromUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "JobCategories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_JobCategories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -140,6 +201,19 @@ namespace FindJob.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Statistics", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Subscriptions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Subscriptions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -257,17 +331,17 @@ namespace FindJob.Migrations
                     JobTitle = table.Column<string>(nullable: true),
                     CompanyName = table.Column<string>(nullable: true),
                     RequiredExperience = table.Column<string>(nullable: true),
-                    Location = table.Column<string>(nullable: true),
                     Salary = table.Column<string>(nullable: true),
                     JobType = table.Column<string>(nullable: true),
                     Skills = table.Column<string>(nullable: true),
                     JobDescription = table.Column<string>(nullable: true),
                     IsActivated = table.Column<bool>(nullable: false),
-                    Vacancies = table.Column<int>(nullable: false),
                     CreateTime = table.Column<DateTime>(nullable: false),
                     ExpiresDate = table.Column<DateTime>(nullable: false),
                     Image = table.Column<string>(nullable: true),
-                    AppUserId = table.Column<string>(nullable: true)
+                    AppUserId = table.Column<string>(nullable: true),
+                    JobCategoryId = table.Column<int>(nullable: false),
+                    CityId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -278,6 +352,18 @@ namespace FindJob.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PostJobs_Cities_CityId",
+                        column: x => x.CityId,
+                        principalTable: "Cities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PostJobs_JobCategories_JobCategoryId",
+                        column: x => x.JobCategoryId,
+                        principalTable: "JobCategories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -362,6 +448,16 @@ namespace FindJob.Migrations
                 name: "IX_PostJobs_AppUserId",
                 table: "PostJobs",
                 column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PostJobs_CityId",
+                table: "PostJobs",
+                column: "CityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PostJobs_JobCategoryId",
+                table: "PostJobs",
+                column: "JobCategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -391,6 +487,12 @@ namespace FindJob.Migrations
                 name: "Blogs");
 
             migrationBuilder.DropTable(
+                name: "ContactFromAdmins");
+
+            migrationBuilder.DropTable(
+                name: "ContactFromUsers");
+
+            migrationBuilder.DropTable(
                 name: "Partners");
 
             migrationBuilder.DropTable(
@@ -400,6 +502,9 @@ namespace FindJob.Migrations
                 name: "Statistics");
 
             migrationBuilder.DropTable(
+                name: "Subscriptions");
+
+            migrationBuilder.DropTable(
                 name: "PostJobs");
 
             migrationBuilder.DropTable(
@@ -407,6 +512,12 @@ namespace FindJob.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Cities");
+
+            migrationBuilder.DropTable(
+                name: "JobCategories");
         }
     }
 }

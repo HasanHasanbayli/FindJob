@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6{
   color: #fff;
 }
 a {
-  color: var(--thm-color-1);
+    color: var(--main-bg-gr-color);
 }
 a:hover {
   color: var(--thm-color-1-2); 
@@ -44,8 +44,8 @@ a:hover {
 
 
 .btn-primary, button {
-    background: var(--thm-color-1);
-    border-color: var(--thm-color-1);
+    background: var(--main-bg-gr-color);
+    border-color: var(--main-bg-color);
 }
 
 .btn-secondary  {
@@ -104,7 +104,7 @@ a:hover {
   color: #333333;
 }
 .navigation ul > li a:hover, .navigation ul > li.active a:hover, .navigation ul .current_page > a  {
-  color: var(--thm-color-1)
+  color: var(--fontgreen-color)
 }
 .hamburger-inner, .hamburger-inner::after, .hamburger-inner::before {
   background: var(--thm-color-1)
@@ -224,8 +224,8 @@ a:hover {
 
 
 .custom_footer.dark_footer, .custom_footer {
-/*  background: var(--thm-color-1-2);*/
-  background: #3b3951;
+    background: var(--thm-color-2-2);
+    /*background: #3b3951;*/
 }
 
 .custom_footer.dark_footer .footer_widget_box h2 {

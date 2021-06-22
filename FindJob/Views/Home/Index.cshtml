@@ -3,7 +3,6 @@
 @{
     Layout = null;
 }
-
 <!doctype html>
 <html lang="en">
 
@@ -14,25 +13,25 @@
     <title>JoDice</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="icon" href="assets/images/fav.png" type="image/gif" sizes="64x64">
+    <link rel="icon" href="~/assets/images/logo-2.png" type="image/gif" sizes="64x64">
 
     <!-- CSS
     ================================================== -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&amp;display=swap&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&amp;display=swap&amp;subset=latin-ext"
+          rel="stylesheet">
     <link rel="stylesheet" href="~/assets/css/all.min.css">
     <link href="~/assets/css/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="assets/css/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
     <link href="~/assets/css/select2.min.css" rel="stylesheet" />
     <link href="~/assets/css/owl.carousel.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/assets/css/style.css">
-    <link rel="stylesheet" href="~/assets/css/color-1.css">
+    <link rel="stylesheet" href="~/assets/css/color-2.css">
 </head>
+
 <body>
 
-    <!-- Header 01
+    <!-- Header 03
     ================================================== -->
     <header class="header_04">
         <div class="header_main">
@@ -141,8 +140,8 @@
                                                         <a asp-controller="Users" asp-action="UpdateProfile"><i class="fas fa-user"></i> Update My Profile</a>
                                                     </li>
                                                     @*<li>
-                                                        <a asp-controller="Users" asp-action="ChangePassword"><i class="fas fa-key"></i>Change Password</a>
-                                                    </li>*@
+                                                            <a asp-controller="Users" asp-action="ChangePassword"><i class="fas fa-key"></i>Change Password</a>
+                                                        </li>*@
                                                     <li>
                                                         <a asp-controller="Account" asp-action="Logout"><i class="fas fa-power-off"></i> Logout</a>
                                                     </li>
@@ -244,20 +243,6 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    @*<div class="login_pop after_login">
-                                        <button class="btn btn-msg">
-                                            <i class="fas fa-envelope"></i>
-                                            <span class="msg-count">2</span>
-                                        </button>
-                                        <div class="login_pop_box job_seekernotifi ">
-                                            <h6>Inbox</h6>
-                                            <ul>
-                                                <li><img alt="" src="assets/images/c-logo-02.webp"><a href="#"> Thanks for applying this job, our HR team will contact you soon</a> </li>
-                                                <li><img alt="" src="assets/images/profile-5.png"><a href="#">You updated your profile picture .</a> </li>
-                                            </ul>
-                                        </div>
-                                    </div>*@
-                                    <!--end logedin-->
                                 }
                             </div>
                         </div>
@@ -267,155 +252,153 @@
         </div>
     </header>
 
+
     <!-- End Header 02
     ================================================== -->
     <!-- Main
     ================================================== -->
     <main>
-        <div class="header_04">
-            <div class="header_main">
-                <div class="header_btm">
-                    <video autoplay loop>
-                        @*<source src="~/assets/images/video.mp4" type="video/mp4">*@
-                    </video>
-
-                    <!-- <div class="bg-v" >
-                        <div class="bg-v-2 bg-b-r">
-                        </div>
-                    </div> -->
-                    <div class="container">
-                        <div class="banner_slider ">
-                            <div class="">
-                                <div class="row align-items-center">
-                                    <div class="col-md-12 text-center" data-aos="fade-down" data-aos-delay="200">
-                                        <h2>Find the  most exciting<br> starup jobs</h2>
-                                        <p>Most complete 2020 template for Job board sites.</p>
-                                        @*<a class="btn btn-third" asp-controller="Users" asp-action="BrowseJobs">
-                                            Know more
-                                            <i class="material-icons">arrow_right_alt</i>
-                                        </a>*@
-                                    </div>
-                                    <div class="col-md-12" data-aos="fade-down" data-aos-delay="200">
-                                        <div class="banner_form_cont">
-                                            @*<form asp-controller="Users" asp-action="BrowseJobs">
-                                                <div class="banerSearch" data-aos="fade-up" data-aos-delay="200">
-                                                    <div class="fild-wrap fw-job-title">
-                                                        <i class="fas fa-briefcase"></i>
-                                                        <select class="js-example-basic-multiple" name="category">
-                                                            <option value="AL"> JOB TITLE, SKILL, INDUSTRY</option>
-                                                            <option value="1">Concierge</option>
-                                                            <option value="2">Event Planner</option>
-                                                            <option value="3">Executive Chef</option>
-                                                            <option value="4">General Manager</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="fild-wrap fw-job-location">
-                                                        <i class="fas fa-map-marker-alt"></i>
-                                                        <select class="js-example-basic-single" name="city">
-                                                            <option value="1">ALABAMA</option>
-                                                            <option value="2">WYOMING</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="fild-wrap fw-submit">
-                                                        <button type="submit" class="btn btn-primary" value="">
-                                                            <i class="material-icons">search</i> SEARCH JOBS
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </form>*@
-                                            <div class="user_type">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="user_type_inner  user_type_seeker" data-aos="fade-up" data-aos-delay="200">
-                                                            <a asp-controller="Users" asp-action="BrowseJobs">
-                                                                <div class="usertype_img">
-                                                                    <img alt="" src="~/assets/images/usertype-2.png">
-                                                                    <img alt="" class="usertype-addon" src="~/assets/images/usertype-2-addon.png">
-                                                                </div>
-                                                                <div>
-                                                                    <h3>I'm looking for a job</h3>
-                                                                    <p>Post CV and apply job you love</p>
-                                                                    <i class="fas fa-long-arrow-alt-right"></i>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="user_type_inner user_type_post" data-aos="fade-up" data-aos-delay="400">
-                                                            <a asp-controller="Users" asp-action="PostJob">
-                                                                <div class="usertype_img">
-                                                                    <img alt="" src="~/assets/images/usertype-1.png">
-                                                                    <img alt="" class="usertype-addon" src="~/assets/images/usertype-1-addon.png">
-                                                                </div>
-                                                                <div>
-                                                                    <h3>I want to post job</h3>
-                                                                    <p>Post jobs & hire porfessionls</p>
-                                                                    <i class="fas fa-long-arrow-alt-right"></i>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+        <div class="section user_type-2 ">
+            <div class="container">
+                <h2 class="section_h">We are Popular Everywhere</h2>
+                <div class="user_type">
+                    <div class="row">
+                        @if (User.IsInRole("Employer"))
+                        {
+                            <div class="col-md-6">
+                                <div class="user_type_inner  user_type_seeker">
+                                    <a asp-controller="Users" asp-action="PostJob">
+                                        <div class="usertype_img">
+                                            <i class="far fa-user"></i>
                                         </div>
-                                    </div>
+                                        <div>
+                                            <h3>I'm looking for a job</h3>
+                                            <p>Post CV and apply job you love</p>
+                                            <span class="btn btn-rounded btn-primary">Register As Candidate</span>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section category-section ">
-            <div class="bg-v">
-                <div class="bg-v-1 bg-t-l" data-aos="zoom-in">
-                </div>
-                <div class="bg-v-2 bg-b-r" data-aos="zoom-in">
-                </div>
-            </div>
-            @if (Model.PopularJobs.Count() > 0)
-            {
-                <div class="container">
-                    <h2 data-aos="fade-up" data-aos-delay="400" class="section_h">Popular Job Categories</h2>
-                    <div class="row">
-                        @foreach (PopularJob jobCategories in Model.PopularJobs.OrderByDescending(x => x.Id).Take(8))
+                            <h3 class="ut_or">Or</h3>
+                            <div class="col-md-6">
+                                <div class="user_type_inner user_type_post">
+                                    <a asp-controller="Users" asp-action="BrowseJobs">
+                                        <div class="usertype_img">
+                                            <i class="fas fa-laptop"></i>
+                                        </div>
+                                        <div>
+                                            <h3>I want to post job</h3>
+                                            <p>Post jobs &amp; hire porfessionls</p>
+                                            <span class="btn btn-rounded btn-primary">Register As Company</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                        else
                         {
-                            <div class="col-md-3">
-                                <div class="category_box">
-                                    <div class="cb_header">
-                                        <img alt="" src="~/assets/images/PopularJobs/@jobCategories.Image">
-                                        <span class="job_count">@jobCategories.DataCount</span>
-                                    </div>
-                                    <div class="cb_bottom">
-                                        <h3>@jobCategories.Title</h3>
-                                        <p>@jobCategories.Description &amp; More</p>
-                                    </div>
+                            <div class="col-md-12">
+                                <div class="user_type_inner user_type_post">
+                                    <a asp-controller="Users" asp-action="BrowseJobs">
+                                        <div class="usertype_img">
+                                            <i class="fas fa-laptop"></i>
+                                        </div>
+                                        <div>
+                                            <h3>I want to post job</h3>
+                                            <p>Post jobs &amp; hire porfessionls</p>
+                                            <span class="btn btn-rounded btn-primary">Register As Company</span>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         }
                     </div>
                 </div>
-            }
+            </div>
+        </div>
+        <div class="section category-section-2 gray">
+            <div class="container">
+                <h2 class="section_h">Popular Job Categories</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="category-how-work-sec">
+                            <h4>How it works?</h4>
+                            <p>We have easy 3 step process for applying application</p>
+                            <ul class="how-work-box">
+                                <li>
+                                    <div class="hwb-icon">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <div class="hwb-cont">
+                                        <h5>Search jobs</h5>
+                                        <p>Search available jobs by category, location and more </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="hwb-icon">
+                                        <i class="far fa-file-word"></i>
+                                    </div>
+                                    <div class="hwb-cont">
+                                        <h5>Apply</h5>
+                                        <p>Notify employers of your interest with one click!</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="hwb-icon">
+                                        <i class="far fa-thumbs-up"></i>
+                                    </div>
+                                    <div class="hwb-cont">
+                                        <h5>Let Employers Find You</h5>
+                                        <p>Employers can find you based on your experience and credentials.</p>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            @foreach (PopularJob jobCategories in Model.PopularJobs.OrderByDescending(x => x.Id).Take(8))
+                            {
+                                <div class="col-md-12">
+                                    <div class="category_box">
+                                        <div class="cb_header">
+                                            <i class="@jobCategories.Image"></i>
+                                            <span class="job_count">@jobCategories.DataCount</span>
+                                        </div>
+                                        <div class="cb_bottom">
+                                            <h3>@jobCategories.Title</h3>
+                                            <p>@jobCategories.Description &amp; More</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <div class="col-md-12 text-right">
+                                <a class="btn btn-primary" href="#">
+                                    Browse All Jobs <i class="fas fa-long-arrow-alt-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="category-section-stickyBg"></div>
         </div>
         @if (Model.PostJobs.Count() > 0)
         {
-            <div class="section dark-section featured_section">
-                <div class="bg-v">
-                    <div class="bg-v-3 bg-t-r">
-                    </div>
-                    <div class="bg-v-3 bg-b-l">
-                    </div>
-                </div>
+            <div class="section featured_section">
                 <div class="container">
-                    <h2 data-aos="fade-up" data-aos-delay="400" class="section_h">Featured Jobs</h2>
-                    <div class="row two_col featured_box_outer">
+                    <h2 class="section_h">Featured Jobs</h2>
+                    <div class="row full_width featured_box_outer">
                         @foreach (PostJob job in Model.PostJobs.Take(6))
                         {
                             var minutePassed = (int)(DateTime.Now - job.CreateTime).TotalMinutes;
                             var hoursPassed = (int)(DateTime.Now - job.CreateTime).TotalHours;
                             var daysPassed = (int)(DateTime.Now - job.CreateTime).TotalDays;
-                            <div class="col-sm-6">
+
+                            <div class="col-sm-12">
                                 <div class="featured_box ">
                                     <div class="fb_image">
                                         @if (job.Image != null)
@@ -473,6 +456,7 @@
                                             }
                                         </ul>
                                     </div>
+
                                     <div class="fb_action">
                                         @if (User.Identity.IsAuthenticated)
                                         {
@@ -512,100 +496,84 @@
                                 </div>
                             </div>
                         }
-                        <div class="col-md-12 text-right">
-                            <a data-aos="fade-down" data-aos-delay="400" class="btn btn-primary" asp-controller="Users" asp-action="BrowseJobs">Browse All Jobs <i class="fas fa-long-arrow-alt-right"></i></a>
+
+                        <div class="col-md-12 text-center mt-4">
+                            <a class="btn btn-primary" asp-controller="Users" asp-action="BrowseJobs">
+                                Browse All Jobs <i class="fas fa-long-arrow-alt-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-
         }
-        @if (Model.Blogs.Count() > 0)
-        {
-            <div class="section post_section">
-                <div class="bg-v">
-                    <div class="bg-v-2 bg-t-l">
+        <div class="section status_section ">
+
+            <div class="container">
+                <h2 class="section_h">JoDice Status</h2>
+
+                <div class="row justify-content-between">
+                    <div class="col-auto">
+                        <div class="status_box-2">
+                            <i class="fas fa-paper-plane"></i>
+                            <h3>@Model.PostJobCount</h3>
+                            <p>Job Posted.</p>
+                        </div>
                     </div>
-                    <div class="bg-v-2 bg-b-r">
+                    <div class="col-auto">
+                        <div class="status_box-2">
+                            <i class="fas fa-vote-yea"></i>
+                            <h3>@Model.ApplyCount</h3>
+                            <p>Job Filled.</p>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="status_box-2">
+                            <i class="fas fa-building"></i>
+                            <h3>@Model.CompaniesCount</h3>
+                            <p>Companies</p>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="status_box-2">
+                            <i class="fas fa-users"></i>
+                            <h3>@Model.MembersCount</h3>
+                            <p>Members</p>
+                        </div>
                     </div>
                 </div>
-                <div class="container">
-                    <h2 data-aos="fade-up" data-aos-delay="400" class="section_h">Featured Posts</h2>
-                    <div class="row">
-                        @foreach (Blog blog in Model.Blogs.Take(3))
-                        {
-                            <div class="col-md-4" data-aos="fade-left" data-aos-delay="600">
-                                <div class="post_box">
-                                    <img alt="" src="~/assets/images/Blog/@blog.Image" class="img-responsive">
-                                    <div class="post_content">
-                                        <h6>
-                                            <a href="blog-single.html">@blog.Title</a>
-                                        </h6>
-                                        <p>@blog.FontDescription ...</p>
-                                        <a class="btn btn-secondary btn-rounded" asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">Continue reading</a>
-                                    </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="section post_section  ">
+            <div class="container">
+                <h2 class="section_h">Featured Posts</h2>
+                <div class="row">
+                    @foreach (var item in Model.Blogs)
+                    {
+                        <div class="col-md-4">
+                            <div class="post_box">
+                                <img alt="" src="~/assets/images/Blog/@item.Image" class="img-responsive">
+                                <div class="post_content">
+                                    <h6>
+                                        <a href="blog-single.html">@item.Title</a>
+                                    </h6>
+                                    <p>@item.FontDescription</p>
+                                    <a class="btn btn-secondary btn-rounded" asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">Continue reading</a>
                                 </div>
                             </div>
-                        }
-                    </div>
+                        </div>
+                    }
                 </div>
             </div>
-        }
-        @*@if (Model.Statistics.Count() > 0)*@
-        {
-            <div class="section status_section">
-                <div class="bg-v">
-                    <div class="bg-v-1 bg-t-r">
-                    </div>
-                    <div class="bg-v-2 bg-b-l">
-                    </div>
-                </div>
-                <div class="container">
-                    <h2 data-aos="fade-up" data-aos-delay="400" class="section_h">JoDice Status</h2>
-                    <div class="row justify-content-center">
-                        <div class="col-auto">
-                            <div class="status_box" data-aos="fade-in" data-aos-delay="600">
-                                <img alt="" data-aos="fade-up" data-aos-delay="1000" src="~/assets/images/Statistics/i-paper-plane.png">
-                                <h3>@Model.PostJobCount</h3>
-                                <p>Job Posted.</p>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="status_box" data-aos="fade-in" data-aos-delay="800">
-                                <img alt="" data-aos="fade-up" data-aos-delay="1200" src="assets/images/Statistics/i-doctor.png">
-                                <h3>@Model.ApplyCount</h3>
-                                <p>Job Filled.</p>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="status_box" data-aos="fade-in" data-aos-delay="1000">
-                                <img alt="" data-aos="fade-up" data-aos-delay="1400" src="assets/images/Statistics/i-company.png">
-                                <h3>@Model.CompaniesCount</h3>
-                                <p>Companies</p>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="status_box" data-aos="fade-in" data-aos-delay="1200">
-                                <img alt="" data-aos="fade-up" data-aos-delay="1600" src="assets/images/Statistics/i-mamber.png">
-                                <h3>@Model.MembersCount</h3>
-                                <p>Members</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
+        </div>
         @if (Model.Partners.Count() > 0)
         {
-            <div class="section gray  partner_section">
-                <div class="bg-v">
-                    <div class="bg-v-1 bg-t-l">
-                    </div>
-                    <div class="bg-v-3 bg-b-r">
-                    </div>
-                </div>
+            <div class="section  partner_section gray">
                 <div class="container">
-                    <h2 data-aos="fade-up" data-aos-delay="400" class="section_h">Our Partners</h2>
+                    <h2 class="section_h">Our Partners</h2>
                     <ul class="partner_carousel owl-carousel owl-theme">
                         @foreach (Partners partners in Model.Partners)
                         {
@@ -617,13 +585,126 @@
                 </div>
             </div>
         }
+
     </main>
-    <!-- End Main
-    ================================================== -->
+
+
     <!-- Footer Container
     ================================================== -->
+    <footer id="colophon" class="site-footer custom_footer dark_footer">
+        <div class="container">
+            <div class="row footer_widget">
+                <div class="col-md-3">
+                    <div class="footer_widget_box">
+                        <h2>Job seekers</h2>
+                        <ul>
+                            <li>
+                                <a href="browse-jobs.html">Browse jobs</a>
+                            </li>
+                            <li>
+                                <a href="job-single.html">Job single</a>
+                            </li>
+                            <li>
+                                <a href="my-stared-jobs.html">My stared jobs</a>
+                            </li>
+                            <li>
+                                <a href="edit-profile.html">Update my profile</a>
+                            </li>
+                            <li>
+                                <a href="edit-password.html">Change password</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer_widget_box">
+                        <h2>Employers</h2>
+                        <ul>
+                            <li>
+                                <a href="emp-registration.html">Get a FREE Employer Account</a>
+                            </li>
+                            <li>
+                                <a href="post-a-job.html">Post a job</a>
+                            </li>
+                            <li>
+                                <a href="find-staff.html">Find staff</a>
+                            </li>
+                            <li>
+                                <a href="job-dashboard.html">Job dashboard</a>
+                            </li>
+                            <li>
+                                <a href="emp-edit-profile.html">Update profile</a>
+                            </li>
+                            <li>
+                                <a href="emp-edit-password.html">Change password</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer_widget_box">
+                        <h2>Community</h2>
+                        <ul>
+                            <li>
+                                <a href="contact-us.html">Help / Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="content-page.html">Guidelines</a>
+                            </li>
+                            <li>
+                                <a href="content-page.html">Terms of Use</a>
+                            </li>
+                            <li>
+                                <a href="content-page.html">Privacy &amp; Cookies </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer_widget_box">
+                        <h2>Get In Touch</h2>
+                        <ul class="social_list">
+                            <li>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </li>
+                        </ul>
 
-    @await Component.InvokeAsync("Footer")
+                    </div>
+
+                    <div class="footer_widget_box">
+                        <form class="newsletter">
+                            <h2>Newsletter</h2>
+                            <div class="d-flex">
+
+                                <input class="form-control" type="email" placeholder="Enter your email ">
+                                <button class="btn btn-primary"><i class="fa fa-paper-plane"></i></button>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="footer_widget_box">
+                        <p class="copyright-text">
+                            © Copyright 2020 by JoDice. All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- .site-info -->
+        </div>
+    </footer>
+
 
     <!-- End Footer Container
     ================================================== -->
@@ -633,7 +714,6 @@
     <script src="~/assets/js/select2.min.js"></script>
     <script src="~/assets/js/bootstrap.min.js"></script>
     <script src="~/assets/js/owl.carousel.min.js"></script>
-    <script src="~/assets/js/aos.js"></script>
     <script src="~/assets/js/custom.js"></script>
 </body>
 

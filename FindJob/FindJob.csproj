@@ -5,92 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20201106105807_CreateBioTable.cs" />
-    <Compile Remove="Migrations\20201106105807_CreateBioTable.Designer.cs" />
-    <Compile Remove="Migrations\20201106123414_PopularJobCategories.cs" />
-    <Compile Remove="Migrations\20201106123414_PopularJobCategories.Designer.cs" />
-    <Compile Remove="Migrations\20201106124948_CreateStatisticsTable.cs" />
-    <Compile Remove="Migrations\20201106124948_CreateStatisticsTable.Designer.cs" />
-    <Compile Remove="Migrations\20201106182232_CreatePartnersTable.cs" />
-    <Compile Remove="Migrations\20201106182232_CreatePartnersTable.Designer.cs" />
-    <Compile Remove="Migrations\20201106184818_CreateBlogTable.cs" />
-    <Compile Remove="Migrations\20201106184818_CreateBlogTable.Designer.cs" />
-    <Compile Remove="Migrations\20201106195031_AddIdentity.cs" />
-    <Compile Remove="Migrations\20201106195031_AddIdentity.Designer.cs" />
-    <Compile Remove="Migrations\20201107120303_AddIdentity.cs" />
-    <Compile Remove="Migrations\20201107120303_AddIdentity.Designer.cs" />
-    <Compile Remove="Migrations\20201109132559_AddImageColumnToAppUserTable.cs" />
-    <Compile Remove="Migrations\20201109132559_AddImageColumnToAppUserTable.Designer.cs" />
-    <Compile Remove="Migrations\20201116094533_AddColumnToAppUserAndPostJobTable.cs" />
-    <Compile Remove="Migrations\20201116094533_AddColumnToAppUserAndPostJobTable.Designer.cs" />
-    <Compile Remove="Migrations\20201116094714_AddColumnToAppUserAndPostJobTable.cs" />
-    <Compile Remove="Migrations\20201116094714_AddColumnToAppUserAndPostJobTable.Designer.cs" />
-    <Compile Remove="Migrations\20201116100608_AddColumnToAppUserAndPostJobTable.cs" />
-    <Compile Remove="Migrations\20201116100608_AddColumnToAppUserAndPostJobTable.Designer.cs" />
-    <Compile Remove="Migrations\20201116100859_AddColumnToAppUserAndPostJobTable.cs" />
-    <Compile Remove="Migrations\20201116100859_AddColumnToAppUserAndPostJobTable.Designer.cs" />
-    <Compile Remove="Migrations\20201116101233_AddColumnToAppUserAndPostJobTable.cs" />
-    <Compile Remove="Migrations\20201116101233_AddColumnToAppUserAndPostJobTable.Designer.cs" />
-    <Compile Remove="Migrations\20201116102720_AddColumnToAppUserAndPostJobTable.cs" />
-    <Compile Remove="Migrations\20201116102720_AddColumnToAppUserAndPostJobTable.Designer.cs" />
-    <Compile Remove="Migrations\20201116115153_AddColumnToAppUserAndPostJobTable.cs" />
-    <Compile Remove="Migrations\20201116115153_AddColumnToAppUserAndPostJobTable.Designer.cs" />
-    <Compile Remove="Migrations\20201116161412_AddAgeColumnToUsersTable.cs" />
-    <Compile Remove="Migrations\20201116161412_AddAgeColumnToUsersTable.Designer.cs" />
-    <Compile Remove="Migrations\20201118124817_AddedPostJobTableCreateTimeProp.cs" />
-    <Compile Remove="Migrations\20201118124817_AddedPostJobTableCreateTimeProp.Designer.cs" />
-    <Compile Remove="Migrations\20201118135935_DeletePostedColumnToPostJobTable.cs" />
-    <Compile Remove="Migrations\20201118135935_DeletePostedColumnToPostJobTable.Designer.cs" />
-    <Compile Remove="Migrations\20201119194708_AddColumnToAppUserTable.cs" />
-    <Compile Remove="Migrations\20201119194708_AddColumnToAppUserTable.Designer.cs" />
-    <Compile Remove="Migrations\20201119204054_AddPdfFileColumnToAppUserTable.cs" />
-    <Compile Remove="Migrations\20201119204054_AddPdfFileColumnToAppUserTable.Designer.cs" />
-    <Compile Remove="Migrations\20201120132455_AddBoolColumnToAppUserTable.cs" />
-    <Compile Remove="Migrations\20201120132455_AddBoolColumnToAppUserTable.Designer.cs" />
-    <Compile Remove="Migrations\20201120185741_AddJobTitleColumnToAppUser.cs" />
-    <Compile Remove="Migrations\20201120185741_AddJobTitleColumnToAppUser.Designer.cs" />
-    <Compile Remove="Migrations\20201121131503_AddImageColumnToPostJobTable.cs" />
-    <Compile Remove="Migrations\20201121131503_AddImageColumnToPostJobTable.Designer.cs" />
-    <Compile Remove="Migrations\20201124175953_AddFavoriteJobsTable.cs" />
-    <Compile Remove="Migrations\20201124175953_AddFavoriteJobsTable.Designer.cs" />
-    <Compile Remove="Migrations\20201125185305_CreateStaredJobsTable.cs" />
-    <Compile Remove="Migrations\20201125185305_CreateStaredJobsTable.Designer.cs" />
-    <Compile Remove="Migrations\20201125192405_AddColumnToUserStaredJobsTable.cs" />
-    <Compile Remove="Migrations\20201125192405_AddColumnToUserStaredJobsTable.Designer.cs" />
-    <Compile Remove="Migrations\20201126122319_AddStaredJobsTable.cs" />
-    <Compile Remove="Migrations\20201126122319_AddStaredJobsTable.Designer.cs" />
-    <Compile Remove="Migrations\20201126132622_AddIsFavoriteColumnTable.cs" />
-    <Compile Remove="Migrations\20201126132622_AddIsFavoriteColumnTable.Designer.cs" />
-    <Compile Remove="Migrations\20201126132915_AddIsFavoriteColumnTable.cs" />
-    <Compile Remove="Migrations\20201126132915_AddIsFavoriteColumnTable.Designer.cs" />
-    <Compile Remove="Migrations\20201126201307_CreateAppUserAndPostJobTable.cs" />
-    <Compile Remove="Migrations\20201126201307_CreateAppUserAndPostJobTable.Designer.cs" />
-    <Compile Remove="Migrations\20201127201035_AddColumnToPostJob.cs" />
-    <Compile Remove="Migrations\20201127201035_AddColumnToPostJob.Designer.cs" />
-    <Compile Remove="Migrations\20201127203009_AddColumnToAppUser.cs" />
-    <Compile Remove="Migrations\20201127203009_AddColumnToAppUser.Designer.cs" />
-    <Compile Remove="Migrations\20201128165739_RemoveColumnFromPostJob.cs" />
-    <Compile Remove="Migrations\20201128165739_RemoveColumnFromPostJob.Designer.cs" />
-    <Compile Remove="Migrations\20201206092939_CreatePopularJobTable.cs" />
-    <Compile Remove="Migrations\20201206092939_CreatePopularJobTable.Designer.cs" />
-    <Compile Remove="Migrations\20201212173911_CreateCityAndCategoryTable.cs" />
-    <Compile Remove="Migrations\20201212173911_CreateCityAndCategoryTable.Designer.cs" />
-    <Compile Remove="Migrations\20201212174114_CreateCityAndCategoryTable.cs" />
-    <Compile Remove="Migrations\20201212174114_CreateCityAndCategoryTable.Designer.cs" />
-    <Compile Remove="Migrations\20201212174330_CreateCityAndCategoryTable.cs" />
-    <Compile Remove="Migrations\20201212174330_CreateCityAndCategoryTable.Designer.cs" />
-    <Compile Remove="Migrations\20201212174854_CreateCityAndCategoryTable.cs" />
-    <Compile Remove="Migrations\20201212174854_CreateCityAndCategoryTable.Designer.cs" />
-    <Compile Remove="Migrations\20201212175316_CreateCityAndCategoryTable.cs" />
-    <Compile Remove="Migrations\20201212175316_CreateCityAndCategoryTable.Designer.cs" />
-    <Compile Remove="Migrations\20201212181219_CreateCityAndCategoryTable.cs" />
-    <Compile Remove="Migrations\20201212181219_CreateCityAndCategoryTable.Designer.cs" />
-    <Compile Remove="Migrations\20201215132253_AddColumnToUserTable.cs" />
-    <Compile Remove="Migrations\20201215132253_AddColumnToUserTable.Designer.cs" />
-    <Compile Remove="Migrations\20201215132443_AddColumnToAppUserTable.cs" />
-    <Compile Remove="Migrations\20201215132443_AddColumnToAppUserTable.Designer.cs" />
-    <Compile Remove="Migrations\20201217131108_CreateContactFromAdminTable.cs" />
-    <Compile Remove="Migrations\20201217131108_CreateContactFromAdminTable.Designer.cs" />
+    <Compile Remove="Areas\Admin\Data\**" />
+    <Compile Remove="Areas\Admin\Models\**" />
+    <Content Remove="Areas\Admin\Data\**" />
+    <Content Remove="Areas\Admin\Models\**" />
+    <EmbeddedResource Remove="Areas\Admin\Data\**" />
+    <EmbeddedResource Remove="Areas\Admin\Models\**" />
+    <None Remove="Areas\Admin\Data\**" />
+    <None Remove="Areas\Admin\Models\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -111,8 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="wwwroot\assets\images\Blog\" />
     <Folder Include="wwwroot\assets\images\Partners\" />
     <Folder Include="wwwroot\assets\images\PopularJobs\" />

@@ -82,32 +82,7 @@ namespace FindJob.Areas.Admin.Controllers
             if (id == null) return NotFound();
             Partners dbPartners = _db.Partners.FirstOrDefault(x => x.Id == id);
             if (dbPartners == null) return NotFound();
-            #region Photo
-            if (popularJob.Photo != null)
-            {
-                if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
-                {
-                    return View();
-                }
-
-                if (!popularJob.Photo.IsImage())
-                {
-                    ModelState.AddModelError("Photo", "Zehmet olmasa shekil formati sechin");
-                    return View();
-                }
-
-                if (popularJob.Photo.MaxLength(2000))
-                {
-                    ModelState.AddModelError("Photo", "Shekilin olchusu max 200kb ola biler");
-                    return View();
-                }
-
-                string path = Path.Combine("assets", "images", "Partners");
-                Helper.DeleteImage(_env.WebRootPath, path, dbPartners.Image);
-                string fileName = await popularJob.Photo.SaveImg(_env.WebRootPath, path);
-                dbPartners.Image = fileName;
-            }
-            #endregion
+           
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

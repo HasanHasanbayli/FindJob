@@ -93,12 +93,7 @@ namespace FindJob.Controllers
                 }
                 return View(register);
             }
-            await _userManager.AddToRoleAsync(newUser, "Employe");
-            var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
-            var href = Url.Action("ConfirmEmail", "Account", new { userId = newUser.Id, code = code }, protocol: Request.Scheme);
-            EmailService emailService = new EmailService();
-            await emailService.SendEmailAsync(newUser.Email,
-            "Confirm your Account", $"Qeydiyyati tamamlamaq ucun linkden kecid edin <a href='{href}'>click link</a>");
+            await _userManager.AddToRoleAsync(newUser, "Employe");;
             await _signInManager.SignInAsync(newUser, true);
             return RedirectToAction("Index", "Home");
         }
@@ -123,6 +118,7 @@ namespace FindJob.Controllers
                 IsCompany = true,
                 CreateTime = DateTime.Now
             };
+
             IdentityResult identityResult = await _userManager.CreateAsync(newUser, register.Password);
             if (!identityResult.Succeeded)
             {
@@ -163,24 +159,24 @@ namespace FindJob.Controllers
                 return View("Error");
         }
 
-        //public async Task CreateRole()
-        //{
-        //    if (!await _roleManager.RoleExistsAsync("Admin"))
-        //    {
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
-        //    }
-        //    if (!await _roleManager.RoleExistsAsync("Moderator"))
-        //    {
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Moderator" });
-        //    }
-        //    if (!await _roleManager.RoleExistsAsync("Employer"))
-        //    {
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Employer" });
-        //    }
-        //    if (!await _roleManager.RoleExistsAsync("Employe"))
-        //    {
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Employe" });
-        //    }
-        //}
+        public async Task CreateRole()
+        {
+            if (!await _roleManager.RoleExistsAsync("Admin"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
+            }
+            if (!await _roleManager.RoleExistsAsync("Moderator"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Moderator" });
+            }
+            if (!await _roleManager.RoleExistsAsync("Employer"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Employer" });
+            }
+            if (!await _roleManager.RoleExistsAsync("Employe"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Employe" });
+            }
+        }
     }
 }

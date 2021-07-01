@@ -1,5 +1,5 @@
-﻿using FindJob.DAL;
-using FindJob.Models;
+﻿using Recruitment.DAL;
+using Recruitment.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FindJob.Controllers
+namespace Recruitment.Controllers
 {
     public class SearchController : Controller
     {

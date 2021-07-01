@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FindJob.Models;
-using FindJob.Services;
-using FindJob.ViewModels;
+using Recruitment.Models;
+using Recruitment.Services;
+using Recruitment.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FindJob.Controllers
+namespace Recruitment.Controllers
 {
     public class AccountController : Controller
     {

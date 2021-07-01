@@ -1,12 +1,12 @@
-﻿using FindJob.DAL;
-using FindJob.Models;
+﻿using Recruitment.DAL;
+using Recruitment.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FindJob.Helpers
+namespace Recruitment.Helpers
 {
     public static class AddFavorites
     {

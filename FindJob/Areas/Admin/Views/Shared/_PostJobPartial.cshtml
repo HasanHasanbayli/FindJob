@@ -2,9 +2,6 @@
 @foreach (PostJob job in Model)
 {
     <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">
-        <div class="item-thumbnail">
-            <img src="~/assets/images/Users/@job.Image" alt="image" class="profile-pic">
-        </div>
         <div class="item-content flex-grow">
             <h6 class="ellipsis font-weight-normal">
                 @job.JobTitle

@@ -77,7 +77,7 @@
                                         <ul>
                                             @foreach (var apply in Model.AppliedUser.Take(4))
                                             {
-                                                <li><img alt="" src="~/assets/images/Users/@apply.Image"><a asp-controller="Users" asp-action="UserProfile" asp-route-id="@apply.Id">  @apply.FullName applying this job  contact  </a> </li>
+                                                <li><a asp-controller="Users" asp-action="UserProfile" asp-route-id="@apply.Id">  @apply.FullName applying this job  contact  </a> </li>
                                             }
                                         </ul>
                                     }

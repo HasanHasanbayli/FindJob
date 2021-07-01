@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FindJob.DAL;
-using FindJob.Helpers;
-using FindJob.Models;
-using FindJob.ViewModels;
+using Recruitment.DAL;
+using Recruitment.Helpers;
+using Recruitment.Models;
+using Recruitment.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace FindJob.Controllers
+namespace Recruitment.Controllers
 {
     public class HomeController : Controller
     {

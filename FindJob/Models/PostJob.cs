@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FindJob.Models
+namespace Recruitment.Models
 {
     public class PostJob:SearchBase
     {

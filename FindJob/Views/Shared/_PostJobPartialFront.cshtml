@@ -3,9 +3,6 @@
 {
     <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">
         <div class="row">
-            <div class="item-thumbnail">
-                <img src="~/assets/images/Users/@job.Image" alt="image" style="width:30px; height:30px" class="profile-pic">
-            </div>
             <div class="item-content flex-grow">
                 <h6 style=" margin-left: 13px;" class="ellipsis font-weight-normal">
                     @job.JobTitle

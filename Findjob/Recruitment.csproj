@@ -36,7 +36,6 @@
     <Folder Include="wwwroot\assets\images\Blog\" />
     <Folder Include="wwwroot\assets\images\Partners\" />
     <Folder Include="wwwroot\assets\images\PopularJobs\" />
-    <Folder Include="wwwroot\assets\pdf\" />
   </ItemGroup>
 
   <ItemGroup>

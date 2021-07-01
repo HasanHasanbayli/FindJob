@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hasan\\Desktop\\Repos\\FindJob\\FindJob\\FindJob.csproj": {}
+    "C:\\Users\\hasan\\Desktop\\Recruiter\\FindJob\\FindJob\\FindJob.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hasan\\Desktop\\Repos\\FindJob\\FindJob\\FindJob.csproj": {
+    "C:\\Users\\hasan\\Desktop\\Recruiter\\FindJob\\FindJob\\FindJob.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hasan\\Desktop\\Repos\\FindJob\\FindJob\\FindJob.csproj",
+        "projectUniqueName": "C:\\Users\\hasan\\Desktop\\Recruiter\\FindJob\\FindJob\\FindJob.csproj",
         "projectName": "FindJob",
-        "projectPath": "C:\\Users\\hasan\\Desktop\\Repos\\FindJob\\FindJob\\FindJob.csproj",
+        "projectPath": "C:\\Users\\hasan\\Desktop\\Recruiter\\FindJob\\FindJob\\FindJob.csproj",
         "packagesPath": "C:\\Users\\hasan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hasan\\Desktop\\Repos\\FindJob\\FindJob\\obj\\",
+        "outputPath": "C:\\Users\\hasan\\Desktop\\Recruiter\\FindJob\\FindJob\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

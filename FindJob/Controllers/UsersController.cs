@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using FindJob.DAL;
-using FindJob.Extentions;
-using FindJob.Helpers;
-using FindJob.Models;
-using FindJob.ViewModels;
+using Recruitment.DAL;
+using Recruitment.Extentions;
+using Recruitment.Helpers;
+using Recruitment.Models;
+using Recruitment.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace FindJob.Controllers
+namespace Recruitment.Controllers
 {
     [Authorize]
     public class UsersController : Controller
@@ -185,12 +185,6 @@ namespace FindJob.Controllers
             //await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-
-        public IActionResult ChangePassword()
-        {
-            return View();
-        }
-        //[Authorize(Roles = ("Employer"))]
         public IActionResult PostJob()
         {
             ViewBag.City = _db.Cities.ToList();

@@ -1,5 +1,5 @@
-﻿using FindJob.DAL;
-using FindJob.Models;
+﻿using Recruitment.DAL;
+using Recruitment.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,7 +9,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
-namespace FindJob.Areas.Admin.Controllers
+namespace Recruitment.Areas.Admin.Controllers
 {
     [Area("Admin")]
     //[Authorize(Roles = ("Admin, Moderator"))]

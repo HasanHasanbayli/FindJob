@@ -1,7 +1,7 @@
-﻿using FindJob.DAL;
-using FindJob.Extentions;
-using FindJob.Helpers;
-using FindJob.Models;
+﻿using Recruitment.DAL;
+using Recruitment.Extentions;
+using Recruitment.Helpers;
+using Recruitment.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FindJob.Areas.Admin.Controllers
+namespace Recruitment.Areas.Admin.Controllers
 {
     [Area("Admin")]
     //[Authorize(Roles = ("Admin, Moderator"))]

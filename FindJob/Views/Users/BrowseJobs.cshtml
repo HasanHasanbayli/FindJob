@@ -59,11 +59,6 @@
                             var daysPassed = (int)(DateTime.Now - job.CreateTime).TotalDays;
                             <div class="col-sm-12">
                                 <div class="featured_box ">
-                                    <div class="fb_image">
-                                        <a asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">
-                                            <img alt="brand logo" src="~/assets/images/Users/@job.AppUser.Image">
-                                        </a>
-                                    </div>
                                     <div class="fb_content">
                                         <a asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id">
                                             <h4>@job.JobTitle</h4>
@@ -115,7 +110,7 @@
                                         {
                                             @if (Model.AppUser.IsCompany == false)
                                             {
-                                                @if (job.AppUserPostJobs.Where(x => x.AppUserId == Model.AppUser.Id).Any(x => x.IsFavorite == true))
+                                                @if (job.AppUserPostJobs.Where(x => x.AppendUserId == Model.AppUser.Id).Any(x => x.IsFavorite == true))
                                                 {
                                                     <a title="add to favourite" asp-controller="Home" asp-action="RemoveFavorite" asp-route-id="@job.AppUserPostJobs.FirstOrDefault().Id">
                                                         <i class="fas fa-star"></i>
@@ -127,7 +122,7 @@
                                                         <i class="far fa-star"></i>
                                                     </a>
                                                 }
-                                                if (job.AppUserPostJobs.Where(x => x.AppUserId == Model.AppUser.Id).Any(x => x.IsContacted == true))
+                                                if (job.AppUserPostJobs.Where(x => x.AppendUserId == Model.AppUser.Id).Any(x => x.IsContacted == true))
                                                 {
                                                     <a class="btn btn-third disabled" href="job-single.html">Applied</a>
                                                 }

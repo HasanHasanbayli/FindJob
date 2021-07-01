@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace FindJob.Migrations
+namespace Recruitment.Migrations
 {
     public partial class AddData : Migration
     {

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FindJob.DAL;
-using FindJob.Models;
-using FindJob.ViewModels;
+using Recruitment.DAL;
+using Recruitment.Models;
+using Recruitment.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FindJob.Controllers
+namespace Recruitment.Controllers
 {
     public class ContactUsController : Controller
     {

@@ -1,10 +1,7 @@
-﻿using FindJob.Models;
-using System;
+﻿using Recruitment.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace FindJob.ViewModels
+namespace Recruitment.ViewModels
 {
     public class PostJobVM
     {

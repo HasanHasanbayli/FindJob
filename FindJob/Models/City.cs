@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FindJob.Models
+namespace Recruitment.Models
 {
     public class City
     {

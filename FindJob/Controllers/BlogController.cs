@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FindJob.DAL;
+using Recruitment.DAL;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FindJob.Controllers
+namespace Recruitment.Controllers
 {
     public class BlogController : Controller
     {

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FindJob.Extentions
+namespace Recruitment.Extentions
 {
     public static class Extention
     {

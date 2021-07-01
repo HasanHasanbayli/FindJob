@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZQxG1cJ3aignRmAHfdS+I7wEY75+gnQNXsKO7+TV7a+jBCfBGynWeFsF8Jq65xDoBF1a03YueQLu1A/Vz8clCA==",
+  "dgSpecHash": "FaUTrQoUSIFGAvw1piZao/Yqlbky6fCgIy84Jd3bFz0AV6aCqj9mP687jrs4sQNcd8kVDbLY3Ge5yUSWkmcLqA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hasan\\Desktop\\Repos\\FindJob\\FindJob\\FindJob.csproj",
+  "projectFilePath": "C:\\Users\\hasan\\Desktop\\Recruiter\\FindJob\\FindJob\\Recruitment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hasan\\.nuget\\packages\\mailkit\\2.10.0\\mailkit.2.10.0.nupkg.sha512",
     "C:\\Users\\hasan\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.9\\microsoft.aspnetcore.cryptography.internal.3.1.9.nupkg.sha512",

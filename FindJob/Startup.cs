@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FindJob.DAL;
-using FindJob.Hubs;
-using FindJob.Models;
+using Recruitment.DAL;
+using Recruitment.Hubs;
+using Recruitment.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace FindJob
+namespace Recruitment
 {
     public class Startup
     {
@@ -58,7 +58,7 @@ namespace FindJob
             {
                 endpoints.MapControllerRoute(
                 name: "areas",
-                pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
+                pattern: "{area:exists}/{controller=Bio}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapHub<ChatHub>("/chathub");
             });

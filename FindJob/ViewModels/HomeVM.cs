@@ -1,10 +1,10 @@
-﻿using FindJob.Models;
+﻿using Recruitment.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FindJob.ViewModels
+namespace Recruitment.ViewModels
 {
     public class HomeVM
     {

@@ -2,9 +2,6 @@
 @foreach (PopularJob job in Model)
 {
     <a class="dropdown-item" href="@job.Id">
-        <div class="item-thumbnail">
-            <img src="~/assets/images/PopularJobs/@job.Image" alt="image" class="profile-pic">
-        </div>
         <div class="item-content flex-grow">
             <h6 class="ellipsis font-weight-normal">
                 @job.Title

@@ -17,9 +17,6 @@
                                 #
                             </th>
                             <th>
-                                Image
-                            </th>
-                            <th>
                                 Title
                             </th>
                             <th>
@@ -40,16 +37,6 @@
                             <tr>
                                 <td>
                                     @Count
-                                </td>
-                                <td class="py-1">
-                                    @if (job.Image != null)
-                                    {
-                                        <img src="~/assets/images/PopularJobs/@job.Image" alt="image" />
-                                    }
-                                    else
-                                    {
-                                        <img src="~/assets/images/Users/prof.PNG" />
-                                    }
                                 </td>
                                 <td>
                                     @job.Title

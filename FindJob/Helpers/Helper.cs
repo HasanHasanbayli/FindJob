@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FindJob.Helpers
+namespace Recruitment.Helpers
 {
     public static class Helper
     {

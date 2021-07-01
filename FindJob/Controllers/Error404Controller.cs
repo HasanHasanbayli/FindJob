@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FindJob.Controllers
+namespace Recruitment.Controllers
 {
     public class Error404Controller : Controller
     {

@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                                 <ul>
-                                    <li class="has-sub-menu @*current_page*@ ">
+                                    <li class="has-sub-menu current_page ">
                                         <a asp-controller="Home" asp-action="Index">Home</a>
                                     </li>
                                     <li class="has-sub-menu">
@@ -196,9 +196,6 @@
                                                         <a asp-controller="Users" asp-action="UpdateProfile"><i class="fas fa-user"></i> Update My Profile</a>
                                                     </li>
                                                     <li>
-                                                        <a asp-controller="Users" asp-action="ChangePassword"><i class="fas fa-key"></i>Change Password</a>
-                                                    </li>
-                                                    <li>
                                                         <a asp-controller="Account" asp-action="Logout"><i class="fas fa-power-off"></i> Logout</a>
                                                     </li>
                                                 </ul>
@@ -259,12 +256,12 @@
     ================================================== -->
     <main>
         <div class="section user_type-2 ">
-            <div class="container">
-                <h2 class="section_h">We are Popular Everywhere</h2>
-                <div class="user_type">
-                    <div class="row">
-                        @if (User.IsInRole("Employer"))
-                        {
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="container">
+                    <h2 class="section_h">We are Popular Everywhere</h2>
+                    <div class="user_type">
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="user_type_inner  user_type_seeker">
                                     <a asp-controller="Users" asp-action="PostJob">
@@ -294,27 +291,10 @@
                                     </a>
                                 </div>
                             </div>
-                        }
-                        else
-                        {
-                            <div class="col-md-12">
-                                <div class="user_type_inner user_type_post">
-                                    <a asp-controller="Users" asp-action="BrowseJobs">
-                                        <div class="usertype_img">
-                                            <i class="fas fa-laptop"></i>
-                                        </div>
-                                        <div>
-                                            <h3>I want to post job</h3>
-                                            <p>Post jobs &amp; hire porfessionls</p>
-                                            <span class="btn btn-rounded btn-primary">Register As Company</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        }
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
         <div class="section category-section-2 gray">
             <div class="container">
@@ -476,7 +456,7 @@
                                                 }
                                                 if (job.AppUserPostJobs.Where(x => x.AppendUserId == Model.AppUser.Id).Any(x => x.IsContacted == true))
                                                 {
-                                                    <a class="btn btn-third disabled" href="job-single.html">Applied</a>
+                                                    <a class="btn btn-third" href="job-single.html">Applied</a>
                                                 }
                                                 else
                                                 {
@@ -665,16 +645,16 @@
                         <h2>Get In Touch</h2>
                         <ul class="social_list">
                             <li>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="@Model.Bio.Twitter"><i class="fab fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="@Model.Bio.Facebook"><i class="fab fa-facebook"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="@Model.Bio.Linkedin"><i class="fab fa-linkedin"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="@Model.Bio.Youtube"><i class="fab fa-youtube"></i></a>
                             </li>
                         </ul>
 
@@ -696,7 +676,7 @@
                 <div class="col-md-12">
                     <div class="footer_widget_box">
                         <p class="copyright-text">
-                            © Copyright 2020 by JoDice. All rights reserved.
+                            © Copyright 2020 by Abbas. All rights reserved.
                         </p>
                     </div>
                 </div>

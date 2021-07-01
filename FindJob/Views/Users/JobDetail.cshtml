@@ -69,8 +69,24 @@
                     </ul>
                 </div>
                 <div class="poster_action">
-                    <a class="addtofav" title="add to favourite" href="#"><i class="far fa-heart"></i></a>
-                    <a class="btn btn-third" href="#">Apply Now</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (Model.AppUser.IsCompany == false)
+                        {
+                            if (Model.AppUserPostJobs.Where(x => x.AppendUserId == Model.AppUser.Id).Any(x => x.IsContacted == true))
+                            {
+                                <a class="btn btn-third" href="#">Applied</a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-third" asp-controller="Home" asp-action="AddApply" asp-route-id="@Model.Id">Apply Now</a>
+                            }
+                        }
+                        else
+                        {
+                            <a class="btn btn-third" asp-controller="Home" asp-action="AddApply" asp-route-id="@Model.Id">Apply Now</a>
+                        }
+                    }
                 </div>
             </div>
         </div>

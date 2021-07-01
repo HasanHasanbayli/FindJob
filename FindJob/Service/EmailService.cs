@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FindJob.Services
+namespace Recruitment.Services
 {
     public class EmailService
     {

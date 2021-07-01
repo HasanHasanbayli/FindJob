@@ -27,23 +27,11 @@
                         <li>
                             <a asp-controller="Users" asp-action="StaredJobs"><i class="fas fa-star"></i> View My Stared Jobs</a>
                         </li>
-                        @*@if (Model.IsCompany == true)
-                            {
-                                <li>
-                                    <a asp-controller="Users" asp-action="PostJob"><i class="fas fa-paper-plane"></i> Post Job</a>
-                                </li>
-                                <li>
-                                    <a asp-controller="Users" asp-action="MyJobList"><i class="far fa-list-alt"></i> My job listings</a>
-                                </li>
-                            }*@
                     </ul>
                     <h5>Account</h5>
                     <ul class="user_navigation">
                         <li class="is-active">
                             <a asp-controller="Users" asp-action="UpdateProfile"><i class="fas fa-user"></i> Update My Profile</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Users" asp-action="ChangePassword"><i class="fas fa-key"></i>Change Password</a>
                         </li>
                         <li>
                             <a href="edit-password.html"><i class="fas fa-power-off"></i> Logout</a>
@@ -55,14 +43,6 @@
                         <div class="col-sm-12">
                             <div class="jm_headings">
                                 <h5>Update My Profile</h5>
-                                @*@if (Model.IsCompany==false)
-                                    {
-                                        <a class="btn btn-primary mypbtn" href="staff-profile-single.html">My profile</a>
-                                    }
-                                    else
-                                    {
-                                        <a class="btn btn-primary mypbtn" href="staff-profile-single.html">Company profile</a>
-                                    }*@
                             </div>
                             <div class="section-divider">
                             </div>

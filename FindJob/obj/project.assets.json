@@ -8867,11 +8867,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hasan\\Desktop\\Repos\\FindJob\\FindJob\\FindJob.csproj",
-      "projectName": "FindJob",
-      "projectPath": "C:\\Users\\hasan\\Desktop\\Repos\\FindJob\\FindJob\\FindJob.csproj",
+      "projectUniqueName": "C:\\Users\\hasan\\Desktop\\Recruiter\\FindJob\\FindJob\\Recruitment.csproj",
+      "projectName": "Recruitment",
+      "projectPath": "C:\\Users\\hasan\\Desktop\\Recruiter\\FindJob\\FindJob\\Recruitment.csproj",
       "packagesPath": "C:\\Users\\hasan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hasan\\Desktop\\Repos\\FindJob\\FindJob\\obj\\",
+      "outputPath": "C:\\Users\\hasan\\Desktop\\Recruiter\\FindJob\\FindJob\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

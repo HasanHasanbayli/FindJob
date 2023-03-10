@@ -1,14 +1,13 @@
-﻿using Recruitment.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Recruitment.Models;
 
-namespace Recruitment.ViewModels
+namespace Recruitment.ViewModels;
+
+public class PostJobVM
 {
-    public class PostJobVM
-    {
-        public IEnumerable<PostJob> PostJobs { get; set; }
-        public AppUser AppUser { get; set; }
-        public IEnumerable<AppUserPostJob> AppUserPostJobs { get; set; }
-        public List<AppUser> StareddUser { get; set; }
-        public List<AppUser> AppliedUser { get; set; }
-    }
+    public IEnumerable<PostJob> PostJobs { get; set; }
+    public AppUser AppUser { get; set; }
+    public IEnumerable<AppUserPostJob> AppUserPostJobs { get; set; }
+    public List<AppUser> StareddUser { get; set; }
+    public List<AppUser> AppliedUser { get; set; }
 }

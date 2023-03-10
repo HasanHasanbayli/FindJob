@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Recruitment.Models
+namespace Recruitment.Models;
+
+public class ContactFromAdmin
 {
-    public class ContactFromAdmin
-    {
-        public int Id { get; set; }
-        public string Email { get; set; }
-        public string Subject { get; set; }
-        [Required(ErrorMessage = "Please, add your message!")]
-        public string Message { get; set; }
-    }
+    public int Id { get; set; }
+    public string Email { get; set; }
+    public string Subject { get; set; }
+
+    [Required(ErrorMessage = "Please, add your message!")]
+    public string Message { get; set; }
 }

@@ -6,7 +6,7 @@
 
 }
 
-<input type="hidden" id="hidden" value="popularjob" />
+<input type="hidden" id="hidden" value="popularjob"/>
 <div>
     <div class="card">
         <div class="card-body">
@@ -14,58 +14,58 @@
                 <a asp-controller="Statistics" asp-action="Create" class="btn btn bg-success">Create New Status</a>
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th>
-                                #
-                            </th>
-                            <th>
-                                Image
-                            </th>
-                            <th>
-                                Title
-                            </th>
-                            <th>
-                                DataCount
-                            </th>
-                            <th>
-                                Settings
-                            </th>
-                        </tr>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            DataCount
+                        </th>
+                        <th>
+                            Settings
+                        </th>
+                    </tr>
                     </thead>
                     <tbody style="cursor:pointer">
-                        @foreach (Statistics statistics in Model)
-                        {
-                            Count++;
-                            <tr>
-                                <td>
-                                    @Count
-                                </td>
-                                <td class="py-1">
-                                    @if (statistics.Image != null)
-                                    {
-                                        <img src="~/assets/images/Statistics/@statistics.Image" alt="image" />
-                                    }
-                                    else
-                                    {
-                                        <img src="~/assets/images/Users/prof.PNG" />
-                                    }
-                                </td>
-                                <td>
-                                    @statistics.Title
-                                </td>
-                                <td>
-                                    @statistics.DataCount
-                                </td>
-                                <td>
-                                    <a asp-action="Update" asp-route-id="@statistics.Id" class="btn btn-success">
-                                        <i class="mdi mdi-settings"></i>
-                                    </a>
-                                    <a asp-action="Delete" asp-route-id="@statistics.Id" class="btn btn-danger">
-                                        <i class="mdi mdi-delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        }
+                    @foreach (Statistics statistics in Model)
+                    {
+                        Count++;
+                        <tr>
+                            <td>
+                                @Count
+                            </td>
+                            <td class="py-1">
+                                @if (statistics.Image != null)
+                                {
+                                    <img src="~/assets/images/Statistics/@statistics.Image" alt="image"/>
+                                }
+                                else
+                                {
+                                    <img src="~/assets/images/Users/prof.PNG"/>
+                                }
+                            </td>
+                            <td>
+                                @statistics.Title
+                            </td>
+                            <td>
+                                @statistics.DataCount
+                            </td>
+                            <td>
+                                <a asp-action="Update" asp-route-id="@statistics.Id" class="btn btn-success">
+                                    <i class="mdi mdi-settings"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@statistics.Id" class="btn btn-danger">
+                                    <i class="mdi mdi-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </div>

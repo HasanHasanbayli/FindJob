@@ -5,7 +5,7 @@
     int Count = 0;
 }
 
-<input type="hidden" id="hidden" value="popularjob" />
+<input type="hidden" id="hidden" value="popularjob"/>
 <div>
     <div class="card">
         <div class="card-body">
@@ -13,46 +13,46 @@
                 <a asp-controller="Partner" asp-action="Create" class="btn btn bg-success">Create New Partner</a>
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th>
-                                #
-                            </th>
-                            <th>
-                                Image
-                            </th>
-                            <th>
-                                Settings
-                            </th>
-                        </tr>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Settings
+                        </th>
+                    </tr>
                     </thead>
                     <tbody style="cursor:pointer">
-                        @foreach (Partners partners in Model)
-                        {
-                            Count++;
-                            <tr>
-                                <td>
-                                    @Count
-                                </td>
-                                <td class="py-1">
-                                    @if (partners.Image != null)
-                                    {
-                                        <img src="~/assets/images/Partners/@partners.Image" alt="image" />
-                                    }
-                                    else
-                                    {
-                                        <img src="~/assets/images/Users/prof.PNG" />
-                                    }
-                                </td>
-                                <td>
-                                    <a asp-action="Update" asp-route-id="@partners.Id" class="btn btn-success">
-                                        <i class="mdi mdi-settings"></i>
-                                    </a>
-                                    <a asp-action="Delete" asp-route-id="@partners.Id" class="btn btn-danger">
-                                        <i class="mdi mdi-delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        }
+                    @foreach (Partners partners in Model)
+                    {
+                        Count++;
+                        <tr>
+                            <td>
+                                @Count
+                            </td>
+                            <td class="py-1">
+                                @if (partners.Image != null)
+                                {
+                                    <img src="~/assets/images/Partners/@partners.Image" alt="image"/>
+                                }
+                                else
+                                {
+                                    <img src="~/assets/images/Users/prof.PNG"/>
+                                }
+                            </td>
+                            <td>
+                                <a asp-action="Update" asp-route-id="@partners.Id" class="btn btn-success">
+                                    <i class="mdi mdi-settings"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@partners.Id" class="btn btn-danger">
+                                    <i class="mdi mdi-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </div>

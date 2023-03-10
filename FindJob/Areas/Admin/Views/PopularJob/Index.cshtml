@@ -4,7 +4,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     int Count = 0;
 }
-<input type="hidden" id="hidden" value="popularjob" />
+<input type="hidden" id="hidden" value="popularjob"/>
 <div>
     <div class="card">
         <div class="card-body">
@@ -12,51 +12,51 @@
                 <a asp-controller="PopularJob" asp-action="Create" class="btn btn bg-success">Create New Job List</a>
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th>
-                                #
-                            </th>
-                            <th>
-                                Title
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                            <th>
-                                DataCount
-                            </th>
-                            <th>
-                                Settings
-                            </th>
-                        </tr>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            DataCount
+                        </th>
+                        <th>
+                            Settings
+                        </th>
+                    </tr>
                     </thead>
                     <tbody style="cursor:pointer">
-                        @foreach (PopularJob job in Model)
-                        {
-                            Count++;
-                            <tr>
-                                <td>
-                                    @Count
-                                </td>
-                                <td>
-                                    @job.Title
-                                </td>
-                                <td>
-                                    @job.Description
-                                </td>
-                                <td>
-                                    @job.DataCount
-                                </td>
-                                <td>
-                                    <a asp-action="Update" asp-route-id="@job.Id" class="btn btn-success">
-                                        <i class="mdi mdi-settings"></i>
-                                    </a>
-                                    <a asp-action="Delete" asp-route-id="@job.Id" class="btn btn-danger">
-                                        <i class="mdi mdi-delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        }
+                    @foreach (PopularJob job in Model)
+                    {
+                        Count++;
+                        <tr>
+                            <td>
+                                @Count
+                            </td>
+                            <td>
+                                @job.Title
+                            </td>
+                            <td>
+                                @job.Description
+                            </td>
+                            <td>
+                                @job.DataCount
+                            </td>
+                            <td>
+                                <a asp-action="Update" asp-route-id="@job.Id" class="btn btn-success">
+                                    <i class="mdi mdi-settings"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@job.Id" class="btn btn-danger">
+                                    <i class="mdi mdi-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </div>

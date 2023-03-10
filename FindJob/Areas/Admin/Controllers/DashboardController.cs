@@ -1,63 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Recruitment.DAL;
-using Recruitment.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Recruitment.DAL;
+using Recruitment.Models;
 
-namespace Recruitment.Areas.Admin.Controllers
+namespace Recruitment.Areas.Admin.Controllers;
+
+[Area("Admin")]
+//[Authorize(Roles =("Admin, Moderator"))]
+public class DashboardController : Controller
 {
-    [Area("Admin")]
-    //[Authorize(Roles =("Admin, Moderator"))]
-    public class DashboardController : Controller
+    private readonly AppDbContext _db;
+    private readonly UserManager<AppUser> _userManager;
+
+    public DashboardController(AppDbContext db, UserManager<AppUser> userManager)
     {
-        private readonly AppDbContext _db;
-        private readonly UserManager<AppUser> _userManager;
-        public DashboardController(AppDbContext db, UserManager<AppUser> userManager)
+        _db = db;
+        _userManager = userManager;
+    }
+
+    public async Task<IActionResult> Index()
+    {
+        ViewBag.FullName = "";
+        if (User.Identity.IsAuthenticated)
         {
-            _db = db;
-            _userManager = userManager;
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.FullName = user.FullName;
+            ViewBag.Image = user.Image;
         }
-        public async Task<IActionResult> Index()
+
+        return View();
+    }
+
+    public IActionResult Search(string search, string hidden)
+    {
+        var users = new List<AppUser>();
+        IEnumerable<SearchBase> list = new List<SearchBase>();
+        switch (hidden)
         {
-            ViewBag.FullName = "";
-            if (User.Identity.IsAuthenticated)
-            {
-                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-                ViewBag.FullName = user.FullName;
-                ViewBag.Image = user.Image;
-            }
-            return View();
+            case "postjob":
+                list = _db.PostJobs.Where(t => t.JobTitle.ToLower().Contains(search.ToLower()));
+                return PartialView("_PostJobPartial", list);
+            case "popularjob":
+                list = _db.PopularJobs.Where(b => b.Title.ToLower().Contains(search.ToLower()));
+                return PartialView("_PopularJobPartial", list);
+            case "user":
+                users = _userManager.Users.Where(t => t.FullName.ToLower().Contains(search.ToLower())).ToList();
+                return PartialView("_UserPartial", users);
+            case "blog":
+                list = _db.Blogs.Where(t => t.Title.ToLower().Contains(search.ToLower())).ToList();
+                return PartialView("_BlogPartial", list);
+            case "contact":
+                list = _db.ContactFromUsers.Where(t => t.FullName.ToLower().Contains(search.ToLower())).ToList();
+                return PartialView("_ContactPartial", list);
         }
-       
-        public IActionResult Search(string search, string hidden)
-        {
-            List<AppUser> users = new List<AppUser>();
-            IEnumerable<SearchBase> list = new List<SearchBase>();
-            switch (hidden)
-            {
-                case "postjob":
-                    list = _db.PostJobs.Where(t => t.JobTitle.ToLower().Contains(search.ToLower()));
-                    return PartialView("_PostJobPartial", list);
-                case "popularjob":
-                    list = _db.PopularJobs.Where(b => b.Title.ToLower().Contains(search.ToLower()));
-                    return PartialView("_PopularJobPartial", list);
-                case "user":
-                    users = _userManager.Users.Where(t => t.FullName.ToLower().Contains(search.ToLower())).ToList();
-                    return PartialView("_UserPartial", users);
-                case "blog":
-                    list = _db.Blogs.Where(t => t.Title.ToLower().Contains(search.ToLower())).ToList();
-                    return PartialView("_BlogPartial", list);
-                case "contact":
-                    list = _db.ContactFromUsers.Where(t => t.FullName.ToLower().Contains(search.ToLower())).ToList();
-                    return PartialView("_ContactPartial", list);
-                default:
-                    break;
-            }
-            return Ok(list);
-        }
+
+        return Ok(list);
     }
 }

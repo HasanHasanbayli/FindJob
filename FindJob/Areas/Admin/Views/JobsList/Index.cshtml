@@ -1,105 +1,104 @@
 ﻿@model IEnumerable<PostJob>
 @{
-
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     int Count = 0;
 }
-<input type="hidden" id="hidden" value="postjob" />
+<input type="hidden" id="hidden" value="postjob"/>
 <div>
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th>
-                                #
-                            </th>
-                            <th>
-                                Image
-                            </th>
-                            <th>
-                                Title
-                            </th>
-                            <th>
-                                Company Profile
-                            </th>
-                            <th>
-                                Location
-                            </th>
-                            <th>
-                                CreateTime
-                            </th>
-                            <th>
-                                Experies Time
-                            </th>
-                            <th>
-                                Status
-                            </th>
-                            <th>
-                                Settings
-                            </th>
-                        </tr>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Company Profile
+                        </th>
+                        <th>
+                            Location
+                        </th>
+                        <th>
+                            CreateTime
+                        </th>
+                        <th>
+                            Experies Time
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Settings
+                        </th>
+                    </tr>
                     </thead>
                     <tbody style="cursor:pointer">
-                        @foreach (PostJob job in Model)
-                        {
-                            Count++;
-                            <tr>
-                                <td>
-                                    @Count
-                                </td>
-                                <td class="py-1">
-                                    @if (job.Image != null)
-                                    {
-                                        <img src="~/assets/images/Users/@job.Image" alt="image" />
-                                    }
-                                    else
-                                    {
-                                        <img src="~/assets/images/Users/prof.PNG" />
-                                    }
-                                </td>
-                                <td>
-                                    @job.JobTitle
-                                </td>
-                                <td>
-                                    @job.AppUser.CompanyName
-                                </td>
-                                <td>
-                                    @job.City.Name
-                                </td>
-                                <td>
-                                    @job.CreateTime.ToString("dd/MMMM/yyyy")
-                                </td>
-                                <td>
-                                    @job.ExpiresDate.ToString("dd/MMMM/yyyy")
-                                </td>
-                                @if (job.IsActivated)
+                    @foreach (PostJob job in Model)
+                    {
+                        Count++;
+                        <tr>
+                            <td>
+                                @Count
+                            </td>
+                            <td class="py-1">
+                                @if (job.Image != null)
                                 {
-                                    <td style="color:lawngreen">
-                                        Active
-                                    </td>
+                                    <img src="~/assets/images/Users/@job.Image" alt="image"/>
                                 }
                                 else
                                 {
-                                    <td style="color:red">
-                                        Disable
-                                    </td>
+                                    <img src="~/assets/images/Users/prof.PNG"/>
                                 }
-                                <td>
-                                    <a asp-area="" asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id" target="_blank" class="btn btn-primary">
-                                        <i class="mdi mdi-account-card-details"></i>
-                                    </a>
-                                    @*<a asp-action="Update" asp-route-id="@job.Id" class="btn btn-success">
+                            </td>
+                            <td>
+                                @job.JobTitle
+                            </td>
+                            <td>
+                                @job.AppUser.CompanyName
+                            </td>
+                            <td>
+                                @job.City.Name
+                            </td>
+                            <td>
+                                @job.CreateTime.ToString("dd/MMMM/yyyy")
+                            </td>
+                            <td>
+                                @job.ExpiresDate.ToString("dd/MMMM/yyyy")
+                            </td>
+                            @if (job.IsActivated)
+                            {
+                                <td style="color:lawngreen">
+                                    Active
+                                </td>
+                            }
+                            else
+                            {
+                                <td style="color:red">
+                                    Disable
+                                </td>
+                            }
+                            <td>
+                                <a asp-area="" asp-controller="Users" asp-action="JobDetail" asp-route-id="@job.Id" target="_blank" class="btn btn-primary">
+                                    <i class="mdi mdi-account-card-details"></i>
+                                </a>
+                                @*<a asp-action="Update" asp-route-id="@job.Id" class="btn btn-success">
                                 <i class="mdi mdi-settings"></i>
                             </a>*@
-                                    <a asp-action="Delete" asp-route-id="@job.Id" class="btn btn-danger">
-                                        <i class="mdi mdi-delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        }
+                                <a asp-action="Delete" asp-route-id="@job.Id" class="btn btn-danger">
+                                    <i class="mdi mdi-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
                 <nav aria-label="Page navigation example">
@@ -108,11 +107,15 @@
                         {
                             if (ViewBag.Page == i)
                             {
-                                <li class="page-item disabled"><a class="page-link" href="#">@i</a></li>
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">@i</a>
+                                </li>
                             }
                             else
                             {
-                                <li class="page-item"><a class="page-link" asp-controller="Joblist" asp-action="Index" asp-route-page="@i">@i</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" asp-controller="Joblist" asp-action="Index" asp-route-page="@i">@i</a>
+                                </li>
                             }
                         }
                     </ul>

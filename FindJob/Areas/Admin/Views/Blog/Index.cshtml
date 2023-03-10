@@ -5,7 +5,7 @@
     int Count = 0;
 }
 
-<input type="hidden" id="hidden" value="blog" />
+<input type="hidden" id="hidden" value="blog"/>
 <div>
     <div class="card">
         <div class="card-body">
@@ -13,61 +13,61 @@
                 <a asp-controller="Blog" asp-action="Create" class="btn btn bg-success">Create New Blog</a>
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th>
-                                #
-                            </th>
-                            <th>
-                                Image
-                            </th>
-                            <th>
-                                Title
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                            <th>
-                                Settings
-                            </th>
-                        </tr>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Settings
+                        </th>
+                    </tr>
                     </thead>
                     <tbody style="cursor:pointer">
-                        @foreach (Blog blog in Model)
-                        {
-                            Count++;
-                            <tr>
-                                <td>
-                                    @Count
-                                </td>
-                                <td class="py-1">
-                                    @if (blog.Image != null)
-                                    {
-                                        <img src="~/assets/images/Blog/@blog.Image" alt="image" />
-                                    }
-                                    else
-                                    {
-                                        <img src="~/assets/images/Users/prof.PNG" />
-                                    }
-                                </td>
-                                <td>
-                                    @blog.Title
-                                </td>
-                                <td>
-                                    @blog.FontDescription
-                                </td>
-                                <td>
-                                    <a asp-area="" asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" target="_blank" class="btn btn-primary">
-                                        <i class="mdi mdi-account-card-details"></i>
-                                    </a>
-                                    <a asp-action="Update" asp-route-id="@blog.Id" class="btn btn-success">
-                                        <i class="mdi mdi-settings"></i>
-                                    </a>
-                                    <a asp-action="Delete" asp-route-id="@blog.Id" class="btn btn-danger">
-                                        <i class="mdi mdi-delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        }
+                    @foreach (Blog blog in Model)
+                    {
+                        Count++;
+                        <tr>
+                            <td>
+                                @Count
+                            </td>
+                            <td class="py-1">
+                                @if (blog.Image != null)
+                                {
+                                    <img src="~/assets/images/Blog/@blog.Image" alt="image"/>
+                                }
+                                else
+                                {
+                                    <img src="~/assets/images/Users/prof.PNG"/>
+                                }
+                            </td>
+                            <td>
+                                @blog.Title
+                            </td>
+                            <td>
+                                @blog.FontDescription
+                            </td>
+                            <td>
+                                <a asp-area="" asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" target="_blank" class="btn btn-primary">
+                                    <i class="mdi mdi-account-card-details"></i>
+                                </a>
+                                <a asp-action="Update" asp-route-id="@blog.Id" class="btn btn-success">
+                                    <i class="mdi mdi-settings"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@blog.Id" class="btn btn-danger">
+                                    <i class="mdi mdi-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
                 <nav aria-label="Page navigation example">
@@ -76,11 +76,15 @@
                         {
                             if (ViewBag.Page == i)
                             {
-                                <li class="page-item disabled"><a class="page-link" href="#">@i</a></li>
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">@i</a>
+                                </li>
                             }
                             else
                             {
-                                <li class="page-item"><a class="page-link" asp-controller="Blog" asp-action="Index" asp-route-page="@i">@i</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" asp-controller="Blog" asp-action="Index" asp-route-page="@i">@i</a>
+                                </li>
                             }
                         }
                     </ul>
@@ -89,4 +93,3 @@
         </div>
     </div>
 </div>
-

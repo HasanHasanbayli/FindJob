@@ -20,203 +20,207 @@
     <link rel="icon" href="~/assets/images/logo-2.png" type="image/gif" sizes="64x64">
 </head>
 <body class="sidebar-icon-only">
-    <div class="container-scroller">
-        <!-- partial:partials/_navbar.html -->
-        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-            <div class="navbar-brand-wrapper d-flex justify-content-center">
-                <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                    <a class="navbar-brand brand-logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/assets/images/2d14c654-6f94-410e-a1bd-ba72b655f136dice-logo.png" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/assets/images/2d14c654-6f94-410e-a1bd-ba72b655f136dice-logo.png" alt="logo" /></a>
-                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                        <span class="mdi mdi-sort-variant"></span>
-                    </button>
-                </div>
-            </div>
-            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-                <ul class="navbar-nav navbar-nav-right">
-                    <!-- Search Start -->
-                    <li class="nav-item dropdown mr-1">
-                        <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
-                            <i class="mdi mdi-magnify mx-0"></i>
-                            @*<span class="count"></span>*@
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" id="searchList" aria-labelledby="messageDropdown">
-                            <input type="text" class="form-control" id="input-search" autocomplete="off" placeholder="Search now" aria-label="search" aria-describedby="search">
-                        </div>
-                    </li>
-                    <!-- Search End -->
-                    <li class="nav-item dropdown mr-4">
-                        <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown" id="notificationDropdown" href="#" data-toggle="dropdown">
-                            <i class="mdi mdi-bell mx-0"></i>
-                            <span class="count"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
-                            <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                            <a class="dropdown-item">
-                                <div class="item-thumbnail">
-                                    <div class="item-icon bg-success">
-                                        <i class="mdi mdi-information mx-0"></i>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <h6 class="font-weight-normal">Application Error</h6>
-                                    <p class="font-weight-light small-text mb-0 text-muted">
-                                        Just now
-                                    </p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="item-thumbnail">
-                                    <div class="item-icon bg-warning">
-                                        <i class="mdi mdi-settings mx-0"></i>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <h6 class="font-weight-normal">Settings</h6>
-                                    <p class="font-weight-light small-text mb-0 text-muted">
-                                        Private message
-                                    </p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="item-thumbnail">
-                                    <div class="item-icon bg-info">
-                                        <i class="mdi mdi-account-box mx-0"></i>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <h6 class="font-weight-normal">New user registration</h6>
-                                    <p class="font-weight-light small-text mb-0 text-muted">
-                                        2 days ago
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item nav-profile dropdown">
-                            <a class="nav-link dropdown-toggle" href="~/admin/#" data-toggle="dropdown" id="profileDropdown">
-                                @*<img src="~/admin/images/faces/face5.jpg" alt="profile" />*@
-                                <span class="nav-profile-name">@ViewBag.FullName</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                                <a class="dropdown-item">
-                                    <i class="mdi mdi-settings text-primary"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">
-                                    <i class="mdi mdi-logout text-primary"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item nav-profile dropdown">
-                            <a class="dropdown-item" asp-controller="Account" asp-action="Login">
-                                <i class="mdi mdi-login-variant text-primary"></i>
-                                Login
-                            </a>
-                        </li>
-                    }
-                </ul>
-                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                    <span class="mdi mdi-menu"></span>
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+            <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+                <a class="navbar-brand brand-logo" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/assets/images/2d14c654-6f94-410e-a1bd-ba72b655f136dice-logo.png" alt="logo"/>
+                </a>
+                <a class="navbar-brand brand-logo-mini" href="index.html">
+                    <img src="~/assets/images/2d14c654-6f94-410e-a1bd-ba72b655f136dice-logo.png" alt="logo"/>
+                </a>
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="mdi mdi-sort-variant"></span>
                 </button>
             </div>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            <ul class="navbar-nav navbar-nav-right">
+                <!-- Search Start -->
+                <li class="nav-item dropdown mr-1">
+                    <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
+                        <i class="mdi mdi-magnify mx-0"></i>
+                        @*<span class="count"></span>*@
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" id="searchList" aria-labelledby="messageDropdown">
+                        <input type="text" class="form-control" id="input-search" autocomplete="off" placeholder="Search now" aria-label="search" aria-describedby="search">
+                    </div>
+                </li>
+                <!-- Search End -->
+                <li class="nav-item dropdown mr-4">
+                    <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown" id="notificationDropdown" href="#" data-toggle="dropdown">
+                        <i class="mdi mdi-bell mx-0"></i>
+                        <span class="count"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
+                        <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                        <a class="dropdown-item">
+                            <div class="item-thumbnail">
+                                <div class="item-icon bg-success">
+                                    <i class="mdi mdi-information mx-0"></i>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h6 class="font-weight-normal">Application Error</h6>
+                                <p class="font-weight-light small-text mb-0 text-muted">
+                                    Just now
+                                </p>
+                            </div>
+                        </a>
+                        <a class="dropdown-item">
+                            <div class="item-thumbnail">
+                                <div class="item-icon bg-warning">
+                                    <i class="mdi mdi-settings mx-0"></i>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h6 class="font-weight-normal">Settings</h6>
+                                <p class="font-weight-light small-text mb-0 text-muted">
+                                    Private message
+                                </p>
+                            </div>
+                        </a>
+                        <a class="dropdown-item">
+                            <div class="item-thumbnail">
+                                <div class="item-icon bg-info">
+                                    <i class="mdi mdi-account-box mx-0"></i>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h6 class="font-weight-normal">New user registration</h6>
+                                <p class="font-weight-light small-text mb-0 text-muted">
+                                    2 days ago
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item nav-profile dropdown">
+                        <a class="nav-link dropdown-toggle" href="~/admin/#" data-toggle="dropdown" id="profileDropdown">
+                            @*<img src="~/admin/images/faces/face5.jpg" alt="profile" />*@
+                            <span class="nav-profile-name">@ViewBag.FullName</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                            <a class="dropdown-item">
+                                <i class="mdi mdi-settings text-primary"></i>
+                                Settings
+                            </a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">
+                                <i class="mdi mdi-logout text-primary"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item nav-profile dropdown">
+                        <a class="dropdown-item" asp-controller="Account" asp-action="Login">
+                            <i class="mdi mdi-login-variant text-primary"></i>
+                            Login
+                        </a>
+                    </li>
+                }
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                <span class="mdi mdi-menu"></span>
+            </button>
+        </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
+                        <i class="mdi mdi-home menu-icon"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Bio" asp-action="Index">
+                        <i class="mdi mdi  mdi mdi-bio menu-icon"></i>
+                        <span class="menu-title">Bio</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="User" asp-action="Index">
+                        <i class="mdi mdi mdi-account menu-icon"></i>
+                        <span class="menu-title">Users</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="JobsList" asp-action="Index">
+                        <i class="mdi mdi mdi-briefcase-check menu-icon"></i>
+                        <span class="menu-title">Jobs List</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="PopularJob" asp-action="Index">
+                        <i class="mdi mdi mdi-format-list-bulleted menu-icon"></i>
+                        <span class="menu-title">Popular Job List</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Blog" asp-action="Index">
+                        <i class="mdi mdi mdi-blogger menu-icon"></i>
+                        <span class="menu-title">Blogs</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Statistics" asp-action="Index">
+                        <i class="mdi mdi mdi mdi mdi-information-outline menu-icon"></i>
+                        <span class="menu-title">Statistics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Partner" asp-action="Index">
+                        <i class="mdi mdi mdi mdi mdi-share-variant menu-icon"></i>
+                        <span class="menu-title">Partner</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Contact" asp-action="Index">
+                        <i class="mdi mdi-message-text menu-icon"></i>
+                        <span class="menu-title">Message</span>
+                    </a>
+                </li>
+            </ul>
         </nav>
         <!-- partial -->
-        <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_sidebar.html -->
-            <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
-                            <i class="mdi mdi-home menu-icon"></i>
-                            <span class="menu-title">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Bio" asp-action="Index">
-                            <i class="mdi mdi  mdi mdi-bio menu-icon"></i>
-                            <span class="menu-title">Bio</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="User" asp-action="Index">
-                            <i class="mdi mdi mdi-account menu-icon"></i>
-                            <span class="menu-title">Users</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="JobsList" asp-action="Index">
-                            <i class="mdi mdi mdi-briefcase-check menu-icon"></i>
-                            <span class="menu-title">Jobs List</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="PopularJob" asp-action="Index">
-                            <i class="mdi mdi mdi-format-list-bulleted menu-icon"></i>
-                            <span class="menu-title">Popular Job List</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Blog" asp-action="Index">
-                            <i class="mdi mdi mdi-blogger menu-icon"></i>
-                            <span class="menu-title">Blogs</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Statistics" asp-action="Index">
-                            <i class="mdi mdi mdi mdi mdi-information-outline menu-icon"></i>
-                            <span class="menu-title">Statistics</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Partner" asp-action="Index">
-                            <i class="mdi mdi mdi mdi mdi-share-variant menu-icon"></i>
-                            <span class="menu-title">Partner</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Contact" asp-action="Index">
-                            <i class="mdi mdi-message-text menu-icon"></i>
-                            <span class="menu-title">Message</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- partial -->
-            <div class="main-panel">
-                <div class="content-wrapper">
-                    @RenderBody()
-                </div>
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
-                <footer class="footer">
-                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                    </div>
-                </footer>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                @RenderBody()
             </div>
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                </div>
+            </footer>
         </div>
     </div>
-    <!-- plugins:js -->
-    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>*@
-    <script src="~/admin/vendors/base/vendor.bundle.base.js"></script>
-    <script src="~/admin/vendors/chart.js/Chart.min.js"></script>
-    <script src="~/admin/vendors/datatables.net/jquery.dataTables.js"></script>
-    <script src="~/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-    <script src="~/admin/js/off-canvas.js"></script>
-    <script src="~/admin/js/hoverable-collapse.js"></script>
-    <script src="~/admin/js/template.js"></script>
-    <script src="~/admin/js/dashboard.js"></script>
-    <script src="~/admin/js/data-table.js"></script>
-    <script src="~/admin/js/jquery.dataTables.js"></script>
-    <script src="~/admin/js/dataTables.bootstrap4.js"></script>
-    <script src="~/assets/js/search.js"></script>
+</div>
+<!-- plugins:js -->
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>*@
+<script src="~/admin/vendors/base/vendor.bundle.base.js"></script>
+<script src="~/admin/vendors/chart.js/Chart.min.js"></script>
+<script src="~/admin/vendors/datatables.net/jquery.dataTables.js"></script>
+<script src="~/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+<script src="~/admin/js/off-canvas.js"></script>
+<script src="~/admin/js/hoverable-collapse.js"></script>
+<script src="~/admin/js/template.js"></script>
+<script src="~/admin/js/dashboard.js"></script>
+<script src="~/admin/js/data-table.js"></script>
+<script src="~/admin/js/jquery.dataTables.js"></script>
+<script src="~/admin/js/dataTables.bootstrap4.js"></script>
+<script src="~/assets/js/search.js"></script>
 
-    @RenderSection("Scripts", false)
+@RenderSection("Scripts", false)
 </body>
 </html>

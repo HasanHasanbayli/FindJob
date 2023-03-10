@@ -1,34 +1,32 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
-namespace Recruitment.Extentions
+namespace Recruitment.Extentions;
+
+public static class FileExtention
 {
-    public static class FileExtention
+    public static bool IsPdf(this IFormFile file)
     {
-        public static bool IsPdf(this IFormFile file)
+        return file.ContentType.Contains("pdf/");
+    }
+
+    public static bool MaxLengthPdf(this IFormFile file, int kb)
+    {
+        return file.Length / 1024 > kb;
+    }
+
+    public static async Task<string> SavePdf(this IFormFile file, string root, string folder)
+    {
+        string fileName = Guid.NewGuid() + file.FileName;
+        string resultPath = Path.Combine(root, folder, fileName);
+
+        using (FileStream fileStream = new(resultPath, FileMode.Create))
         {
-            return file.ContentType.Contains("pdf/");
+            await file.CopyToAsync(fileStream);
         }
 
-        public static bool MaxLengthPdf(this IFormFile file, int kb)
-        {
-            return file.Length / 1024 > kb;
-        }
-
-        public async static Task<string> SavePdf(this IFormFile file, string root, string folder)
-        {
-            string fileName = Guid.NewGuid().ToString() + file.FileName;
-            string resultPath = Path.Combine(root, folder, fileName);
-
-            using (FileStream fileStream = new FileStream(resultPath, FileMode.Create))
-            {
-                await file.CopyToAsync(fileStream);
-            }
-            return fileName;
-        }
+        return fileName;
     }
 }

@@ -1,26 +1,19 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
-namespace Recruitment.Helpers
+namespace Recruitment.Helpers;
+
+public static class Helper
 {
-    public static class Helper
+    public static void DeleteImage(string root, string folder, string fileName)
     {
-        public static void DeleteImage(string root, string folder, string fileName)
-        {
-            string filePath = Path.Combine(root, folder, fileName);
-            if (System.IO.File.Exists(filePath))
-            {
-                System.IO.File.Delete(filePath);
-            }
-        }
+        string filePath = Path.Combine(root, folder, fileName);
+        if (File.Exists(filePath)) File.Delete(filePath);
+    }
 
-        internal static void DeleteImage(string webRootPath, string path, IFormFile photo)
-        {
-            throw new NotImplementedException();
-        }
+    internal static void DeleteImage(string webRootPath, string path, IFormFile photo)
+    {
+        throw new NotImplementedException();
     }
 }

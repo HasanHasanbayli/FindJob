@@ -8,7 +8,7 @@
     <div class="col-6">
         <form method="post">
             <label class="" style="font-size:30px">Roles</label>
-            @foreach (var item in Model.Roles)
+            @foreach (string item in Model.Roles)
             {
                 if (item == Model.Role)
                 {

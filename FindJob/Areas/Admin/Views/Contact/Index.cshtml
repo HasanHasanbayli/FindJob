@@ -4,77 +4,77 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     int Count = 0;
 }
-<input type="hidden" id="hidden" value="contact" />
-<div>    
+<input type="hidden" id="hidden" value="contact"/>
+<div>
     <div class="card">
         <div class="card-body">
             <a asp-action="ArchivedList" class="btn btn-success mt-3">Archiv List</a>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th>
-                                #
-                            </th>
-                            <th>
-                                User
-                            </th>
-                            <th>
-                                User Email
-                            </th>
-                            <th>
-                                User Phone Number
-                            </th>
-                            <th>
-                                Subject
-                            </th>
-                            <th>
-                                Message
-                            </th>
-                            <th>
-                                Settings
-                            </th>
-                        </tr>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            User
+                        </th>
+                        <th>
+                            User Email
+                        </th>
+                        <th>
+                            User Phone Number
+                        </th>
+                        <th>
+                            Subject
+                        </th>
+                        <th>
+                            Message
+                        </th>
+                        <th>
+                            Settings
+                        </th>
+                    </tr>
                     </thead>
                     <tbody style="cursor:pointer">
-                        @foreach (ContactFromUser contact in Model)
-                        {
-                            Count++;
-                            <tr>
-                                <td>
-                                    @Count
-                                </td>
-                                <td>
-                                    @contact.FullName
-                                </td>
-                                <td>
-                                    @contact.Email
-                                </td>
-                                <td>
-                                    @contact.PhoneNumber
-                                </td>
-                                <td>
-                                    @contact.Subject
-                                </td>
-                                <td>
-                                    @contact.Message
-                                </td>
-                                <td>
-                                    <a asp-action="Archive" asp-route-id="@contact.Id" class="btn btn-dark">
-                                        <i class="mdi mdi mdi-archive"></i>
-                                    </a>
-                                    @*<a asp-action="SendEmail" asp-route-id="@contact.Id" class="btn btn-warning">
+                    @foreach (ContactFromUser contact in Model)
+                    {
+                        Count++;
+                        <tr>
+                            <td>
+                                @Count
+                            </td>
+                            <td>
+                                @contact.FullName
+                            </td>
+                            <td>
+                                @contact.Email
+                            </td>
+                            <td>
+                                @contact.PhoneNumber
+                            </td>
+                            <td>
+                                @contact.Subject
+                            </td>
+                            <td>
+                                @contact.Message
+                            </td>
+                            <td>
+                                <a asp-action="Archive" asp-route-id="@contact.Id" class="btn btn-dark">
+                                    <i class="mdi mdi mdi-archive"></i>
+                                </a>
+                                @*<a asp-action="SendEmail" asp-route-id="@contact.Id" class="btn btn-warning">
                                         <i class="mdi mdi mdi-reply"></i>
                                     </a>*@
-                                    <a asp-action="Detail" asp-route-id="@contact.Id" class="btn btn-primary">
-                                        <i class="mdi mdi-account-card-details"></i>
-                                    </a>
-                                    <a asp-action="Delete" asp-route-id="@contact.Id" class="btn btn-danger">
-                                        <i class="mdi mdi-delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        }
+                                <a asp-action="Detail" asp-route-id="@contact.Id" class="btn btn-primary">
+                                    <i class="mdi mdi-account-card-details"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@contact.Id" class="btn btn-danger">
+                                    <i class="mdi mdi-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
                 <nav aria-label="Page navigation example">
@@ -83,11 +83,15 @@
                         {
                             if (ViewBag.Page == i)
                             {
-                                <li class="page-item disabled"><a class="page-link" href="#">@i</a></li>
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">@i</a>
+                                </li>
                             }
                             else
                             {
-                                <li class="page-item"><a class="page-link" asp-controller="Contact" asp-action="Index" asp-route-page="@i">@i</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" asp-controller="Contact" asp-action="Index" asp-route-page="@i">@i</a>
+                                </li>
                             }
                         }
                     </ul>

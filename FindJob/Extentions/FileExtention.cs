@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace Recruitment.Extentions;
+namespace FindJob.Extentions;
 
 public static class FileExtention
 {

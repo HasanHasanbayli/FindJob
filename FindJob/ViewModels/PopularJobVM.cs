@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using FindJob.Models;
 using Microsoft.AspNetCore.Http;
-using Recruitment.Models;
 
-namespace Recruitment.ViewModels;
+namespace FindJob.ViewModels;
 
 public class PopularJobVM
 {

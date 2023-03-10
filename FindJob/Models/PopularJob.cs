@@ -1,4 +1,4 @@
-﻿namespace Recruitment.Models;
+﻿namespace FindJob.Models;
 
 public class PopularJob : SearchBase
 {

@@ -1,4 +1,7 @@
 using System;
+using FindJob.DAL;
+using FindJob.Hubs;
+using FindJob.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -6,11 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Recruitment.DAL;
-using Recruitment.Hubs;
-using Recruitment.Models;
 
-namespace Recruitment;
+namespace FindJob;
 
 public class Startup
 {

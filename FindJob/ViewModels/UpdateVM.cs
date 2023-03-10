@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Http;
 
-namespace Recruitment.ViewModels;
+namespace FindJob.ViewModels;
 
 public class UpdateVM
 {

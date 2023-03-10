@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 
-namespace Recruitment.Hubs;
+namespace FindJob.Hubs;
 
 public class ChatHub : Hub
 {

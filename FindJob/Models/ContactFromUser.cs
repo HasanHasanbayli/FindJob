@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Recruitment.Models;
+namespace FindJob.Models;
 
 public class ContactFromUser : SearchBase
 {

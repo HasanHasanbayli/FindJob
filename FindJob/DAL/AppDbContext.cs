@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using FindJob.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Recruitment.Models;
 
-namespace Recruitment.DAL;
+namespace FindJob.DAL;
 
 public class AppDbContext : IdentityDbContext<AppUser>
 {

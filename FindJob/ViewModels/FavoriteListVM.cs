@@ -1,4 +1,4 @@
-﻿namespace Recruitment.ViewModels;
+﻿namespace FindJob.ViewModels;
 
 public class FavoriteListVM
 {

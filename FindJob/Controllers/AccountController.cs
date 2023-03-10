@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
+using FindJob.Models;
+using FindJob.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Recruitment.Models;
-using Recruitment.ViewModels;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
-namespace Recruitment.Controllers;
+namespace FindJob.Controllers;
 
 public class AccountController : Controller
 {

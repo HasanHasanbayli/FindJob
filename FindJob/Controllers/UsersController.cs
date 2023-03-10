@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using FindJob.DAL;
+using FindJob.Helpers;
+using FindJob.Models;
+using FindJob.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
-using Recruitment.DAL;
-using Recruitment.Extentions;
-using Recruitment.Helpers;
-using Recruitment.Models;
-using Recruitment.ViewModels;
+using FindJob.Extentions;
 
-namespace Recruitment.Controllers; 
+namespace FindJob.Controllers; 
 
 [Authorize]
 public class UsersController : Controller

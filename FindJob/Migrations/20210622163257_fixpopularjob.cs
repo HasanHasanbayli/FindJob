@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Recruitment.Migrations
+namespace FindJob.Migrations
 {
     public partial class fixpopularjob : Migration
     {

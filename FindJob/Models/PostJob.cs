@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Http;
 
-namespace Recruitment.Models;
+namespace FindJob.Models;
 
 public class PostJob : SearchBase
 {

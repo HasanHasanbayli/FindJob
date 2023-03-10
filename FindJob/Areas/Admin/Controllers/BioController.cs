@@ -1,15 +1,15 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using FindJob.DAL;
+using FindJob.Helpers;
+using FindJob.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Recruitment.DAL;
-using Recruitment.Extentions;
-using Recruitment.Helpers;
-using Recruitment.Models;
+using FindJob.Extentions;
 
-namespace Recruitment.Areas.Admin.Controllers;
+namespace FindJob.Areas.Admin.Controllers;
 
 [Area("Admin")]
 //[Authorize(Roles = ("Admin, Moderator"))]

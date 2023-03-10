@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
+using FindJob.DAL;
 using Microsoft.AspNetCore.Mvc;
-using Recruitment.DAL;
 
-namespace Recruitment.Controllers;
+namespace FindJob.Controllers;
 
 public class BlogController : Controller
 {

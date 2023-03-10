@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Recruitment.Models;
+using FindJob.Models;
 
-namespace Recruitment.ViewModels;
+namespace FindJob.ViewModels;
 
 public class PostJobVM
 {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Recruitment.ViewModels;
+namespace FindJob.ViewModels;
 
 public class LoginVM
 {

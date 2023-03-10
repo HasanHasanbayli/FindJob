@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
-namespace Recruitment.Models;
+namespace FindJob.Models;
 
 public class AppUser : IdentityUser
 {

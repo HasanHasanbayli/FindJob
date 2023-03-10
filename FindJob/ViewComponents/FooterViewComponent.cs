@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using FindJob.DAL;
+using FindJob.Models;
 using Microsoft.AspNetCore.Mvc;
-using Recruitment.DAL;
-using Recruitment.Models;
 
-namespace Recruitment.ViewComponents;
+namespace FindJob.ViewComponents;
 
 public class FooterViewComponent : ViewComponent
 {

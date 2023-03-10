@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FindJob.DAL;
+using FindJob.Models;
+using FindJob.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Recruitment.DAL;
-using Recruitment.Models;
-using Recruitment.ViewModels;
 
-namespace Recruitment.Areas.Admin.Controllers;
+namespace FindJob.Areas.Admin.Controllers;
 
 [Area("Admin")]
 //[Authorize(Roles = ("Admin"))]

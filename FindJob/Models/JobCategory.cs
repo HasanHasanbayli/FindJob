@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Recruitment.Models;
+namespace FindJob.Models;
 
 public class JobCategory
 {

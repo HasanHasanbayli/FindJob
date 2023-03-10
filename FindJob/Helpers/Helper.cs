@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Http;
 
-namespace Recruitment.Helpers;
+namespace FindJob.Helpers;
 
 public static class Helper
 {

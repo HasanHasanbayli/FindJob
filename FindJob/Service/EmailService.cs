@@ -3,7 +3,7 @@ using MailKit.Net.Smtp;
 using MimeKit;
 using MimeKit.Text;
 
-namespace Recruitment.Service;
+namespace FindJob.Service;
 
 public class EmailService
 {

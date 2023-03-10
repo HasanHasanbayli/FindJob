@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Recruitment.Controllers;
+namespace FindJob.Controllers;
 
 public class Error404Controller : Controller
 {

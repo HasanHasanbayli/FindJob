@@ -1,4 +1,4 @@
-﻿namespace Recruitment.Helpers;
+﻿namespace FindJob.Helpers;
 
 public static class AddFavorites
 {

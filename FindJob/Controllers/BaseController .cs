@@ -1,4 +1,4 @@
-﻿namespace Recruitment.Controllers;
+﻿namespace FindJob.Controllers;
 
 
 //public abstract class BaseController : Controller
